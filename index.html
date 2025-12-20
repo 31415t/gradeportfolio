@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grade3.0 | Peterley Auguste | Graphic Designer | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="Images/Logofolio/GradeLogo.png">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="#" class="logo"><img src="Images/Logofolio/GradeLogo.png" alt="Grade2.0" class="logo-img"><span class="brandname">Grade2.0</span></a>
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#projets">Portfolio</a></li>
+                <li><a href="#apropos">À propos</a></li>
+                <li><a href="#competences">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Section Hero -->
+    <section class="hero" id="accueil">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Bienvenue dans mon <br/><span class="highlight">univers visuel</span></h1>
+                <p class="hero-subtitle">Je suis Peterley Auguste, graphic designer freelance et fondateur de Grade.<br/> Passionné par la création visuelle, j’ai plus de 5 ans d’expérience dans la conception de visuels attrayants, la réalisation de logos intelligents et le développement d’identités visuelles fortes qui donnent vie aux marques.</p>
+                <div class="hero-buttons">
+                    <a href="#projets" class="btn btn-primary">Voir mes projets</a>
+                    <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-palette"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Projets -->
+    <section class="section projects" id="projets">
+        <div class="container">
+            <h2 class="section-title">Mon <span>Portfolio</span></h2>
+            <p class="section-subtitle">Explorez ici une sélection de mes travaux récents en graphic design</p>
+            
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="logo">Logo</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="flyer">Flyer</button>
+                <button class="filter-btn" data-filter="socialMedia">Social Media</button>
+                <button class="filter-btn" data-filter="print">Print</button>
+            </div>
+            
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Les projets seront générés dynamiquement par JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Section À propos -->
+    <section class="section about" id="apropos">
+        <div class="container">
+            <div class="about-content">
+                <h2 class="section-title">À propos <span>de moi</span></h2>
+                <p>Je suis Peterley Auguste, un Graphic Designer basé en Haiti avec une passion pour créer des designs qui non seulement plaisent à l'œil mais qui racontent aussi une histoire. Mon approche combine créativité, stratégie et attention aux détails.</p>
+                <p>Au cours de ma carrière, j'ai eu l'opportunité de travailler avec des particuliers, des startups innovantes et des entreprises établies, développant des identités visuelles qui renforcent leur présence sur le marché.</p>
+                
+                <div class="stats">
+                    <div class="stat">
+                        <h3>5+</h3>
+                        <p>Années d'expérience</p>
+                    </div>
+                    <div class="stat">
+                        <h3>120+</h3>
+                        <p>Projets réalisés</p>
+                    </div>
+                    <div class="stat">
+                        <h3>25+</h3>
+                        <p>Clients satisfaits</p>
+                    </div>
+                </div>
+            </div>
+            <div class="about-image">
+                <div class="image-placeholder">
+                    <i class="fas fa-user"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Services -->
+    <section class="section skills" id="competences">
+        <div class="container">
+            <h2 class="section-title">Mes <span>Services</span></h2>
+            <p class="section-subtitle">Les outils et techniques que j'utilise pour donner vie à mes créations</p>
+            
+            <div class="skills-grid">
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-paint-brush"></i>
+                    </div>
+                    <h3>Graphic Design</h3>
+                    <p>Création de visuels impactants qui allient esthétique et stratégie.</p>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-pen-fancy"></i>
+                    </div>
+                    <h3>Logo Design</h3>
+                    <p>Logos uniques et mémorables, pensés pour durer.</p>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Branding</h3>
+                    <p>Identités visuelles cohérentes qui donnent une personnalité forte à votre marque.</p>
+                </div>
+                <div class="skill">
+                    <div class="skill-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Formation</h3>
+                    <p>Ateliers pratiques pour apprendre et maîtriser les outils du design.</p>
+                </div>
+            </div>
+            
+            <div class="tools">
+                <h3>Outils maîtrisés</h3>
+                <div class="tools-list">
+                    <div class="tool">
+                        <i class="fab fa-figma"></i>
+                        <span>Figma</span>
+                    </div>
+                    <div class="tool">
+                        <i class="fab fa-adobe"></i>
+                        <span>Adobe Creative Suite</span>
+                    </div>
+                    <div class="tool">
+                        <i class="fas fa-cube"></i>
+                        <span>Blender</span>
+                    </div>
+                    <div class="tool">
+                        <i class="fab fa-sketch"></i>
+                        <span>Sketch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Travaillons <span>ensemble</span></h2>
+            <p class="section-subtitle">Vous avez un projet en tête ? Contactez-moi pour en discuter !</p>
+            
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <div class="form-group">
+                        <input type="text" id="name" placeholder="Votre nom" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" id="email" placeholder="Votre email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="subject" placeholder="Sujet" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="message" rows="5" placeholder="Votre message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Envoyer le message</button>
+                </form>
+                
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>peterleyauguste@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fab fa-square-whatsapp"></i>
+                        </div>
+                        <div>
+                            <h3>Téléphone</h3>
+                            <p>+509 41 97 53 92</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Localisation</h3>
+                            <p>Port-de-Paix, Haiti</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                        <a href="#"><i class="fab fa-dribbble"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Grade2.0 - Tous droits réservés.</p>
+            <p>Designé et développé avec <i class="fas fa-heart"></i> par Peterley Auguste</p>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
