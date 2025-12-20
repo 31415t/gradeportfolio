@@ -18,11 +18,11 @@ const projectsData = [
     },
     {
         id: 3,
-        title: "socialMedias TechCon",
+        title: "Anniversaire",
         category: "socialMedia",
-        description: "Série d'socialMedias pour une conférence sur les technologies émergentes.",
-        imageUrl: "Images/projects/techcon-socialMedias.jpg",
-        icon: "fas fa-paint-brush"
+        description: "Concept de visuel pour fête d'anniversaire sur les réseaux sociaux.",
+        imageUrl: "Images/SocialMedia/HBD1.jpeg",
+        icon: "fas fa-birthday-cake"
     },
     {
         id: 4,
@@ -34,7 +34,7 @@ const projectsData = [
     },
     {
         id: 5,
-        title: "Prod'Haiti",
+        title: "ProdHaiti",
         category: "logo",
         description: "Création de logo pour une entreprise agro-alimentaire.",
         imageUrl: "Images/Logofolio/Prod'Haiti.jpg",
