@@ -5,7 +5,7 @@ const projectsData = [
         title: "Brainhub",
         category: "logo",
         description: "Conception de logo moderne et minimaliste pour une startup technologique.",
-        imageUrl: "images/Logofolio/Brainhub.jpg",
+        imageUrl: "Images/Logofolio/Brainhub.jpg",
         icon: "fas fa-brain"
     },
     {
@@ -13,7 +13,7 @@ const projectsData = [
         title: "App Mobile FitTrack",
         category: "branding",
         description: "Design d'interface utilisateur pour une application de suivi d'activité physique.",
-        imageUrl: "images/projects/fittrack-app.jpg",
+        imageUrl: "Images/projects/fittrack-app.jpg",
         icon: "fas fa-running"
     },
     {
@@ -21,7 +21,7 @@ const projectsData = [
         title: "socialMedias TechCon",
         category: "socialMedia",
         description: "Série d'socialMedias pour une conférence sur les technologies émergentes.",
-        imageUrl: "images/projects/techcon-socialMedias.jpg",
+        imageUrl: "Images/projects/techcon-socialMedias.jpg",
         icon: "fas fa-paint-brush"
     },
     {
@@ -29,7 +29,7 @@ const projectsData = [
         title: "Catalogue Print Artisan",
         category: "print",
         description: "Conception et mise en page d'un catalogue print pour des artisans locaux.",
-        imageUrl: "images/projects/artisan-catalog.jpg",
+        imageUrl: "Images/projects/artisan-catalog.jpg",
         icon: "fas fa-book"
     },
     {
@@ -37,7 +37,7 @@ const projectsData = [
         title: "Prod'Haiti",
         category: "logo",
         description: "Création de logo pour une entreprise agro-alimentaire.",
-        imageUrl: "images/Logofolio/Prod'Haiti.jpg",
+        imageUrl: "Images/Logofolio/Prod'Haiti.jpg",
         icon: "fas fa-rocket"
     },
     {
@@ -45,7 +45,7 @@ const projectsData = [
         title: "Site E-commerce Luxe",
         category: "branding",
         description: "Design UX/UI pour une boutique en ligne de produits de luxe.",
-        imageUrl: "images/projects/luxe-ecommerce.jpg",
+        imageUrl: "Images/projects/luxe-ecommerce.jpg",
         icon: "fas fa-shopping-bag"
     },
     {
@@ -53,7 +53,7 @@ const projectsData = [
         title: "Max Motors",
         category: "logo",
         description: "Conception de logo pour une entreprise automobile.",
-        imageUrl: "images/Logofolio/MaxMotors.jpg",
+        imageUrl: "Images/Logofolio/MaxMotors.jpg",
         icon: "fas fa-box-open"
     },
     {
@@ -61,7 +61,7 @@ const projectsData = [
         title: "Bela Store",
         category: "logo",
         description: "Conception de logo pour une boutique en ligne.",
-        imageUrl: "images/Logofolio/BelaStoreLogo.png",
+        imageUrl: "Images/Logofolio/BelaStoreLogo.png",
         icon: "fas fa-music"
     },
     {
