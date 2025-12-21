@@ -4,17 +4,17 @@ const projectsData = [
         id: 1,
         title: "Brainhub",
         category: "logo",
-        description: "Conception de logo moderne et minimaliste pour une startup technologique.",
+        description: "Logo moderne et minimaliste pour une startup technologique.",
         imageUrl: "Images/Logofolio/Brainhub.jpg",
         icon: "fas fa-brain"
     },
     {
         id: 2,
-        title: "App Mobile FitTrack",
+        title: "Caritas - Identité visuelle",
         category: "branding",
-        description: "Design d'interface utilisateur pour une application de suivi d'activité physique.",
-        imageUrl: "Images/projects/fittrack-app.jpg",
-        icon: "fas fa-running"
+        description: "Identité visuelle pour une organisation caritative dans le domaine de la santé.",
+        imageUrl: "Images/Branding/caritas.png",
+        icon: "fas fa-hands-helping"
     },
     {
         id: 3,
@@ -26,26 +26,26 @@ const projectsData = [
     },
     {
         id: 4,
-        title: "Catalogue Print Artisan",
-        category: "print",
-        description: "Conception et mise en page d'un catalogue print pour des artisans locaux.",
-        imageUrl: "Images/projects/artisan-catalog.jpg",
-        icon: "fas fa-book"
+        title: "Mockup",
+        category: "mockup",
+        description: "Mise en situation du logo à travers un mockup professionnel.",
+        imageUrl: "Images/Mockups/mockup1.jpg",
+        icon: "fas fa-desktop"
     },
     {
         id: 5,
-        title: "ProdHaiti",
+        title: "Prod'Haiti",
         category: "logo",
         description: "Création de logo pour une entreprise agro-alimentaire.",
-        imageUrl: "Images/Logofolio/Prod'Haiti.jpg",
+        imageUrl: "Images/Logofolio/ProdHaiti.jpg",
         icon: "fas fa-rocket"
     },
     {
         id: 6,
-        title: "Site E-commerce Luxe",
-        category: "branding",
-        description: "Design UX/UI pour une boutique en ligne de produits de luxe.",
-        imageUrl: "Images/projects/luxe-ecommerce.jpg",
+        title: "Composition",
+        category: "autre",
+        description: "Projet fictif mettant en relief les principes d'une bonne composition.",
+        imageUrl: "Images/Autres/autre1.jpg",
         icon: "fas fa-shopping-bag"
     },
     {
@@ -71,6 +71,62 @@ const projectsData = [
         description: "Design de flyer pour le lancement d'une boutique en ligne.",
         imageUrl: "Images/Flyer/BelaStoreFLyer.jpeg",
         icon: "fas fa-store"
+    },
+    {
+        id: 10,
+        title: "Bibliyotèk Batravil",
+        category: "logo",
+        description: "Conception de logo pour une bibliothèque communautaire.",
+        imageUrl: "Images/Logofolio/bblogo.png",
+        icon: "fas fa-book-reader"
+    },
+    {
+        id: 11,
+        title: "Composition",
+        category: "autre",
+        description: "Projet fictif mettant en relief les principes d'une bonne composition.",
+        imageUrl: "Images/Autres/autre2.jpg",
+        icon: "fas fa-desktop"
+    },
+    {
+        id: 12,
+        title: "Baboo Epis",
+        category: "logo",
+        description: "Logo épuré pour une entreprise du secteur culinaire.",
+        imageUrl: "Images/Logofolio/baboo.jpg",
+        icon: "fas fa-lemon"
+    },
+    {
+        id: 13,
+        title: "Bon debut de mois",
+        category: "socialMedia",
+        description: "Concept de visuel pour les reseaux sociaux.",
+        imageUrl: "Images/SocialMedia/november.jpeg",
+        icon: "fas fa-calendar-alt"
+    },
+    {
+        id: 14,
+        title: "Renaud Agency",
+        category: "logo",
+        description: "Logo épuré, moderne et minimaliste pour une agence de voyage.",
+        imageUrl: "Images/Logofolio/RenaudAgency.jpg",
+        icon: "fas fa-paper-plane"
+    },
+    {
+        id: 15,
+        title: "Tableau",
+        category: "illustration",
+        description: "Realisation de tableau sur logiciel de graphisme.",
+        imageUrl: "Images/illustration/tableau1.jpeg",
+        icon: "fas fa-palette"
+    },
+    {
+        id: 16,
+        title: "Marco Zelle",
+        category: "flyer",
+        description: "Flyer promotionnel pour une entreprise qui fait de l'exchange.",
+        imageUrl: "Images/Flyer/marcoflyer.jpeg",
+        icon: "fas fa-paint-brush"
     }
 ];
 
@@ -99,7 +155,10 @@ const projectCategories = [
     { id: 'branding', name: 'Branding' },
     { id: 'flyer', name: 'Flyer' },
     { id: 'socialMedia', name: 'Social Media' },
-    { id: 'print', name: 'Print' }
+    { id: 'print', name: 'Print' },
+    { id: 'mockup', name: 'Mockup' },
+    { id: 'autre', name: 'Autres' },
+    { id: 'illustration', name: 'Illustration' }
 ];
 
 // Exporter les données

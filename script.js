@@ -1,6 +1,6 @@
 // Variables globales pour la pagination
 let currentPage = 1;
-const projectsPerPage = 5;
+const projectsPerPage = 6;
 let allProjects = [];
 let filteredProjects = [];
 
@@ -406,7 +406,10 @@ function getCategoryName(category) {
         'branding': 'Branding',
         'flyer': 'Flyer',
         'socialMedia': 'Social Media',
-        'print': 'Print'
+        'print': 'Print',
+        'mockup': 'Mockup',
+        'autre': 'Autres',
+        'illustration': 'Illustration'
     };
     
     return categoryNames[category] || category;
@@ -800,4 +803,30 @@ window.addEventListener('resize', function() {
             });
         }, 50);
     }, 250);
+});
+
+// ...existing code...
+// effet de typing hero section
+function typeEffect(element, text, speed = 100) {
+    element.textContent = '';
+    let index = 0;
+    
+    const interval = setInterval(() => {
+        if (index < text.length) {
+            element.textContent += text[index];
+            index++;
+        } else {
+            clearInterval(interval);
+            // Garder le curseur après l'animation
+            element.style.borderRight = 'none';
+        }
+    }, speed);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    const highlight = document.querySelector('.highlight');
+    if (highlight) {
+        const text = highlight.textContent;
+        typeEffect(highlight, text, 80);
+    }
 });
