@@ -69,7 +69,7 @@ const projectsData = [
         title: "Bela Store",
         category: "flyer",
         description: "Design de flyer pour le lancement d'une boutique en ligne.",
-        imageUrl: "Images/Flyer/BelaStoreFLyer.jpeg",
+        imageUrl: "Images/Flyer/BelaStoreFlyer.jpeg",
         icon: "fas fa-store"
     },
     {
@@ -127,6 +127,14 @@ const projectsData = [
         description: "Flyer promotionnel pour une entreprise qui fait de l'exchange.",
         imageUrl: "Images/Flyer/marcoflyer.jpeg",
         icon: "fas fa-paint-brush"
+    },
+    {
+        id: 17,
+        title: "Rhum LaCitadelle",
+        category: "logo",
+        description: "Logo pour une entreprise de rhum.",
+        imageUrl: "Images/Logofolio/RhumLaCitadelle.jpg",
+        icon: "fas fa-wine-glass-alt"
     }
 ];
 
@@ -218,5 +226,80 @@ if (typeof module !== 'undefined' && module.exports) {
         projectCategories,
         skills,
         tools
+    };
+}
+
+// Dans data.js - Ajoute ce tableau à tes données existantes
+const testimonialsData = [
+    {
+        id: 1,
+        name: "Marie Dubois",
+        position: "Directrice Marketing, TechVision",
+        company: "TechVision Inc.",
+        content: "Alex a complètement transformé notre identité visuelle. Son travail sur notre logo et notre branding a donné un nouvel élan à notre entreprise. Professionnel, créatif et toujours à l'écoute !",
+        rating: 5,
+        avatar: "images/testimonials/marie.jpg", // Optionnel
+        initials: "MD"
+    },
+    {
+        id: 2,
+        name: "Thomas Martin",
+        position: "Fondateur & CEO",
+        company: "EcoFood Startup",
+        content: "Le travail d'Alex sur notre packaging a dépassé toutes nos attentes. Non seulement le design est magnifique, mais il a aussi compris parfaitement nos valeurs écologiques. Un vrai partenariat !",
+        rating: 5,
+        avatar: "",
+        initials: "TM"
+    },
+    {
+        id: 3,
+        name: "Sophie Laurent",
+        position: "Responsable Communication",
+        company: "Artisans Locaux",
+        content: "Les flyers et affiches créés par Alex pour notre festival ont eu un impact énorme. Le taux de participation a augmenté de 40% ! Un designer qui sait vraiment communiquer à travers ses créations.",
+        rating: 4,
+        avatar: "images/testimonials/sophie.jpg",
+        initials: "SL"
+    },
+    {
+        id: 4,
+        name: "Karim Benali",
+        position: "Product Manager",
+        company: "FitTrack App",
+        content: "L'interface utilisateur conçue par Alex pour notre application mobile est exceptionnelle. L'expérience utilisateur est fluide, intuitive et esthétique. Nos utilisateurs adorent !",
+        rating: 5,
+        avatar: "",
+        initials: "KB"
+    },
+    {
+        id: 5,
+        name: "Julie Petit",
+        position: "Social Media Manager",
+        company: "Luxe Collection",
+        content: "Notre campagne sur les réseaux sociaux conçue par Alex a généré un engagement record. Les visuels sont non seulement beaux mais parfaitement adaptés à chaque plateforme. Un vrai expert !",
+        rating: 5,
+        avatar: "images/testimonials/julie.jpg",
+        initials: "JP"
+    }
+];
+
+// N'oublie pas d'exporter les données
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        projectsData,
+        personalData,
+        projectCategories,
+        skills,
+        tools,
+        testimonialsData // Ajoute cette ligne
+    };
+} else {
+    window.portfolioData = {
+        projectsData,
+        personalData,
+        projectCategories,
+        skills,
+        tools,
+        testimonialsData // Ajoute cette ligne
     };
 }

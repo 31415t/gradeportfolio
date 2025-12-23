@@ -6,6 +6,11 @@ Vérifications générales
 - git status
 - git remote -v
 
+0) Copier/Coller pour mettre a jour en un clic
+git add .
+git commit -m "Mise a jour global"
+git push origin main
+
 1) Modifier un fichier existant
 - git add path/to/file
 - git commit -m "Message court"

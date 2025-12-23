@@ -48,6 +48,14 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Débogage des catégories
     debugCategories();
+    
+    // Initialisation de la section active
+    initActiveSectionHighlight();
+    
+    // Forcer la mise à jour active au chargement après un court délai
+    setTimeout(() => {
+        updateActiveSectionHighlight();
+    }, 100);
 });
 
 // Initialiser la pagination
@@ -66,9 +74,15 @@ function renderProjects(filter = 'all', resetPagination = true) {
     }
     
     // Filtrer les projets
-    filteredProjects = filter === 'all' 
-        ? [...allProjects] 
-        : allProjects.filter(project => project.category === filter);
+    if (filter === 'all' || (Array.isArray(filter) && filter.length === 0)) {
+        filteredProjects = [...allProjects];
+    } else if (Array.isArray(filter)) {
+        // garder les projets dont la catégorie est dans la liste sélectionnée
+        filteredProjects = allProjects.filter(project => filter.includes(project.category));
+    } else {
+        // filtre simple (compatibilité rétro)
+        filteredProjects = allProjects.filter(project => project.category === filter);
+    }
     
     // Calculer les projets à afficher pour la page courante
     const startIndex = (currentPage - 1) * projectsPerPage;
@@ -162,8 +176,15 @@ function loadMoreProjects() {
 
 // Obtenir le filtre actif
 function getCurrentFilter() {
-    const activeButton = document.querySelector('.filter-btn.active');
-    return activeButton ? activeButton.getAttribute('data-filter') : 'all';
+    // Retourne 'all' ou un tableau de catégories sélectionnées
+    const activeButtons = Array.from(document.querySelectorAll('.filter-btn.active'));
+    if (activeButtons.length === 0) return 'all';
+
+    // Si le bouton 'all' est actif, considérer tout sélectionné
+    const activeFilters = activeButtons.map(btn => btn.getAttribute('data-filter'));
+    if (activeFilters.includes('all')) return 'all';
+
+    return activeFilters;
 }
 
 // Défiler vers les nouveaux projets
@@ -398,6 +419,377 @@ function showProjectModal(project) {
     });
 }
 
+// Variables pour le slider des témoignages
+let currentTestimonialIndex = 0;
+let testimonials = [];
+let autoSlideInterval;
+
+// Initialisation des témoignages (à appeler dans DOMContentLoaded)
+function initTestimonials() {
+    if (!window.portfolioData || !window.portfolioData.testimonialsData) {
+        console.warn('Aucune donnée de témoignages disponible.');
+        return;
+    }
+    
+    testimonials = window.portfolioData.testimonialsData;
+    
+    if (testimonials.length === 0) {
+        console.warn('Aucun témoignage à afficher.');
+        return;
+    }
+    
+    // Générer les témoignages
+    generateTestimonials();
+    
+    // Initialiser les contrôles
+    initTestimonialsControls();
+    
+    // Démarrer le défilement automatique
+    startAutoSlide();
+}
+
+// Générer les témoignages dans le slider
+function generateTestimonials() {
+    const slider = document.getElementById('testimonialsSlider');
+    const dotsContainer = document.getElementById('testimonialsDots');
+    
+    if (!slider || !dotsContainer) return;
+    
+    slider.innerHTML = '';
+    dotsContainer.innerHTML = '';
+    
+    testimonials.forEach((testimonial, index) => {
+        // Créer la carte de témoignage
+        const testimonialCard = document.createElement('div');
+        testimonialCard.className = `testimonial-card ${index === 0 ? 'active' : ''}`;
+        testimonialCard.setAttribute('data-index', index);
+        
+        // Créer le contenu de l'avatar
+        let avatarContent = '';
+        if (testimonial.avatar) {
+            avatarContent = `<img src="${testimonial.avatar}" alt="${testimonial.name}" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='${testimonial.initials}';">`;
+        } else {
+            avatarContent = testimonial.initials;
+        }
+        
+        // Créer les étoiles de notation
+        let stars = '';
+        for (let i = 0; i < 5; i++) {
+            stars += `<i class="fas fa-star${i < testimonial.rating ? '' : '-half-alt'}"></i>`;
+        }
+        
+        testimonialCard.innerHTML = `
+            <div class="testimonial-content">
+                <p>${testimonial.content}</p>
+            </div>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar">
+                    ${avatarContent}
+                </div>
+                <div class="testimonial-info">
+                    <h4>${testimonial.name}</h4>
+                    <p>${testimonial.position}</p>
+                    <p><strong>${testimonial.company}</strong></p>
+                    <div class="testimonial-rating">
+                        ${stars}
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        slider.appendChild(testimonialCard);
+        
+        // Créer le point indicateur
+        const dot = document.createElement('div');
+        dot.className = `testimonial-dot ${index === 0 ? 'active' : ''}`;
+        dot.setAttribute('data-index', index);
+        dot.addEventListener('click', () => goToTestimonial(index));
+        dotsContainer.appendChild(dot);
+    });
+}
+
+// Initialiser les contrôles du slider
+function initTestimonialsControls() {
+    const prevBtn = document.getElementById('testimonialPrev');
+    const nextBtn = document.getElementById('testimonialNext');
+    
+    if (prevBtn) {
+        prevBtn.addEventListener('click', showPrevTestimonial);
+    }
+    
+    if (nextBtn) {
+        nextBtn.addEventListener('click', showNextTestimonial);
+    }
+    
+    // Pause au survol
+    const sliderContainer = document.querySelector('.testimonials-slider');
+    if (sliderContainer) {
+        sliderContainer.addEventListener('mouseenter', pauseAutoSlide);
+        sliderContainer.addEventListener('mouseleave', startAutoSlide);
+    }
+}
+
+// Afficher le témoignage précédent
+function showPrevTestimonial() {
+    const newIndex = currentTestimonialIndex === 0 ? testimonials.length - 1 : currentTestimonialIndex - 1;
+    goToTestimonial(newIndex);
+}
+
+// Afficher le témoignage suivant
+function showNextTestimonial() {
+    const newIndex = currentTestimonialIndex === testimonials.length - 1 ? 0 : currentTestimonialIndex + 1;
+    goToTestimonial(newIndex);
+}
+
+// Aller à un témoignage spécifique
+function goToTestimonial(index) {
+    if (index < 0 || index >= testimonials.length) return;
+    
+    // Mettre à jour l'index courant
+    currentTestimonialIndex = index;
+    
+    // Mettre à jour l'affichage
+    updateTestimonialDisplay();
+    
+    // Réinitialiser l'auto-slide
+    resetAutoSlide();
+}
+
+// Mettre à jour l'affichage des témoignages
+function updateTestimonialDisplay() {
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const dots = document.querySelectorAll('.testimonial-dot');
+    
+    // Masquer toutes les cartes
+    testimonialCards.forEach(card => {
+        card.classList.remove('active');
+        card.style.transform = `translateX(-${currentTestimonialIndex * 100}%)`;
+    });
+    
+    // Afficher la carte active
+    if (testimonialCards[currentTestimonialIndex]) {
+        testimonialCards[currentTestimonialIndex].classList.add('active');
+    }
+    
+    // Mettre à jour les points actifs
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentTestimonialIndex);
+    });
+}
+
+// Démarrer le défilement automatique
+function startAutoSlide() {
+    if (testimonials.length <= 1) return; // Pas besoin d'auto-slide s'il n'y a qu'un seul témoignage
+    
+    clearInterval(autoSlideInterval);
+    
+    autoSlideInterval = setInterval(() => {
+        const nextIndex = (currentTestimonialIndex + 1) % testimonials.length;
+        goToTestimonial(nextIndex);
+    }, 5000); // Change toutes les 5 secondes
+}
+
+// Mettre en pause le défilement automatique
+function pauseAutoSlide() {
+    clearInterval(autoSlideInterval);
+}
+
+// Réinitialiser le défilement automatique
+function resetAutoSlide() {
+    pauseAutoSlide();
+    startAutoSlide();
+}
+
+// N'oublie pas d'appeler initTestimonials dans DOMContentLoaded :
+document.addEventListener('DOMContentLoaded', function() {
+    // ... autres initialisations ...
+    
+    // Initialisation des témoignages
+    initTestimonials();
+    
+    // ...
+});
+
+// Générer une couleur d'avatar basée sur le nom
+function getAvatarColor(name) {
+    const colors = [
+        '#6C63FF', // Violet
+        '#FF6584', // Rose
+        '#36B37E', // Vert
+        '#FFAB00', // Jaune
+        '#6554C0', // Violet foncé
+        '#00B8D9', // Cyan
+        '#FF5630'  // Orange
+    ];
+    
+    // Générer un index basé sur la somme des codes ASCII du nom
+    let sum = 0;
+    for (let i = 0; i < name.length; i++) {
+        sum += name.charCodeAt(i);
+    }
+    
+    return colors[sum % colors.length];
+}
+
+// Mettre à jour la fonction generateTestimonials pour utiliser les couleurs dynamiques
+function generateTestimonials() {
+    const slider = document.getElementById('testimonialsSlider');
+    const dotsContainer = document.getElementById('testimonialsDots');
+    
+    if (!slider || !dotsContainer) return;
+    
+    slider.innerHTML = '';
+    dotsContainer.innerHTML = '';
+    
+    testimonials.forEach((testimonial, index) => {
+        const avatarColor = getAvatarColor(testimonial.name);
+        
+        // Créer la carte de témoignage
+        const testimonialCard = document.createElement('div');
+        testimonialCard.className = `testimonial-card ${index === 0 ? 'active' : ''}`;
+        testimonialCard.setAttribute('data-index', index);
+        
+        // Créer le contenu de l'avatar
+        let avatarContent = '';
+        if (testimonial.avatar) {
+            avatarContent = `<img src="${testimonial.avatar}" alt="${testimonial.name}" onerror="this.onerror=null; this.style.display='none'; this.parentElement.innerHTML='${testimonial.initials}';">`;
+        } else {
+            avatarContent = testimonial.initials;
+        }
+        
+        // Créer les étoiles de notation
+        let stars = '';
+        for (let i = 0; i < 5; i++) {
+            stars += `<i class="fas fa-star${i < testimonial.rating ? '' : '-half-alt'}"></i>`;
+        }
+        
+        testimonialCard.innerHTML = `
+            <div class="testimonial-content">
+                <p>${testimonial.content}</p>
+            </div>
+            <div class="testimonial-author">
+                <div class="testimonial-avatar" style="background: linear-gradient(135deg, ${avatarColor}, ${lightenColor(avatarColor, 20)});">
+                    ${avatarContent}
+                </div>
+                <div class="testimonial-info">
+                    <h4>${testimonial.name}</h4>
+                    <p>${testimonial.position}</p>
+                    <p><strong>${testimonial.company}</strong></p>
+                    <div class="testimonial-rating">
+                        ${stars}
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        slider.appendChild(testimonialCard);
+        
+        // Créer le point indicateur
+        const dot = document.createElement('div');
+        dot.className = `testimonial-dot ${index === 0 ? 'active' : ''}`;
+        dot.setAttribute('data-index', index);
+        dot.addEventListener('click', () => goToTestimonial(index));
+        dotsContainer.appendChild(dot);
+    });
+}
+
+// Fonction utilitaire pour éclaircir une couleur
+function lightenColor(color, percent) {
+    const num = parseInt(color.replace('#', ''), 16);
+    const amt = Math.round(2.55 * percent);
+    const R = (num >> 16) + amt;
+    const G = (num >> 8 & 0x00FF) + amt;
+    const B = (num & 0x0000FF) + amt;
+    
+    return '#' + (
+        0x1000000 +
+        (R < 255 ? (R < 1 ? 0 : R) : 255) * 0x10000 +
+        (G < 255 ? (G < 1 ? 0 : G) : 255) * 0x100 +
+        (B < 255 ? (B < 1 ? 0 : B) : 255)
+    ).toString(16).slice(1);
+}
+
+// Animation améliorée pour le changement de témoignage
+function goToTestimonialWithAnimation(index) {
+    if (index < 0 || index >= testimonials.length) return;
+    
+    const testimonialCards = document.querySelectorAll('.testimonial-card');
+    const currentCard = testimonialCards[currentTestimonialIndex];
+    const nextCard = testimonialCards[index];
+    
+    if (currentCard && nextCard) {
+        // Animation de sortie
+        currentCard.style.opacity = '0';
+        currentCard.style.transform = `translateX(-${currentTestimonialIndex * 100}%) scale(0.95)`;
+        
+        // Animation d'entrée
+        setTimeout(() => {
+            nextCard.style.opacity = '1';
+            nextCard.style.transform = `translateX(-${index * 100}%) scale(1)`;
+            nextCard.classList.add('active');
+            currentCard.classList.remove('active');
+            
+            // Mettre à jour l'index et les points
+            currentTestimonialIndex = index;
+            updateDots();
+            
+            // Réinitialiser l'auto-slide
+            resetAutoSlide();
+        }, 300);
+    }
+}
+
+// Mettre à jour les points indicateurs
+function updateDots() {
+    const dots = document.querySelectorAll('.testimonial-dot');
+    dots.forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentTestimonialIndex);
+    });
+}
+
+// ...existing code...
+
+function initActiveSectionHighlight() {
+    console.log('🔍 initActiveSectionHighlight appelé');
+    const navLinks = document.querySelectorAll('.nav-menu a');
+    const sections = document.querySelectorAll('section');
+    
+    // Définir "Accueil" comme actif par défaut au chargement
+    navLinks.forEach(link => link.classList.remove('active'));
+    navLinks[0].classList.add('active');
+    
+    // Gestion des clics
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            navLinks.forEach(l => l.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+    
+    // Détection au scroll
+    window.addEventListener('scroll', () => {
+        let current = '';
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            if (scrollY >= sectionTop - 200) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + current) {
+                link.classList.add('active');
+            }
+        });
+    });
+}
+
+// Appel au chargement
+document.addEventListener('DOMContentLoaded', initActiveSectionHighlight);
+// ...existing code...
+
 // Conversion des catégories en noms affichables
 function getCategoryName(category) {
     const categoryNames = {
@@ -440,14 +832,27 @@ function initProjectFilter() {
     
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
-            // Retirer la classe active de tous les boutons
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            
-            // Ajouter la classe active au bouton cliqué
-            this.classList.add('active');
-            
+            const isAll = this.getAttribute('data-filter') === 'all';
+
+            if (isAll) {
+                // Si on clique sur 'all', désactiver les autres et activer 'all'
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+            } else {
+                // Toggle du bouton cliqué
+                this.classList.toggle('active');
+
+                // Désactiver 'all' si une catégorie spécifique est sélectionnée
+                const allBtn = Array.from(filterButtons).find(btn => btn.getAttribute('data-filter') === 'all');
+                if (allBtn) allBtn.classList.remove('active');
+
+                // Si plus aucune catégorie n'est active, réactiver 'all'
+                const anyActive = Array.from(filterButtons).some(btn => btn.classList.contains('active'));
+                if (!anyActive && allBtn) allBtn.classList.add('active');
+            }
+
             // Filtrer les projets (avec réinitialisation de la pagination)
-            const filter = this.getAttribute('data-filter');
+            const filter = getCurrentFilter();
             renderProjects(filter, true);
         });
     });
