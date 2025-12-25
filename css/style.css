@@ -1,0 +1,18 @@
+/* style.css - Fichier principal qui importe tous les modules CSS */
+
+/* 1. Base styles (fondations) */
+@import url('base.css');
+
+/* 2. Layout (structure) */
+@import url('layout.css');
+
+/* 3. Components (composants réutilisables) */
+@import url('components.css');
+
+/* 4. Sections (sections spécifiques) */
+@import url('sections.css');
+
+/* 5. Utilities (classes utilitaires) */
+@import url('utilities.css');
+
+/* Note: faq.css sera chargé uniquement sur faq.html */

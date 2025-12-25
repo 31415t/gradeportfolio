@@ -1,0 +1,189 @@
+[
+  {
+    "id": 1,
+    "title": "Brainhub",
+    "category": "logo",
+    "description": "Logo moderne et minimaliste pour une startup technologique spécialisée en intelligence artificielle.",
+    "imageUrl": "assets/images/projects/Brainhub.jpg",
+    "icon": "fas fa-brain",
+    "date": "2024-01",
+    "client": "Startup Tech",
+    "technologies": ["Inkscape", "Vector Design"]
+  },
+  {
+    "id": 2,
+    "title": "Caritas - Identité visuelle",
+    "category": "branding",
+    "description": "Identité visuelle complète pour une organisation caritative dans le domaine de la santé et l'éducation.",
+    "imageUrl": "assets/images/projects/caritas.png",
+    "icon": "fas fa-hands-helping",
+    "date": "2024-02",
+    "client": "Caritas International",
+    "technologies": ["Inkscape", "Photopea", "Branding"]
+  },
+  {
+    "id": 3,
+    "title": "Anniversaire Digital",
+    "category": "socialMedia",
+    "description": "Concept de visuel pour fête d'anniversaire sur les réseaux sociaux avec animations minimales.",
+    "imageUrl": "assets/images/projects/HBD1.jpeg",
+    "icon": "fas fa-birthday-cake",
+    "date": "2024-03",
+    "client": "Particulier",
+    "technologies": ["Canva", "Social Media Design"]
+  },
+  {
+    "id": 4,
+    "title": "Mockup Professionnel",
+    "category": "mockup",
+    "description": "Mise en situation du logo à travers un mockup professionnel pour présentation client.",
+    "imageUrl": "assets/images/projects/mockup1.jpg",
+    "icon": "fas fa-desktop",
+    "date": "2024-01",
+    "client": "Agence Creative",
+    "technologies": ["Photopea", "Mockup"]
+  },
+  {
+    "id": 5,
+    "title": "Prod'Haiti",
+    "category": "logo",
+    "description": "Création de logo pour une entreprise agro-alimentaire haïtienne spécialisée dans les produits locaux.",
+    "imageUrl": "assets/images/projects/ProdHaiti.jpg",
+    "icon": "fas fa-seedling",
+    "date": "2023-11",
+    "client": "Prod'Haiti SA",
+    "technologies": ["Inkscape", "Logo Design"]
+  },
+  {
+    "id": 6,
+    "title": "Composition Artistique",
+    "category": "autre",
+    "description": "Projet fictif mettant en relief les principes d'une bonne composition et d'équilibre visuel.",
+    "imageUrl": "assets/images/projects/autre1.jpg",
+    "icon": "fas fa-palette",
+    "date": "2023-12",
+    "client": "Projet Personnel",
+    "technologies": ["Inkscape", "Composition"]
+  },
+  {
+    "id": 7,
+    "title": "Max Motors",
+    "category": "logo",
+    "description": "Conception de logo pour une entreprise automobile moderne avec une identité forte et dynamique.",
+    "imageUrl": "assets/images/projects/MaxMotors.jpg",
+    "icon": "fas fa-car",
+    "date": "2024-02",
+    "client": "Max Motors",
+    "technologies": ["Inkscape", "Vector Design"]
+  },
+  {
+    "id": 8,
+    "title": "Bela Store Logo",
+    "category": "logo",
+    "description": "Logo élégant et féminin pour une boutique en ligne de mode et accessoires.",
+    "imageUrl": "assets/images/projects/BelaStoreLogo.png",
+    "icon": "fas fa-shopping-bag",
+    "date": "2024-01",
+    "client": "Bela Store",
+    "technologies": ["Inkscape", "Logo Design"]
+  },
+  {
+    "id": 9,
+    "title": "Bela Store Flyer",
+    "category": "flyer",
+    "description": "Design de flyer promotionnel pour le lancement de la boutique en ligne Bela Store.",
+    "imageUrl": "assets/images/projects/BelaStoreFlyer.jpeg",
+    "icon": "fas fa-store",
+    "date": "2024-01",
+    "client": "Bela Store",
+    "technologies": ["Canva", "Print Design"]
+  },
+  {
+    "id": 10,
+    "title": "Bibliyotek Batravil",
+    "category": "logo",
+    "description": "Conception de logo pour une bibliothèque communautaire promouvant la lecture et l'éducation.",
+    "imageUrl": "assets/images/projects/bblogo.png",
+    "icon": "fas fa-book-reader",
+    "date": "2023-10",
+    "client": "Bibliothèque Communautaire",
+    "technologies": ["Inkscape", "Logo Design"]
+  },
+  {
+    "id": 11,
+    "title": "Composition Avancée",
+    "category": "autre",
+    "description": "Projet explorant les principes avancés de composition et d'harmonie des couleurs.",
+    "imageUrl": "assets/images/projects/autre2.jpg",
+    "icon": "fas fa-sliders-h",
+    "date": "2023-11",
+    "client": "Projet Personnel",
+    "technologies": ["Photopea", "Color Theory"]
+  },
+  {
+    "id": 12,
+    "title": "Baboo Epis",
+    "category": "logo",
+    "description": "Logo épuré et organique pour une entreprise du secteur culinaire spécialisée en épices.",
+    "imageUrl": "assets/images/projects/baboo.jpg",
+    "icon": "fas fa-pepper-hot",
+    "date": "2023-09",
+    "client": "Baboo Epis",
+    "technologies": ["Inkscape", "Logo Design"]
+  },
+  {
+    "id": 13,
+    "title": "Bon Début de Mois",
+    "category": "socialMedia",
+    "description": "Concept de visuel mensuel pour les réseaux sociaux avec message motivationnel.",
+    "imageUrl": "assets/images/projects/november.jpeg",
+    "icon": "fas fa-calendar-alt",
+    "date": "2023-11",
+    "client": "Particulier",
+    "technologies": ["Canva", "Social Media"]
+  },
+  {
+    "id": 14,
+    "title": "Renaud Agency",
+    "category": "logo",
+    "description": "Logo épuré, moderne et minimaliste pour une agence de voyage premium.",
+    "imageUrl": "assets/images/projects/RenaudAgency.jpg",
+    "icon": "fas fa-plane",
+    "date": "2023-08",
+    "client": "Renaud Agency",
+    "technologies": ["Inkscape", "Minimal Design"]
+  },
+  {
+    "id": 15,
+    "title": "Tableau Digital",
+    "category": "illustration",
+    "description": "Réalisation de tableau numérique sur logiciel de graphisme, explorant les textures digitales.",
+    "imageUrl": "assets/images/projects/tableaul.jpeg",
+    "icon": "fas fa-paint-brush",
+    "date": "2023-12",
+    "client": "Projet Artistique",
+    "technologies": ["Photopea", "Digital Art"]
+  },
+  {
+    "id": 16,
+    "title": "Marco Zelle Flyer",
+    "category": "flyer",
+    "description": "Flyer promotionnel pour une entreprise spécialisée dans les services d'échange et transfert d'argent.",
+    "imageUrl": "assets/images/projects/marcoflyer.jpeg",
+    "icon": "fas fa-exchange-alt",
+    "date": "2024-01",
+    "client": "Marco Zelle",
+    "technologies": ["Canva", "Print Design"]
+  },
+  {
+    "id": 17,
+    "title": "Rhum LaCitadelle",
+    "category": "logo",
+    "description": "Logo prestigieux pour une entreprise de rhum artisanal mettant en valeur l'héritage culturel.",
+    "imageUrl": "assets/images/projects/RhumLaCitadelle.jpg",
+    "icon": "fas fa-wine-glass-alt",
+    "date": "2023-07",
+    "client": "Rhum LaCitadelle",
+    "technologies": ["Inkscape", "Premium Design"]
+  }
+]

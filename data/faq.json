@@ -1,0 +1,241 @@
+{
+  "meta": {
+    "title": "FAQ - Grade3.0 | Peterley Auguste",
+    "description": "Questions fréquentes sur les services de design graphique, tarifs, processus et livraison",
+    "lastUpdated": "2025-01-15",
+    "version": "1.0"
+  },
+  "categories": [
+    {
+      "id": "all",
+      "name": "Toutes les questions",
+      "description": "Toutes les questions fréquemment posées",
+      "icon": "fas fa-star",
+      "color": "#F95606",
+      "count": 0
+    },
+    {
+      "id": "general",
+      "name": "Général",
+      "description": "Questions générales sur mes services et mon approche",
+      "icon": "fas fa-info-circle",
+      "color": "#0066CC",
+      "count": 4
+    },
+    {
+      "id": "pricing",
+      "name": "Tarifs & Devis",
+      "description": "Informations sur les tarifs, les forfaits et les devis",
+      "icon": "fas fa-tag",
+      "color": "#36B37E",
+      "count": 4
+    },
+    {
+      "id": "process",
+      "name": "Processus de travail",
+      "description": "Comment se déroule un projet de A à Z",
+      "icon": "fas fa-cogs",
+      "color": "#7A3EB1",
+      "count": 3
+    },
+    {
+      "id": "technical",
+      "name": "Aspects techniques",
+      "description": "Questions sur les formats, outils et détails techniques",
+      "icon": "fas fa-laptop-code",
+      "color": "#FFD43B",
+      "count": 4
+    },
+    {
+      "id": "delivery",
+      "name": "Livraison & Support",
+      "description": "Délais de livraison et support après projet",
+      "icon": "fas fa-shipping-fast",
+      "color": "#FF6584",
+      "count": 3
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "category": "general",
+      "question": "Quels types de projets acceptez-vous ?",
+      "answer": "Je travaille sur une large gamme de projets de design graphique :\n\n• **Logo Design** : Création ou refonte de logos uniques et mémorables\n• **Branding Complet** : Identités visuelles, chartes graphiques, guidelines\n• **Supports Print** : Flyers, affiches, cartes de visite, brochures, dépliants\n• **Réseaux Sociaux** : Visuels pour Facebook, Instagram, TikTok, LinkedIn\n• **Mockups** : Présentations professionnelles de vos designs\n• **Illustrations** : Créations graphiques personnalisées\n• **Formation** : Ateliers d'initiation aux outils de design\n\nJe suis ouvert à toute discussion concernant un projet créatif !",
+      "tags": ["projets", "services", "spécialités", "logo", "branding", "print"],
+      "popularity": 95,
+      "lastUpdated": "2024-12-01"
+    },
+    {
+      "id": 2,
+      "category": "general",
+      "question": "Combien de temps prend un projet typique ?",
+      "answer": "Les délais varient selon la complexité du projet :\n\n🕐 **Logo simple** : 3-5 jours ouvrables\n🕐 **Packaging design** : 1-2 semaines\n🕐 **Branding complet** : 2-3 semaines\n🕐 **Flyer/affiche** : 2-4 jours\n🕐 **Pack réseaux sociaux** (10 visuels) : 5-7 jours\n🕐 **Formation** : Selon le programme (généralement 2-4 sessions)\n\nCes délais incluent les révisions. Pour les projets urgents, des options accélérées sont disponibles avec majoration. Un calendrier détaillé vous sera fourni avant le début du projet.",
+      "tags": ["délais", "timing", "calendrier", "urgent"],
+      "popularity": 88,
+      "lastUpdated": "2024-11-15"
+    },
+    {
+      "id": 3,
+      "category": "general",
+      "question": "Acceptez-vous les projets à distance ?",
+      "answer": "Oui, 100% de mes projets se font à distance ! Je travaille avec des clients partout dans le monde grâce à des outils modernes :\n\n💻 **Visioconférence** : Google Meet, Zoom pour les réunions\n💻 **Communication** : Email, WhatsApp, messages\n💻 **Partage de fichiers** : Google Drive, WeTransfer, Dropbox\n💻 **Feedback** : Commentaires directement sur les designs\n💻 **Suivi** : Tableaux de bord partagés\n\nL'expérience est aussi fluide et professionnelle qu'en présentiel. Je suis basé en Haïti mais travaille sur tous les fuseaux horaires avec flexibilité.",
+      "tags": ["distanciel", "remote", "international", "télétravail"],
+      "popularity": 92,
+      "lastUpdated": "2024-12-10"
+    },
+    {
+      "id": 4,
+      "category": "general",
+      "question": "Quelle est votre expérience en design graphique ?",
+      "answer": "Je suis graphic designer freelance avec :\n\n🎓 **5+ années d'expérience** professionnelle\n🎓 **120+ projets** réalisés avec succès\n🎓 **25+ clients** satisfaits (startups, PME, particuliers)\n🎓 **Formations certifiantes** en design graphique\n🎓 **Maîtrise** de tous les outils professionnels actuels\n🎓 **Spécialisation** en identité visuelle et branding\n\nMon approche combine créativité, stratégie et attention aux détails. J'ai travaillé avec des entreprises de différents secteurs, ce qui me permet de m'adapter rapidement à vos besoins spécifiques.",
+      "tags": ["expérience", "parcours", "compétences", "expertise"],
+      "popularity": 76,
+      "lastUpdated": "2024-10-20"
+    },
+    {
+      "id": 5,
+      "category": "pricing",
+      "question": "Quels sont vos tarifs ?",
+      "answer": "Mes tarifs sont adaptés à chaque projet. Voici une estimation :\n\n💰 **Logo Design** : À partir de 150€ (concept + 3 révisions)\n💰 **Flyer/Poster** : À partir de 80€ par visuel\n💰 **Pack réseaux sociaux** : À partir de 200€ (10 visuels)\n💰 **Branding complet** : À partir de 500€ (logo + charte + supports)\n💰 **Formation** : 30€/heure (forfaits disponibles)\n💰 **Projets complexes** : Devis personnalisé gratuit\n\nJe propose également des forfaits mensuels pour les besoins récurrents. Tous les prix sont HT. Contactez-moi pour un devis précis adapté à votre projet.",
+      "tags": ["prix", "budget", "devis", "forfaits", "tarification"],
+      "popularity": 99,
+      "lastUpdated": "2025-01-10"
+    },
+    {
+      "id": 6,
+      "category": "pricing",
+      "question": "Proposez-vous des révisions gratuites ?",
+      "answer": "Oui, tous mes forfaits incluent des révisions gratuites pour assurer votre satisfaction :\n\n✅ **Logo/Branding** : 3 révisions incluses\n✅ **Flyer/Print** : 2 révisions par visuel\n✅ **Visuels réseaux sociaux** : 2 révisions par pack\n✅ **Projets complexes** : Nombre de révisions défini dans le devis\n✅ **Formation** : Support inclus pendant 15 jours\n\nLes révisions supplémentaires sont facturées à un tarif réduit de 20€/heure. L'objectif est que vous soyez 100% satisfait du résultat final sans surprises.",
+      "tags": ["révisions", "modifications", "satisfaction", "garantie"],
+      "popularity": 87,
+      "lastUpdated": "2024-11-30"
+    },
+    {
+      "id": 7,
+      "category": "pricing",
+      "question": "Proposez-vous des forfaits pour les petites entreprises ?",
+      "answer": "Absolument ! J'ai des offres spécialement conçues pour les petites entreprises et startups :\n\n🚀 **Pack Starter** : Logo + cartes de visite + 5 visuels sociaux (350€)\n🚀 **Pack Social Media** : 10 visuels/mois + bannière profil (220€/mois)\n🚀 **Pack Print** : Flyer + affiche + dépliant (250€)\n🚀 **Pack Formation** : 5h de formation personnalisée (140€)\n🚀 **Pack Complet** : Logo + branding + 10 visuels (600€)\n\nCes forfaits sont économiques et incluent tout le nécessaire pour démarrer ou relancer votre communication visuelle. Des paiements échelonnés sont possibles.",
+      "tags": ["forfaits", "petites-entreprises", "startups", "économique"],
+      "popularity": 82,
+      "lastUpdated": "2024-12-05"
+    },
+    {
+      "id": 8,
+      "category": "pricing",
+      "question": "Facturez-vous des frais de dépôt ?",
+      "answer": "Oui, pour démarrer un projet, je demande généralement :\n\n💵 **50% d'acompte** pour les projets supérieurs à 200€\n💵 **100% du paiement** pour les projets inférieurs à 200€\n💵 **Paiement échelonné** possible pour les gros projets\n\nL'acompte me permet de :\n• Réserver du temps dans mon planning\n• Démarrer les recherches créatives\n• Investir dans les outils nécessaires\n• Garantir mon engagement\n\nLe solde est dû à la livraison des fichiers finaux. Tous les paiements sont sécurisés.",
+      "tags": ["paiement", "acompte", "facturation", "frais"],
+      "popularity": 71,
+      "lastUpdated": "2024-10-15"
+    },
+    {
+      "id": 9,
+      "category": "process",
+      "question": "Comment se déroule le processus de travail ?",
+      "answer": "Mon processus en 6 étapes structurées :\n\n1. **Briefing** (Gratuit) : Discussion de vos besoins, objectifs et contraintes\n2. **Devis & Contrat** : Proposition détaillée et accord sur les termes\n3. **Recherche & Esquisses** : Recherche créative et premières propositions\n4. **Présentation** : Présentation des concepts, feedback et sélection\n5. **Développement** : Affinage du concept choisi et création des fichiers\n6. **Livraison & Support** : Remise des fichiers et support post-projet\n\nJe vous tiens informé à chaque étape via votre canal préféré (email, WhatsApp, etc.).",
+      "tags": ["processus", "étapes", "méthodologie", "déroulement"],
+      "popularity": 90,
+      "lastUpdated": "2024-12-20"
+    },
+    {
+      "id": 10,
+      "category": "process",
+      "question": "De quelles informations avez-vous besoin pour commencer ?",
+      "answer": "Pour créer un design qui vous correspond parfaitement, j'ai besoin de :\n\n📋 **Informations sur votre entreprise** : Nom, secteur, valeurs, mission\n📋 **Public cible** : À qui vous vous adressez\n📋 **Objectifs du projet** : Ce que vous voulez accomplir\n📋 **Contraintes** : Budget, délais, exigences techniques\n📋 **Inspirations** : Exemples de designs que vous aimez\n📋 **Contenu** : Textes, images, logos existants\n📋 **Préférences** : Couleurs, styles, tons\n\nJe vous enverrai un questionnaire détaillé lors de notre premier contact pour recueillir toutes ces informations.",
+      "tags": ["briefing", "informations", "préparation", "questionnaire"],
+      "popularity": 69,
+      "lastUpdated": "2024-11-10"
+    },
+    {
+      "id": 11,
+      "category": "process",
+      "question": "Puis-je voir des exemples de travaux similaires ?",
+      "answer": "Bien sûr ! Vous pouvez :\n\n👁️ **Consulter mon portfolio** en ligne sur ce site\n👁️ **Demander des études de cas** spécifiques à votre secteur\n👁️ **Voir des exemples complets** de projets similaires\n👁️ **Obtenir des références** clients (sur demande)\n\nJe prends soin de présenter une variété de projets pour montrer mon adaptabilité. Si vous avez un besoin très spécifique, je peux vous montrer des exemples particulièrement pertinents lors de notre premier échange.",
+      "tags": ["portfolio", "exemples", "références", "travaux"],
+      "popularity": 65,
+      "lastUpdated": "2024-10-25"
+    },
+    {
+      "id": 12,
+      "category": "technical",
+      "question": "Quels outils utilisez-vous ?",
+      "answer": "J'utilise une combinaison d'outils professionnels modernes :\n\n🛠️ **Design vectoriel** : Inkscape (alternative open-source à Illustrator)\n🛠️ **Retouche photo** : Photopea (alternative en ligne à Photoshop)\n🛠️ **Design rapide** : Canva Pro pour les projets simples\n🛠️ **Mobile editing** : Snapseed, PixelLab pour les ajustements rapides\n🛠️ **Montage vidéo** : Capcut pour les contenus dynamiques\n🛠️ **Organisation** : Trello, Google Drive, Notion\n🛠️ **Communication** : Zoom, Google Meet, WhatsApp\n\nJe choisis toujours l'outil le plus adapté à chaque projet et peux m'adapter à vos outils si nécessaire.",
+      "tags": ["outils", "logiciels", "technique", "équipement"],
+      "popularity": 73,
+      "lastUpdated": "2024-12-15"
+    },
+    {
+      "id": 13,
+      "category": "technical",
+      "question": "Quels formats de fichiers recevrai-je ?",
+      "answer": "Je fournis tous les formats nécessaires selon le projet :\n\n📁 **Pour print** : PDF haute résolution (300DPI), AI/EPS (vectoriel)\n📁 **Pour web** : PNG transparent, JPG haute qualité, SVG, WebP\n📁 **Pour réseaux sociaux** : Formats optimisés pour chaque plateforme\n📁 **Fichiers sources** : Formats éditable selon l'outil utilisé\n📁 **Organisation** : Tous les fichiers sont nommés et organisés\n📁 **Guide d'utilisation** : Document expliquant comment utiliser les fichiers\n\nVous recevrez un dossier complet avec toutes les versions nécessaires pour une utilisation immédiate.",
+      "tags": ["formats", "fichiers", "livraison", "résolution"],
+      "popularity": 85,
+      "lastUpdated": "2024-11-20"
+    },
+    {
+      "id": 14,
+      "category": "technical",
+      "question": "Travaillerez-vous avec notre équipe existante ?",
+      "answer": "Absolument ! Je collabore régulièrement avec :\n\n👥 **Équipes marketing** : Pour aligner le design sur la stratégie\n👥 **Développeurs web** : Pour des intégrations fluides\n👥 **Rédacteurs** : Pour un contenu visuel/textuel cohérent\n👥 **Autres designers** : Pour des projets complexes\n👥 **Imprimeurs** : Pour garantir une qualité d'impression optimale\n\nJe peux m'adapter à vos outils (Slack, Teams, etc.), processus et contraintes techniques. La communication est clé pour une collaboration réussie.",
+      "tags": ["collaboration", "équipe", "communication", "intégration"],
+      "popularity": 68,
+      "lastUpdated": "2024-10-30"
+    },
+    {
+      "id": 15,
+      "category": "technical",
+      "question": "Proposez-vous des maquettes interactives ?",
+      "answer": "Oui, selon le projet, je peux fournir :\n\n🎨 **Mockups statiques** : Présentations professionnelles de vos designs\n🎨 **Prototypes simples** : Pour visualiser l'expérience utilisateur\n🎨 **Animations basiques** : Pour les présentations dynamiques\n🎨 **Maquettes cliquables** : Pour tester les interfaces\n\nCes éléments supplémentaires aident à :\n• Visualiser le design en situation réelle\n• Présenter le projet à des parties prenantes\n• Tester l'expérience utilisateur\n• Obtenir des feedbacks plus précis\n\nCette option est disponible sur demande et peut être incluse dans le devis.",
+      "tags": ["mockups", "prototypes", "interactif", "présentation"],
+      "popularity": 59,
+      "lastUpdated": "2024-11-05"
+    },
+    {
+      "id": 16,
+      "category": "delivery",
+      "question": "Quels sont vos délais de livraison ?",
+      "answer": "Mes délais standards sont :\n\n📅 **Projets urgents** : Sur devis spécifique (majoration de 30%)\n📅 **Projets standards** : Selon le calendrier établi lors du briefing\n📅 **Projets complexes** : Livraison par phases avec validation à chaque étape\n📅 **Révisions** : 1-2 jours ouvrables pour chaque tour de révisions\n\nJe respecte toujours les délais convenus et vous tiens informé en cas de retard exceptionnel. La qualité prime sur la rapidité, mais je m'engage à respecter nos accords.",
+      "tags": ["livraison", "délais", "calendrier", "urgent"],
+      "popularity": 78,
+      "lastUpdated": "2024-12-25"
+    },
+    {
+      "id": 17,
+      "category": "delivery",
+      "question": "Offrez-vous un support après la livraison ?",
+      "answer": "Oui, je propose plusieurs niveaux de support :\n\n✅ **Support de base** : 15 jours après livraison pour questions simples\n✅ **Support étendu** : Option disponible pour les projets complexes\n✅ **Formation gratuite** : Session d'1 heure pour utiliser vos fichiers\n✅ **Mises à jour** : Tarifs préférentiels pour modifications futures\n✅ **Archive** : Conservation de vos fichiers pendant 1 an\n✅ **Assistance technique** : Aide pour les problèmes d'impression/utilisation\n\nMon objectif est de vous rendre autonome avec vos nouveaux designs tout en restant disponible pour vous aider si besoin.",
+      "tags": ["support", "après-vente", "assistance", "formation"],
+      "popularity": 72,
+      "lastUpdated": "2024-11-25"
+    },
+    {
+      "id": 18,
+      "category": "delivery",
+      "question": "Que se passe-t-il si je ne suis pas satisfait du résultat ?",
+      "answer": "Votre satisfaction est ma priorité. Voici comment je gère cette situation :\n\n🔁 **Révisions illimitées** jusqu'à satisfaction (dans les limites du devis)\n🔁 **Refonte partielle** si nécessaire (sans frais supplémentaires)\n🔁 **Remboursement partiel** dans des cas exceptionnels\n🔁 **Proposition alternative** si le concept initial ne fonctionne pas\n🔁 **Médiation** : Nous trouvons ensemble une solution satisfaisante\n\nDans 99% des cas, les révisions permettent d'arriver à un résultat qui vous satisfait pleinement. Je m'engage à travailler avec vous jusqu'à ce que vous soyez heureux du résultat.",
+      "tags": ["satisfaction", "garantie", "remboursement", "révisions"],
+      "popularity": 63,
+      "lastUpdated": "2024-10-10"
+    }
+  ],
+  "contactInfo": {
+    "email": "peterleyauguste@gmail.com",
+    "phone": "+509 41 97 53 92",
+    "whatsapp": "https://wa.me/50941975392",
+    "form": "index.html#contact",
+    "social": {
+      "facebook": "https://www.facebook.com/grade2.0",
+      "instagram": "https://www.instagram.com/grade2.0_graphicdesign",
+      "tiktok": "https://www.tiktok.com/@grade3.0",
+      "youtube": "https://www.youtube.com/channel/Grade%20Learning"
+    }
+  },
+  "stats": {
+    "totalQuestions": 18,
+    "totalCategories": 6,
+    "averagePopularity": 78.4,
+    "mostPopularQuestionId": 5,
+    "lastQuestionAdded": "2024-12-25"
+  }
+}

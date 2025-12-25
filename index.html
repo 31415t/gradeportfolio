@@ -4,25 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Grade3.0 | Peterley Auguste | Graphic Designer | Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Portfolio de Peterley Auguste, Graphic Designer freelance spécialisé en création d'identités visuelles, logos et designs impactants.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="Images/Logofolio/GradeLogo.png">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logos/GradeLogo.png">
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="container">
-            <a href="#" class="logo"><img src="Images/Logofolio/GradeLogo.png" alt="Grade2.0" class="logo-img"><span class="brandname">Grade2.0</span></a>
-            <button class="menu-toggle" id="menuToggle">
+            <a href="#" class="logo">
+                <img src="assets/images/logos/GradeLogo.png" alt="Grade3.0 Logo" class="logo-img">
+                <span class="brandname">Grade3.0</span>
+            </a>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu mobile">
                 <i class="fas fa-bars"></i>
             </button>
+            
             <ul class="nav-menu" id="navMenu">
-                <li><a href="#accueil">Accueil</a></li>
-                <li><a href="#projets">Portfolio</a></li>
-                <li><a href="#apropos">À propos</a></li>
-                <li><a href="#competences">Services</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#accueil" class="nav-link active">Accueil</a></li>
+                <li><a href="#projets" class="nav-link">Portfolio</a></li>
+                <li><a href="#apropos" class="nav-link">À propos</a></li>
+                <li><a href="#competences" class="nav-link">Services</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -31,13 +45,26 @@
     <section class="hero" id="accueil">
         <div class="container">
             <div class="hero-content">
-                <h1 class="hero-title" font-size="2rem">Bienvenue dans mon <span class="highlight">univers visuel</span></h1>
-                <p class="hero-subtitle">Je suis Peterley Auguste, graphic designer freelance et fondateur de Grade.<br/> Passionné par la création visuelle, j’ai plus de 5 ans d’expérience dans la conception de visuels attrayants, la réalisation de logos intelligents et le développement d’identités visuelles fortes qui donnent vie aux marques.</p>
+                <h1 class="hero-title">
+                    <span class="highlight typing-animation">Bienvenue dans mon </br>univers visuel</span>
+                </h1>
+                
+                <p class="hero-subtitle">
+                    Je suis Peterley Auguste, graphic designer freelance et fondateur de Grade.<br>
+                    Passionné par la création visuelle, j'ai plus de 5 ans d'expérience dans la conception de visuels attrayants, 
+                    la réalisation de logos intelligents et le développement d'identités visuelles fortes qui donnent vie aux marques.
+                </p>
+                
                 <div class="hero-buttons">
-                    <a href="#projets" class="btn btn-primary">Voir mes projets</a>
-                    <a href="#contact" class="btn btn-secondary">Me contacter</a>
+                    <a href="#projets" class="btn btn-primary">
+                        <i class="fas fa-eye"></i> Voir mes projets
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <i class="fas fa-envelope"></i> Me contacter
+                    </a>
                 </div>
             </div>
+            
             <div class="hero-image">
                 <div class="image-placeholder">
                     <i class="fas fa-palette"></i>
@@ -50,8 +77,11 @@
     <section class="section projects" id="projets">
         <div class="container">
             <h2 class="section-title">Mon <span>Portfolio</span></h2>
-            <p class="section-subtitle">Explorez ici une sélection de mes travaux récents en graphic design</p>
+            <p class="section-subtitle">
+                Explorez ici une sélection de mes travaux récents en graphic design
+            </p>
             
+            <!-- Filtres -->
             <div class="projects-filter">
                 <button class="filter-btn active" data-filter="all">Tous</button>
                 <button class="filter-btn" data-filter="logo">Logo</button>
@@ -64,69 +94,102 @@
                 <button class="filter-btn" data-filter="autre">Autres</button>
             </div>
             
+            <!-- Grille de projets (remplie dynamiquement) -->
             <div class="projects-grid" id="projectsGrid">
-                <!-- Les projets seront générés dynamiquement par JavaScript -->
+                <!-- Les projets seront chargés dynamiquement par JavaScript -->
+                <div class="loading-projects">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>Chargement des projets...</p>
+                </div>
+            </div>
+            
+            <!-- Pagination -->
+            <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+                <!-- Contenu généré dynamiquement -->
             </div>
         </div>
     </section>
 
     <!-- Section Témoignages -->
-    <!-- <section class="section testimonials" id="temoignages">
+    <section class="section testimonials" id="temoignages">
         <div class="container">
             <h2 class="section-title">Témoignages <span>Clients</span></h2>
-            <p class="section-subtitle">Ce que disent mes clients après avoir travaillé avec moi</p>
+            <p class="section-subtitle">
+                Ce que disent mes clients après avoir travaillé avec moi
+            </p>
             
             <div class="testimonials-container">
                 <div class="testimonials-slider" id="testimonialsSlider">
+                    <!-- Les témoignages seront chargés dynamiquement -->
+                    <div class="loading-testimonials">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>Chargement des témoignages...</p>
+                    </div>
                 </div>
                 
                 <div class="testimonials-controls">
-                    <button class="testimonial-prev" id="testimonialPrev">
+                    <button class="testimonial-prev" id="testimonialPrev" aria-label="Témoignage précédent">
                         <i class="fas fa-chevron-left"></i>
                     </button>
+                    
                     <div class="testimonials-dots" id="testimonialsDots">
+                        <!-- Points de navigation générés dynamiquement -->
                     </div>
-                    <button class="testimonial-next" id="testimonialNext">
+                    
+                    <button class="testimonial-next" id="testimonialNext" aria-label="Témoignage suivant">
                         <i class="fas fa-chevron-right"></i>
                     </button>
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <!-- Section À propos -->
-    <section class="section-about" id="apropos">
-        <h2 class="section-title">À propos <span>de moi</span></h2>
+    <section class="section about" id="apropos">
         <div class="container">
-            <div class="about-content">
-                <p>Je suis Peterley Auguste, un Graphic Designer basé en Haiti avec une passion pour créer des designs qui non seulement plaisent à l'œil mais qui racontent aussi une histoire. Mon approche combine créativité, stratégie et attention aux détails.<br/>
-                Au cours de ma carrière, j'ai eu l'opportunité de travailler avec des particuliers, des startups innovantes et des entreprises établies, développant des identités visuelles qui renforcent leur présence sur le marché.</p>
-                
-                <div class="stats">
-                    <div class="stat">
-                        <h3>5+</h3>
-                        <p>Années d'expérience</p>
-                    </div>
-                    <div class="stat">
-                        <h3>120+</h3>
-                        <p>Projets réalisés</p>
-                    </div>
-                    <div class="stat">
-                        <h3>25+</h3>
-                        <p>Clients satisfaits</p>
+            <h2 class="section-title">À propos <span>de moi</span></h2>
+            
+            <div class="about-content-wrapper">
+                <div class="about-content">
+                    <p>
+                        Je suis Peterley Auguste, un Graphic Designer basé en Haïti avec une passion pour créer des designs 
+                        qui non seulement plaisent à l'œil mais qui racontent aussi une histoire. Mon approche combine 
+                        créativité, stratégie et attention aux détails.
+                    </p>
+                    <p>
+                        Au cours de ma carrière, j'ai eu l'opportunité de travailler avec des particuliers, des startups 
+                        innovantes et des entreprises établies, développant des identités visuelles qui renforcent leur 
+                        présence sur le marché.
+                    </p>
+                    
+                    <div class="stats" id="statsContainer">
+                        <!-- Statistiques chargées dynamiquement -->
+                        <div class="stat">
+                            <h3 class="counter" data-count="5">0</h3>
+                            <p>Années d'expérience</p>
+                        </div>
+                        <div class="stat">
+                            <h3 class="counter" data-count="120">0</h3>
+                            <p>Projets réalisés</p>
+                        </div>
+                        <div class="stat">
+                            <h3 class="counter" data-count="25">0</h3>
+                            <p>Clients satisfaits</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="about-image">
-                <div class="image-placeholder">
-                    <img src="Images/certificate.jpg" alt="Certificat de formation en graphic design - Linkedin Learning">
+                
+                <div class="about-image">
+                    <div class="image-placeholder">
+                        <img src="assets/certificate.jpg" alt="Certificat de formation en graphic design" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Section Services -->
-    <section class="section-skills" id="competences">
+    <section class="section skills" id="competences">
         <div class="container">
             <h2 class="section-title">Mes <span>Services</span></h2>
             
@@ -138,6 +201,7 @@
                     <h3>Graphic Design</h3>
                     <p>Création de visuels impactants qui allient esthétique et stratégie.</p>
                 </div>
+                
                 <div class="skill">
                     <div class="skill-icon">
                         <i class="fas fa-pen-fancy"></i>
@@ -145,6 +209,7 @@
                     <h3>Logo Design</h3>
                     <p>Logos uniques et mémorables, pensés pour durer.</p>
                 </div>
+                
                 <div class="skill">
                     <div class="skill-icon">
                         <i class="fas fa-cube"></i>
@@ -152,6 +217,7 @@
                     <h3>Branding</h3>
                     <p>Identités visuelles cohérentes qui donnent une personnalité forte à votre marque.</p>
                 </div>
+                
                 <div class="skill">
                     <div class="skill-icon">
                         <i class="fas fa-graduation-cap"></i>
@@ -163,30 +229,38 @@
             
             <div class="tools">
                 <h3>Outils maîtrisés</h3>
-                <p class="section-subtitle">Les outils et techniques que j'utilise pour donner vie à mes créations</p>
+                <p class="section-subtitle">
+                    Les outils et techniques que j'utilise pour donner vie à mes créations
+                </p>
+                
                 <div class="tools-list">
                     <div class="tool">
-                        <img src="https://cdn.brandfetch.io/id_evqohnj/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1759208307287" class="tool-icon">
+                        <img src="https://cdn.brandfetch.io/id_evqohnj/theme/dark/logo.svg" alt="Inkscape" class="tool-icon" loading="lazy">
                         <span>Inkscape</span>
                     </div>
+                    
                     <div class="tool">
-                        <img src="https://cdn.brandfetch.io/idjom661t2/theme/dark/logo.svg?c=1bxid64Mup7aczewSAYMX&t=1764627284149" class="tool-icon">
+                        <img src="https://cdn.brandfetch.io/idjom661t2/theme/dark/logo.svg" alt="Photopea" class="tool-icon" loading="lazy">
                         <span>Photopea</span>
                     </div>
+                    
                     <div class="tool">
-                        <img src="https://cdn.brandfetch.io/id9mVQlyB1/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1725863485997" class="tool-icon">
+                        <img src="https://cdn.brandfetch.io/id9mVQlyBl/w/400/h/400/theme/dark/icon.jpeg" alt="Canva" class="tool-icon" loading="lazy">
                         <span>Canva</span>
                     </div>
+                    
                     <div class="tool">
-                        <img src="https://cdn.brandfetch.io/id9bEvVa-d/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1761895738158" class="tool-icon">
+                        <img src="https://cdn.brandfetch.io/id9bEvVa-d/w/400/h/400/theme/dark/icon.jpeg" alt="Snapseed" class="tool-icon" loading="lazy">
                         <span>Snapseed</span>
                     </div>
+                    
                     <div class="tool">
-                        <img src="Images/Logofolio/pixellablogo.jpg" class="tool-icon">
+                        <img src="assets/images/logos/pixellablogo.jpg" alt="PixelLab" class="tool-icon" loading="lazy">
                         <span>PixelLab</span>
                     </div>
+                    
                     <div class="tool">
-                        <img src="https://cdn.brandfetch.io/idUmqKFgE3/w/400/h/400/theme/dark/icon.jpeg?c=1bxid64Mup7aczewSAYMX&t=1743997736787" class="tool-icon">
+                        <img src="https://cdn.brandfetch.io/idUmqKFgE3/w/400/h/400/theme/dark/icon.jpeg" alt="Capcut" class="tool-icon" loading="lazy">
                         <span>Capcut</span>
                     </div>
                 </div>
@@ -198,65 +272,79 @@
     <section class="section contact" id="contact">
         <div class="container">
             <h2 class="section-title">Travaillons <span>ensemble</span></h2>
-            <p class="section-subtitle">Vous avez un projet en tête ? Contactez-moi pour en discuter !</p>
+            <p class="section-subtitle">
+                Vous avez un projet en tête ? Contactez-moi pour en discuter !
+            </p>
             
             <div class="contact-content">
-                <!--
-                <form class="contact-form" id="contactForm">
-                    <div class="form-group">
-                        <input type="text" id="name" placeholder="Votre nom" required>
+                <div class="contact-form-wrapper">
+                    <div class="contact-form">
+                        <!-- Formulaire Google Forms intégré -->
+                        <iframe 
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSd8wl4Zl6bieFkn8gL1iTzn13773kl178FOX5UQ-VStoxEt6Q/viewform?embedded=true"
+                            width="100%" 
+                            height="550" 
+                            frameborder="0" 
+                            marginheight="0" 
+                            marginwidth="0"
+                            title="Formulaire de contact"
+                            loading="lazy">
+                            Chargement…
+                        </iframe>
                     </div>
-                    <div class="form-group">
-                        <input type="email" id="email" placeholder="Votre email" required>
-                    </div>
-                    <div class="form-group">
-                        <input type="text" id="subject" placeholder="Sujet" required>
-                    </div>
-                    <div class="form-group">
-                        <textarea id="message" rows="5" placeholder="Votre message" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Envoyer le message</button>
-                </form>
-                -->
-                <div style="position: relative" class="contact-form" >
-                    <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSd8wl4Zl6bieFkn8gL1iTzn13773kl178FOX5UQ-VStoxEt6Q/viewform?embedded=true" width="500" height="320" frameborder="0" marginheight="0" marginwidth="0">Chargement…</iframe>
                 </div>
-
                 
                 <div class="contact-info">
                     <div class="info-item">
                         <div class="info-icon">
-                            <a href="mailto:peterleyauguste@gmail.com"><i class="fas fa-envelope"></i></a>
+                            <a href="mailto:peterleyauguste@gmail.com" aria-label="Envoyer un email">
+                                <i class="fas fa-envelope"></i>
+                            </a>
                         </div>
                         <div>
                             <h3>Email</h3>
                             <p>peterleyauguste@gmail.com</p>
                         </div>
                     </div>
+                    
                     <div class="info-item">
                         <div class="info-icon">
-                            <a href="https://wa.me/50941975392"><i class="fab fa-square-whatsapp"></i></a>
+                            <a href="https://wa.me/50941975392" target="_blank" aria-label="Contacter via WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
                         </div>
                         <div>
                             <h3>Téléphone</h3>
                             <p>+509 41 97 53 92</p>
                         </div>
                     </div>
+                    
                     <div class="info-item">
                         <div class="info-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
                         <div>
                             <h3>Localisation</h3>
-                            <p>Port-de-Paix, Haiti</p>
+                            <p>Port-de-Paix, Haïti</p>
                         </div>
                     </div>
                     
                     <div class="social-links">
-                        <a href="https://www.facebook.com/grade%202.0"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/grade2.0_graphicdesign"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.tiktok.com/@grade3.0"><i class="fab fa-tiktok"></i></a>
-                        <a href="https://www.youtube.com/channel/Grade%20Learning"><i class="fab fa-youtube"></i></a>
+                        <h3>Suivez-moi</h3>
+                        <div class="social-icons">
+                            <a href="https://www.facebook.com/grade2.0" target="_blank" aria-label="Page Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="https://www.instagram.com/grade2.0_graphicdesign" target="_blank" aria-label="Compte Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://www.tiktok.com/@grade3.0" target="_blank" aria-label="Compte TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="https://www.youtube.com/channel/Grade%20Learning" target="_blank" aria-label="Chaîne YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -266,17 +354,46 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>&copy; 2025 Grade3.0 - Tous droits réservés.</p>
-            <p>Designé et développé avec <i class="fas fa-heart"></i> par Peterley Auguste</p>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/images/logos/GradeLogo.png" alt="Grade3.0 Logo" class="footer-logo">
+                    <h3>Grade3.0</h3>
+                    <p>Création d'identités visuelles impactantes</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="#accueil">Accueil</a></li>
+                        <li><a href="#projets">Portfolio</a></li>
+                        <li><a href="#apropos">À propos</a></li>
+                        <li><a href="#competences">Services</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact rapide</h4>
+                    <p><i class="fas fa-envelope"></i> peterleyauguste@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +509 41 97 53 92</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Port-de-Paix, Haïti</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Grade3.0 - Tous droits réservés.</p>
+                <p>Designé et développé avec <i class="fas fa-heart"></i> par Peterley Auguste</p>
+            </div>
         </div>
     </footer>
 
     <!-- Bouton retour en haut -->
-    <button class="back-to-top" id="backToTop">
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
         <i class="fas fa-chevron-up"></i>
     </button>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <!-- JavaScript -->
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

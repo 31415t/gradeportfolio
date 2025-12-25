@@ -1,0 +1,121 @@
+{
+  "categories": [
+    {
+      "id": "general",
+      "name": "Général",
+      "description": "Questions générales sur mes services et mon approche"
+    },
+    {
+      "id": "pricing",
+      "name": "Tarifs & Devis",
+      "description": "Informations sur les tarifs, les forfaits et les devis"
+    },
+    {
+      "id": "process",
+      "name": "Processus de travail",
+      "description": "Comment se déroule un projet de A à Z"
+    },
+    {
+      "id": "technical",
+      "name": "Aspects techniques",
+      "description": "Questions sur les formats, outils et détails techniques"
+    },
+    {
+      "id": "delivery",
+      "name": "Livraison & Support",
+      "description": "Délais de livraison et support après projet"
+    }
+  ],
+  "questions": [
+    {
+      "id": 1,
+      "category": "general",
+      "question": "Quels types de projets acceptez-vous ?",
+      "answer": "Je travaille sur une large gamme de projets incluant :\n• Création de logos et identités visuelles\n• Design de branding complet (charte graphique, guidelines)\n• Supports print : flyers, affiches, cartes de visite, brochures\n• Visuels pour réseaux sociaux (posts, bannières, stories)\n• Mockups et présentations professionnelles\n• Illustrations digitales\n• Formation en design graphique\n\nJe suis ouvert à discuter de tout projet créatif qui correspond à mes compétences.",
+      "tags": ["projets", "services", "spécialités"]
+    },
+    {
+      "id": 2,
+      "category": "general",
+      "question": "Combien de temps prend un projet typique ?",
+      "answer": "Le délai dépend de la complexité du projet :\n\n🕒 **Logo simple** : 3-5 jours ouvrables\n🕒 **Branding complet** : 1-2 semaines\n🕒 **Flyer/affiche** : 2-3 jours\n🕒 **Pack de visuels réseaux sociaux** : 3-5 jours\n🕒 **Identité visuelle complète** : 2-4 semaines\n\nCes délais incluent les révisions. Je vous fournis toujours un calendrier précis lors de notre premier échange.",
+      "tags": ["délais", "timing", "calendrier"]
+    },
+    {
+      "id": 3,
+      "category": "pricing",
+      "question": "Quels sont vos tarifs ?",
+      "answer": "Mes tarifs sont adaptés à chaque projet. Voici une estimation :\n\n💵 **Logo** : à partir de 150€\n💵 **Flyer/Poster** : à partir de 80€\n💵 **Pack réseaux sociaux** : à partir de 200€\n💵 **Branding complet** : à partir de 500€\n💵 **Formation** : 30€/heure\n\nJe propose des forfaits pour les projets récurrents et des devis personnalisés gratuits. Contactez-moi pour discuter de votre projet spécifique.",
+      "tags": ["prix", "budget", "devis"]
+    },
+    {
+      "id": 4,
+      "category": "pricing",
+      "question": "Proposez-vous des révisions gratuites ?",
+      "answer": "Oui, tous mes forfaits incluent des révisions gratuites :\n\n✅ **Logo/Branding** : 3 révisions incluses\n✅ **Flyer/Print** : 2 révisions incluses\n✅ **Visuels réseaux sociaux** : 2 révisions par visuel\n✅ **Projets complexes** : Révisions selon le devis\n\nLes révisions supplémentaires sont facturées à un tarif réduit. L'objectif est que vous soyez 100% satisfait du résultat final.",
+      "tags": ["révisions", "modifications", "satisfaction"]
+    },
+    {
+      "id": 5,
+      "category": "process",
+      "question": "Comment se déroule le processus de travail ?",
+      "answer": "Mon processus en 5 étapes :\n\n1. **Briefing** : Discussion approfondie de vos besoins, objectifs et contraintes\n2. **Recherche & Esquisses** : Recherche créative et premières propositions\n3. **Présentation** : Présentation des concepts, feedback et sélection\n4. **Développement** : Affinage du concept choisi et création des fichiers\n5. **Livraison** : Remise des fichiers finaux et support post-projet\n\nJe vous tiens informé à chaque étape et valorise votre feedback.",
+      "tags": ["processus", "étapes", "méthodologie"]
+    },
+    {
+      "id": 6,
+      "category": "process",
+      "question": "Quels formats de fichiers recevrai-je ?",
+      "answer": "Je fournis tous les formats nécessaires selon le projet :\n\n📁 **Pour print** : PDF haute résolution, AI/EPS (vectoriel)\n📁 **Pour web** : PNG, JPG, SVG, WebP\n📁 **Pour réseaux sociaux** : Formats optimisés pour chaque plateforme\n📁 **Fichiers sources** : Formats éditable selon l'outil utilisé\n\nJe peux également créer des guidelines d'utilisation si nécessaire. Tous les fichiers sont organisés et nommés clairement.",
+      "tags": ["formats", "fichiers", "livraison"]
+    },
+    {
+      "id": 7,
+      "category": "technical",
+      "question": "Quels outils utilisez-vous ?",
+      "answer": "J'utilise une combinaison d'outils professionnels :\n\n🛠️ **Design vectoriel** : Inkscape (alternative open-source à Illustrator)\n🛠️ **Retouche photo** : Photopea (alternative à Photoshop)\n🛠️ **Design rapide** : Canva Pro\n🛠️ **Mobile editing** : Snapseed, PixelLab\n🛠️ **Montage vidéo** : Capcut\n🛠️ **Organisation** : Trello, Google Drive\n\nJe choisis l'outil le plus adapté à chaque projet et peux m'adapter à vos outils si nécessaire.",
+      "tags": ["outils", "logiciels", "technique"]
+    },
+    {
+      "id": 8,
+      "category": "technical",
+      "question": "Travaillerez-vous avec notre équipe existante ?",
+      "answer": "Absolument ! Je collabore régulièrement avec :\n\n👥 **Équipes marketing** : Pour aligner le design sur la stratégie\n👥 **Développeurs web** : Pour des intégrations fluides\n👥 **Rédacteurs** : Pour un contenu visuel/textuel cohérent\n👥 **Autres designers** : Pour des projets complexes\n\nJe peux m'adapter à vos outils (Slack, Teams, etc.), processus et contraintes techniques. La communication est clé pour une collaboration réussie.",
+      "tags": ["collaboration", "équipe", "communication"]
+    },
+    {
+      "id": 9,
+      "category": "delivery",
+      "question": "Quels sont vos délais de livraison ?",
+      "answer": "Mes délais standards sont :\n\n📅 **Projets urgents** : Sur devis spécifique (majoration possible)\n📅 **Projets standards** : Selon le calendrier établi lors du briefing\n📅 **Projets complexes** : Livraison par phases avec validation à chaque étape\n\nJe respecte toujours les délais convenus et vous tiens informé en cas de retard exceptionnel. La qualité prime sur la rapidité.",
+      "tags": ["livraison", "délais", "calendrier"]
+    },
+    {
+      "id": 10,
+      "category": "delivery",
+      "question": "Offrez-vous un support après la livraison ?",
+      "answer": "Oui, je propose :\n\n✅ **Support de base** : 15 jours après livraison pour questions simples\n✅ **Support étendu** : Option disponible pour les projets complexes\n✅ **Formations** : Session d'1 heure pour utiliser vos fichiers\n✅ **Mises à jour** : Tarifs préférentiels pour modifications futures\n\nMon objectif est de vous rendre autonome avec vos nouveaux designs tout en restant disponible pour vous aider.",
+      "tags": ["support", "après-vente", "assistance"]
+    },
+    {
+      "id": 11,
+      "category": "general",
+      "question": "Acceptez-vous les projets à distance ?",
+      "answer": "Oui, 100% de mes projets se font à distance ! Je travaille avec des clients partout dans le monde grâce à :\n\n💻 **Visio** : Google Meet, Zoom pour les réunions\n💻 **Communication** : Email, WhatsApp, messages\n💻 **Partage de fichiers** : Google Drive, WeTransfer\n💻 **Feedback** : Outils de commentaires en direct\n\nL'expérience est aussi fluide qu'en présentiel. Je suis basé en Haïti mais travaille sur tous les fuseaux horaires.",
+      "tags": ["distanciel", "remote", "international"]
+    },
+    {
+      "id": 12,
+      "category": "pricing",
+      "question": "Proposez-vous des forfaits pour les petites entreprises ?",
+      "answer": "Oui, j'ai des offres adaptées aux petites entreprises et startups :\n\n🌟 **Pack Starter** : Logo + cartes de visite + 5 visuels sociaux\n🌟 **Pack Social Media** : 10 visuels/mois + bannière profil\n🌟 **Pack Print** : Flyer + affiche + dépliant\n🌟 **Pack Formation** : 5h de formation personnalisée\n\nCes forfaits sont économiques et incluent tout le nécessaire pour démarrer. Contactez-moi pour voir ce qui correspond à vos besoins.",
+      "tags": ["forfaits", "petites-entreprises", "startups"]
+    }
+  ],
+  "contactInfo": {
+    "email": "peterleyauguste@gmail.com",
+    "phone": "+509 41 97 53 92",
+    "whatsapp": "https://wa.me/50941975392",
+    "form": "https://docs.google.com/forms/d/e/1FAIpQLSd8w14216bieFkn8gl1iTzn13_773k1178F0X5UQ-VStoxEt6Q/viewform"
+  }
+}

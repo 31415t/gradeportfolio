@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ - Grade3.0 | Peterley Auguste | Questions Fréquentes</title>
+    <meta name="description" content="Trouvez des réponses à vos questions sur mes services de design graphique, tarifs, processus de travail et plus encore. FAQ complète pour les clients.">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/faq.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="assets/images/logos/GradeLogo.png">
+</head>
+<script>
+    // Supprimer le bouton retour en haut dupliqué
+    document.addEventListener('DOMContentLoaded', function() {
+        // Supprimer le bouton retour en haut ajouté par faq.js s'il existe déjà
+        const existingBackToTop = document.getElementById('faqBackToTop');
+        if (existingBackToTop) {
+            existingBackToTop.remove();
+        }
+        
+        // Gérer le bouton effacer les filtres
+        const clearFiltersBtn = document.getElementById('clearFilters');
+        if (clearFiltersBtn) {
+            clearFiltersBtn.addEventListener('click', function() {
+                // Réinitialiser les filtres
+                const searchInput = document.querySelector('.faq-search');
+                if (searchInput) {
+                    searchInput.value = '';
+                    const searchClear = searchInput.parentNode.querySelector('.search-clear');
+                    if (searchClear) searchClear.style.display = 'none';
+                }
+                
+                // Activer "Toutes les questions"
+                const allBtn = document.querySelector('.faq-category-btn[data-category="all"]');
+                if (allBtn) {
+                    document.querySelectorAll('.faq-category-btn').forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    allBtn.classList.add('active');
+                    
+                    // Réafficher toutes les questions
+                    const event = new Event('faqFilterChanged');
+                    document.dispatchEvent(event);
+                }
+            });
+        }
+    });
+    
+    // Événement personnalisé pour les changements de filtre
+    document.addEventListener('faqFilterChanged', function() {
+        console.log('Filtres FAQ réinitialisés');
+    });
+</script>
+<body>
+    <!-- Navigation (identique au portfolio) -->
+    <nav class="navbar" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="assets/images/logos/GradeLogo.png" alt="Grade3.0 Logo" class="logo-img">
+                <span class="brandname">Grade3.0</span>
+            </a>
+            
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu mobile">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="index.html#accueil" class="nav-link">Accueil</a></li>
+                <li><a href="index.html#projets" class="nav-link">Portfolio</a></li>
+                <li><a href="index.html#apropos" class="nav-link">À propos</a></li>
+                <li><a href="index.html#competences" class="nav-link">Services</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="faq.html" class="nav-link active">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<!-- Section FAQ -->
+<main class="faq-container">
+    <div class="container">
+        <!-- En-tête de la FAQ -->
+        <div class="faq-header">
+            <h1>Foire aux Questions</h1>
+            <p class="faq-subtitle">
+                Trouvez rapidement des réponses à vos questions les plus fréquentes sur mes services, tarifs et processus de travail.
+            </p>
+            
+            <!-- Barre de recherche UNIQUE -->
+            <div class="faq-search-container">
+                <div class="search-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input 
+                        type="text" 
+                        class="faq-search" 
+                        placeholder="Rechercher une question ou un mot-clé..."
+                        aria-label="Rechercher dans les questions fréquentes"
+                    >
+                    <!-- BOUTON EFFACER UNIQUE (caché par défaut) -->
+                    <button class="search-clear" aria-label="Effacer la recherche">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Catégories (sans doublon "Toutes les questions") -->
+        <div class="faq-categories-intro">
+            <h2>Parcourir par catégorie</h2>
+            <p>Sélectionnez une catégorie pour voir les questions correspondantes</p>
+        </div>
+        
+        <div class="faq-categories" id="faqCategories">
+            <!-- Les catégories seront générées dynamiquement par JavaScript -->
+        </div>
+
+        <!-- Compteur de résultats -->
+        <div class="faq-results-info">
+            <p id="resultsCount"></p>
+            <button class="btn btn-secondary btn-sm" id="clearFilters">
+                <i class="fas fa-times"></i> Effacer les filtres
+            </button>
+        </div>
+
+        <!-- Liste des questions -->
+        <div class="faq-list-container">
+            <h2>Questions & Réponses</h2>
+            <div class="faq-list" id="faqList">
+                <!-- Les questions seront générées dynamiquement par JavaScript -->
+            </div>
+        </div>
+
+        <!-- CTA Contact -->
+        <div class="faq-contact-cta">
+            <div class="cta-content">
+                <i class="fas fa-comments cta-icon"></i>
+                <h2>Vous ne trouvez pas votre réponse ?</h2>
+                <p>
+                    Je suis là pour vous aider ! Contactez-moi directement pour discuter de votre projet, 
+                    obtenir un devis personnalisé ou poser toute autre question.
+                </p>
+                
+                <div class="cta-buttons">
+                    <a href="index.html#contact" class="btn btn-primary">
+                        <i class="fas fa-envelope"></i> Me contacter via le formulaire
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+    <!-- Footer (identique au portfolio) -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="assets/images/logos/GradeLogo.png" alt="Grade3.0 Logo" class="footer-logo">
+                    <h3>Grade3.0</h3>
+                    <p>Création d'identités visuelles impactantes</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h4>Navigation</h4>
+                    <ul>
+                        <li><a href="index.html#accueil">Accueil</a></li>
+                        <li><a href="index.html#projets">Portfolio</a></li>
+                        <li><a href="index.html#apropos">À propos</a></li>
+                        <li><a href="index.html#competences">Services</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                        <li><a href="faq.html" class="active">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h4>Contact rapide</h4>
+                    <p><i class="fas fa-envelope"></i> peterleyauguste@gmail.com</p>
+                    <p><i class="fas fa-phone"></i> +509 41 97 53 92</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Port-de-Paix, Haïti</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Grade3.0 - Tous droits réservés.</p>
+                <p>Designé et développé avec <i class="fas fa-heart"></i> par Peterley Auguste</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bouton retour en haut -->
+    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="js/faq.js"></script>
+</body>
+</html>
