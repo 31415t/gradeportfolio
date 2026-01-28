@@ -1,5 +1,5 @@
 🎯 QU'EST-CE QUE C'EST ?
-Un portfolio moderne et responsive pour un graphic designer (Peterley Auguste). Le site présente tes projets, témoignages clients, services et offre une page FAQ complète.
+Un portfolio moderne et responsive pour un graphic designer. Le site présente tes projets, témoignages clients, services et offre une page FAQ complète.
 
 📂 STRUCTURE DES DOSSIERS
 text
@@ -75,17 +75,6 @@ Footer	sections.css	.footer
 FAQ	faq.css	.faq-container, .faq-item
 📝 MODIFIER LE CONTENU (DONNÉES)
 1. Infos personnelles (data/personal.json)
-json
-{
-  "name": "Peterley Auguste",
-  "title": "Graphic Designer & Fondateur",
-  "email": "peterleyauguste@gmail.com",
-  "phone": "+509 41 97 53 92",
-  "location": "Port-de-Paix, Haïti",
-  "yearsExperience": 5,
-  "projectsCount": 120,
-  "clientsCount": 25
-}
 2. Ajouter un projet (data/projects.json)
 json
 {
@@ -297,12 +286,6 @@ Problème : La FAQ ne se charge pas
 
 ✅ Vérifie que js/faq.js est bien lié dans faq.html
 
-📞 CONTACT ET SUPPORT
-Pour toute question sur le code :
-
-Email : peterleyauguste@gmail.com
-
-WhatsApp : +509 41 97 53 92
 
 📚 POUR ALLER PLUS LOIN
 Si tu veux ajouter une section :
