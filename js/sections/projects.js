@@ -342,8 +342,8 @@ export function initProjects() {
         style="border-color: #F95606;">
       
       <!-- Bouton fermeture -->
-      <button class="modal-close absolute top-4 right-4 z-10 bg-white rounded-full p-2 
-                    hover:bg-gray-200 transition duration-300 shadow-lg"
+      <button class="modal-close absolute top-4 right-4 z-10 bg-light/80 rounded-full p-2 
+                    hover:bg-gray-200 transition duration-300 shadow-lg backdrop-blur-lg backdrop-saturate-150"
               aria-label="Fermer la modal">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
@@ -366,17 +366,20 @@ export function initProjects() {
     `;
 
     document.body.appendChild(modal);
+    document.body.classList.add('modal-open');
 
     // Bouton fermeture
     const closeBtn = modal.querySelector('.modal-close');
     closeBtn.addEventListener('click', () => {
       modal.remove();
+      document.body.classList.remove('modal-open');
     });
 
     // Fermer en cliquant en dehors
     modal.addEventListener('click', (e) => {
       if (e.target === modal) {
         modal.remove();
+        document.body.classList.remove('modal-open');
       }
     });
 
@@ -384,6 +387,7 @@ export function initProjects() {
     const handleEscape = (e) => {
       if (e.key === 'Escape') {
         modal.remove();
+        document.body.classList.remove('modal-open');
         document.removeEventListener('keydown', handleEscape);
       }
     };

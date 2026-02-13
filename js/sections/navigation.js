@@ -14,20 +14,24 @@ export function initNavigation() {
     '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">\n                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"></path>\n                </svg>';
 
   // Menu mobile
-  if (menuToggle && navMenu) {
+  const navMenuMobile = document.getElementById('navMenuMobile');
+  if (menuToggle && navMenuMobile) {
     menuToggle.addEventListener('click', (e) => {
       e.stopPropagation();
       // Toggle visibility on small screens by toggling the Tailwind 'hidden' class
-      navMenu.classList.toggle('hidden');
-      const expanded = !navMenu.classList.contains('hidden');
+      navMenuMobile.classList.toggle('hidden');
+      const expanded = !navMenuMobile.classList.contains('hidden');
       menuToggle.setAttribute('aria-expanded', expanded.toString());
       menuToggle.innerHTML = expanded ? closeSvg : openSvg;
     });
 
     // Fermer le menu en cliquant sur un lien
-    navLinks.forEach((link) => {
+    const mobileNavLinks = document.querySelectorAll(
+      '#navMenuMobile .nav-link',
+    );
+    mobileNavLinks.forEach((link) => {
       link.addEventListener('click', () => {
-        navMenu.classList.add('hidden');
+        navMenuMobile.classList.add('hidden');
         menuToggle.setAttribute('aria-expanded', 'false');
         menuToggle.innerHTML = openSvg;
       });
@@ -36,10 +40,10 @@ export function initNavigation() {
     // Fermer le menu en cliquant en dehors
     document.addEventListener('click', (event) => {
       if (
-        !navMenu.contains(event.target) &&
+        !navMenuMobile.contains(event.target) &&
         !menuToggle.contains(event.target)
       ) {
-        navMenu.classList.add('hidden');
+        navMenuMobile.classList.add('hidden');
         menuToggle.setAttribute('aria-expanded', 'false');
         menuToggle.innerHTML = openSvg;
       }

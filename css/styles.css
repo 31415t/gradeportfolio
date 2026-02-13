@@ -1,27 +1,35 @@
 :root {
-  --primary-color: #F95606;
-  --secondary-color: #0066CC;
-  --accent-color: #FFD43B;
-  --dark-color: #7A3EB1;
-  --light-color: #F8F9FA;
-  --neutral-color: #E0E0E0;
+  --primary-color: #f95606;
+  --secondary-color: #7a3eb1;
+  --accent-color: #ffd43b;
+  --blue-color: #0066cc;
+  --light-color: #f8f9fa;
+  --neutral-color: #e0e0e0;
   --gray-color: #666666;
   --text-color: #333333;
 }
 
 .dark {
-  --primary-color: #FFD43B;   /* tu peux inverser ou adapter */
-  --secondary-color: #7A3EB1;
-  --accent-color: #F95606;
+  --primary-color: #ffd43b; /* tu peux inverser ou adapter */
+  --secondary-color: #7a3eb1;
+  --accent-color: #f95606;
   --dark-color: #333333;
-  --light-color: #1A1A1A;
+  --light-color: #1a1a1a;
   --neutral-color: #444444;
-  --gray-color: #AAAAAA;
-  --text-color: #F8F9FA;
+  --gray-color: #aaaaaa;
+  --text-color: #f8f9fa;
 }
 
-.bg-primary { background-color: var(--primary-color); }
-.text-primary { color: var(--primary-color); }
-.bg-secondary { background-color: var(--secondary-color); }
-.text-secondary { color: var(--secondary-color); }
+.bg-primary {
+  background-color: var(--primary-color);
+}
+.text-primary {
+  color: var(--primary-color);
+}
+.bg-secondary {
+  background-color: var(--secondary-color);
+}
+.text-secondary {
+  color: var(--secondary-color);
+}
 /* etc. pour accent, dark, light, neutral, gray, text */

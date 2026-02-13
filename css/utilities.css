@@ -762,3 +762,22 @@
   animation: loading 1.5s infinite;
   border-radius: var(--border-radius);
 }
+
+/* Logo animation */
+@keyframes loading-logo {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.logo-animate {
+    animation: loading-logo 10s linear infinite;
+}
+
+.logo-animate:hover {
+    animation: none;
+    transform: rotate(0deg);
+}
