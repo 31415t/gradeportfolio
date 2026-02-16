@@ -1,4 +1,4 @@
-// sections/projects.js - Génération HTML + Gestion des projets, filtrage, pagination
+// sections/projects.js - Version avec solution/brief
 
 export function renderProjects() {
   return `
@@ -26,7 +26,8 @@ export function renderProjects() {
           </div>
         </div>
         
-        <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+        <!-- Conteneur de pagination -->
+        <div class="pagination-container mt-12" id="paginationContainer" style="display: none;">
         </div>
       </div>
     </section>
@@ -42,11 +43,12 @@ export function initProjects() {
   let currentPage = 1;
   const projectsPerPage = 6;
   let currentFilter = 'all';
+  let totalPages = 1;
 
   // Éléments DOM
   const projectsGrid = document.getElementById('projectsGrid');
   const filterButtons = document.querySelectorAll('.filter-btn');
-  const loadMoreContainer = document.getElementById('loadMoreContainer');
+  const paginationContainer = document.getElementById('paginationContainer');
 
   // Charger les projets
   async function loadProjects() {
@@ -56,12 +58,13 @@ export function initProjects() {
 
       allProjects = await response.json();
       filteredProjects = [...allProjects];
+      
+      totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
 
-      // Initialiser le rendu
       renderProjectsData();
       initProjectFilter();
+      updateFilterCounts();
 
-      // Cacher l'état de chargement
       const loadingElement = document.querySelector('.loading-projects');
       if (loadingElement) {
         loadingElement.style.display = 'none';
@@ -70,85 +73,263 @@ export function initProjects() {
       console.log(`✅ ${allProjects.length} projets chargés`);
     } catch (error) {
       console.error('❌ Erreur:', error);
-      showErrorMessage(
-        'Impossible de charger les projets. Veuillez réessayer.',
-      );
+      showErrorMessage('Impossible de charger les projets. Veuillez réessayer.');
 
-      // Afficher un message d'erreur dans la grille
       if (projectsGrid) {
         projectsGrid.innerHTML = `
-                    <div class="no-projects-message">
-                        <i class="fas fa-exclamation-circle"></i>
-                        <p>Impossible de charger les projets. Veuillez rafraîchir la page.</p>
-                    </div>
-                `;
+          <div class="no-projects-message col-span-full">
+            <i class="fas fa-exclamation-circle"></i>
+            <p>Impossible de charger les projets. Veuillez rafraîchir la page.</p>
+          </div>
+        `;
       }
     }
   }
 
   // Rendre les projets
-  function renderProjectsData(resetPagination = true) {
+  function renderProjectsData(resetPage = true) {
     if (!projectsGrid) return;
 
-    // Réinitialiser la pagination si demandé
-    if (resetPagination) {
+    if (resetPage) {
       currentPage = 1;
     }
 
-    // Calculer les projets à afficher
-    const startIndex = (currentPage - 1) * projectsPerPage;
-    const endIndex = startIndex + projectsPerPage;
-    const projectsToShow = filteredProjects.slice(startIndex, endIndex);
+    totalPages = Math.ceil(filteredProjects.length / projectsPerPage);
 
-    // Vider la grille si première page
-    if (currentPage === 1) {
-      projectsGrid.innerHTML = '';
+    if (currentPage > totalPages) {
+      currentPage = totalPages || 1;
     }
 
-    // Afficher un message si aucun projet
-    if (projectsToShow.length === 0 && currentPage === 1) {
+    const startIndex = (currentPage - 1) * projectsPerPage;
+    const endIndex = Math.min(startIndex + projectsPerPage, filteredProjects.length);
+    const projectsToShow = filteredProjects.slice(startIndex, endIndex);
+
+    projectsGrid.innerHTML = '';
+
+    if (projectsToShow.length === 0) {
       projectsGrid.innerHTML = `
-                <div class="no-projects-message">
-                    <i class="fas fa-search"></i>
-                    <p>Aucun projet trouvé dans cette catégorie.</p>
-                </div>
-            `;
-      if (loadMoreContainer) loadMoreContainer.style.display = 'none';
+        <div class="no-projects-message col-span-full">
+          <i class="fas fa-search"></i>
+          <p>Aucun projet trouvé dans cette catégorie.</p>
+        </div>
+      `;
+      if (paginationContainer) paginationContainer.style.display = 'none';
       return;
     }
 
-    // Créer et ajouter les cartes de projet
     projectsToShow.forEach((project, index) => {
       const projectCard = createProjectCard(project);
-
-      // Ajouter un délai pour l'animation
+      
+      projectCard.style.opacity = '0';
+      projectCard.style.transform = 'translateY(20px)';
+      
       setTimeout(() => {
-        projectCard.style.animationDelay = `${index * 0.1}s`;
-        projectCard.classList.add('animated');
-      }, 100);
+        projectCard.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        projectCard.style.opacity = '1';
+        projectCard.style.transform = 'translateY(0)';
+      }, index * 100);
 
       projectsGrid.appendChild(projectCard);
     });
 
-    // Mettre à jour le bouton "Voir plus"
-    updateLoadMoreButton();
+    updatePagination();
+  }
 
-    // Animer l'apparition
-    animateProjectsAppearance();
+  // ==================== MODAL UNIQUE (Image + Info) ====================
+  
+  function showProjectModal(project, mode = 'image') {
+    const modal = document.createElement('div');
+    modal.className =
+      'fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm';
+    modal.setAttribute('id', 'project-modal');
+
+    // Récupérer les données selon le mode
+    const {
+      title = 'Projet sans titre',
+      category = 'autre',
+      solution = 'Solution non spécifiée',
+      brief = 'Aucun brief fourni',
+      imageUrl = null,
+      client = {
+        name: 'Client non spécifié',
+        profile: 'fas fa-user',
+        date: new Date().toLocaleDateString('fr-FR')
+      },
+      technologies = []
+    } = project;
+
+    // Couleur pour la catégorie
+    const categoryColors = {
+      logo: '#6C63FF',
+      branding: '#FF6584',
+      flyer: '#36B37E',
+      socialMedia: '#FFAB00',
+      print: '#6554C0',
+      mockup: '#F95606',
+      illustration: '#FF8A5C',
+      autre: '#888888'
+    };
+    
+    const categoryColor = categoryColors[category] || '#F95606';
+    const categoryName = formatCategoryName(category);
+    
+    // Formater la date
+    let formattedDate = client.date;
+    if (client.date && !isNaN(new Date(client.date))) {
+      formattedDate = new Date(client.date).toLocaleDateString('fr-FR', {
+        day: 'numeric',
+        month: 'long',
+        year: 'numeric'
+      });
+    }
+
+    // Contenu selon le mode
+    let modalContent = '';
+
+    if (mode === 'image') {
+      // Mode IMAGE (comportement original)
+      modalContent = `
+        <div class="relative bg-white rounded-lg overflow-hidden animate-fade-in border-2 
+                    inline-block max-w-[90vw] max-h-[80vh]"
+            style="border-color: #F95606;">
+          
+          <!-- Bouton fermeture -->
+          <button class="modal-close absolute top-4 right-4 z-10 bg-light/80 rounded-full p-2 
+                        hover:bg-gray-200 transition duration-300 shadow-lg backdrop-blur-lg backdrop-saturate-150"
+                  aria-label="Fermer la modal">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+
+          <!-- Image -->
+          <div class="bg-gray-100 flex items-center justify-center">
+            ${
+              imageUrl
+                ? `<img src="${imageUrl}" alt="${title}" 
+                        class="object-contain" style="max-width: 80vw; max-height: 70vh;">`
+                : `<div class="text-center py-20">
+                    <i class="fas fa-image text-6xl text-gray-300"></i>
+                  </div>`
+            }
+          </div>
+        </div>
+      `;
+    } else {
+      // Mode INFO (style message client)
+      modalContent = `
+        <div class="relative bg-white rounded-2xl overflow-hidden animate-fade-in max-w-md w-full mx-4 shadow-2xl"
+            style="border: 1px solid ${categoryColor}20;">
+          
+          <!-- Bouton fermeture (seul, en haut à droite) -->
+          <button class="modal-close absolute top-4 right-4 w-8 h-8 rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center z-10">
+            <i class="fas fa-times text-gray-500"></i>
+          </button>
+          
+          <!-- En-tête avec juste le nom du client -->
+          <div class="px-6 pt-8 pb-2 text-center">
+            <h3 class="font-semibold text-gray-800">${client.name}</h3>
+            <span class="text-xs text-gray-400">${categoryName}</span>
+          </div>
+          
+          <!-- Corps - Message client uniquement -->
+          <div class="px-6 py-4">
+            <div class="inline-block max-w-[90%] rounded-2xl px-5 py-4 text-sm"
+                style="background-color: #f0f0f0; color: #1a1a1a; border-bottom-left-radius: 4px;">
+              <p class="leading-relaxed whitespace-pre-line">"${brief}"</p>
+            </div>
+            <div class="flex items-center gap-1 mt-2 ml-2">
+              <span class="text-xs text-gray-400">${formattedDate}</span>
+              <span class="text-xs text-gray-400">
+                <i class="fas fa-check-double" style="color: ${categoryColor};"></i>
+              </span>
+            </div>
+          </div>
+          
+          <!-- Pied avec titre du projet (discret) -->
+          <div class="px-6 py-3 border-t border-gray-100 text-center text-xs text-gray-400">
+            Projet: ${project.title}
+          </div>
+        </div>
+      `;
+    }
+
+    modal.innerHTML = modalContent;
+    document.body.appendChild(modal);
+    document.body.classList.add('modal-open');
+
+    // Gestionnaires de fermeture (identiques pour les deux modes)
+    const closeButtons = modal.querySelectorAll('.modal-close');
+    closeButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        modal.remove();
+        document.body.classList.remove('modal-open');
+        
+        // Réinitialiser l'icône du bouton info si nécessaire
+        if (mode === 'info') {
+          document.querySelectorAll('.info-toggle[data-modal-open="true"]').forEach(btn => {
+            btn.setAttribute('data-modal-open', 'false');
+            const icon = btn.querySelector('i');
+            if (icon) {
+              icon.className = 'fas fa-chevron-down text-xs';
+            }
+          });
+        }
+      });
+    });
+
+    // Fermer en cliquant sur l'overlay
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        modal.remove();
+        document.body.classList.remove('modal-open');
+        
+        if (mode === 'info') {
+          document.querySelectorAll('.info-toggle[data-modal-open="true"]').forEach(btn => {
+            btn.setAttribute('data-modal-open', 'false');
+            const icon = btn.querySelector('i');
+            if (icon) {
+              icon.className = 'fas fa-chevron-down text-xs';
+            }
+          });
+        }
+      }
+    });
+
+    // Fermer avec Escape
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') {
+        modal.remove();
+        document.body.classList.remove('modal-open');
+        document.removeEventListener('keydown', handleEscape);
+        
+        if (mode === 'info') {
+          document.querySelectorAll('.info-toggle[data-modal-open="true"]').forEach(btn => {
+            btn.setAttribute('data-modal-open', 'false');
+            const icon = btn.querySelector('i');
+            if (icon) {
+              icon.className = 'fas fa-chevron-down text-xs';
+            }
+          });
+        }
+      }
+    };
+    document.addEventListener('keydown', handleEscape);
   }
 
   // Créer une carte de projet
   function createProjectCard(project) {
     const projectCard = document.createElement('div');
     projectCard.className =
-      'rounded overflow-hidden shadow-lg flex flex-col h-full hover:shadow-2xl transition-shadow duration-300';
+      'rounded overflow-hidden shadow-lg flex flex-col h-full hover:shadow-2xl transition-shadow duration-300 relative';
     projectCard.setAttribute('data-category', project.category);
     projectCard.setAttribute('data-id', project.id);
 
     // Couleurs pour les catégories
     const colors = ['#6C63FF', '#FF6584', '#36B37E', '#FFAB00', '#6554C0'];
     const randomColor = colors[Math.floor(Math.random() * colors.length)];
-    const primaryColor = '#F95606'; // Orange depuis styles.css
+    const primaryColor = '#F95606';
 
     // Catégorie formatée
     const categoryName = formatCategoryName(project.category);
@@ -177,93 +358,125 @@ export function initProjects() {
       `;
     }
 
-    // HTML de la carte
+    // HTML de la carte avec SOLUTION au lieu de description
     projectCard.innerHTML = `
-      <div class="relative flex-shrink-0">
-        <div class="relative overflow-hidden bg-gray-100 h-56">
-          ${imageContent}
-          <!-- Overlay au hover -->
-          <div class="hover:bg-transparent transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-gray-900 opacity-0 hover:opacity-20 pointer-events-none"></div>
-        </div>
-        <!-- Badge catégorie discret -->
-        <div class="text-xs absolute top-0 right-0 px-3 py-1 mt-3 mr-3 font-medium rounded border pointer-events-none  bg-light/80 backdrop-blur-lg backdrop-brightness-150" 
-             style="border-color: ${randomColor}; color: ${randomColor};">
-          ${categoryName}
-        </div>
+    <div class="relative flex-shrink-0">
+      <!-- Image + overlay -->
+      <div class="relative overflow-hidden bg-gray h-56">
+        ${imageContent}
+        <div class="transition duration-300 absolute bottom-0 top-0 right-0 left-0 bg-dark opacity-0 hover-accent pointer-events-none"></div>
       </div>
 
-      <!-- Contenu -->
-      <div class="px-6 py-4 mb-auto flex-grow">
-        <h3 class="font-medium text-lg hover:text-primary transition duration-500 ease-in-out mb-2">
-          ${project.title}
-        </h3>
-        <p class="text-gray-500 text-sm line-clamp-2">
-          ${project.description}
-        </p>
+      <!-- Badge catégorie -->
+      <div class="text-xs absolute top-0 right-0 px-3 py-1 mt-3 mr-3 font-medium rounded border pointer-events-none bg-light text-secondary"
+          style="border-color: ${randomColor}; color: ${randomColor};">
+        ${categoryName}
       </div>
+    </div>
 
-      <!-- Footer -->
-      <div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-50 border-t border-gray-200">
-        <button class="like-btn py-1 px-3 text-sm font-semibold flex flex-row items-center transition duration-300" 
+    <!-- Contenu -->
+    <div class="px-6 py-4 mb-auto flex-grow">
+      <h3 class="font-medium text-lg mb-2" style="color: ${randomColor};">
+        ${project.title}
+      </h3>
+      <!-- Affichage de la SOLUTION (courte) -->
+      <p class="text-gray-600 text-sm leading-relaxed">
+        ${project.solution || project.description || 'Aucune description'}
+      </p>
+    </div>
+
+    <!-- Footer avec les boutons -->
+    <div class="px-6 py-3 flex flex-row items-center justify-between bg-light border-t border-neutral">
+      <!-- Groupe de gauche : like + info -->
+      <div class="flex items-center gap-2">
+        <!-- Bouton like -->
+        <button class="like-btn w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
                 data-id="${project.id}">
           <i class="fas fa-heart" style="color: ${isLiked ? primaryColor : 'transparent'}; -webkit-text-stroke: 2px ${primaryColor};"></i>
         </button>
         
-        <button class="view-project-btn py-2 px-4 text-sm font-semibold text-white rounded transition duration-300 hover:shadow-lg"
-                style="background-color: ${primaryColor};"
-                data-id="${project.id}">
-          <i class="fas fa-eye"></i> Voir
+        <!-- Bouton info avec flèche - OUVRE LE BRIEF CLIENT -->
+        <button class="info-toggle w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
+                data-modal-open="false"
+                aria-label="Voir le brief client">
+          <i class="fas fa-chevron-down text-xs" style="color: ${randomColor};"></i>
         </button>
       </div>
+
+      <!-- Bouton voir (image) -->
+      <button class="view-project-btn py-2 px-4 btn-secondary text-sm font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 group/view">
+        <span>Voir</span>
+        <i class="fas fa-arrow-right text-xs opacity-100 -translate-x-2 group-hover/view:opacity-100 group-hover/view:translate-x-0 transition-all duration-300"></i>
+      </button>
+    </div>
     `;
+
+    // ========== GESTIONNAIRES D'ÉVÉNEMENTS ==========
+
+    // EVENT: Bouton info (ouvre le modal en mode 'info' avec le brief)
+    const infoBtn = projectCard.querySelector('.info-toggle');
+    if (infoBtn) {
+      infoBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const isOpen = this.getAttribute('data-modal-open') === 'true';
+        const icon = this.querySelector('i');
+        
+        if (!isOpen) {
+          this.setAttribute('data-modal-open', 'true');
+          icon.className = 'fas fa-chevron-up text-xs';
+          showProjectModal(project, 'info');
+        }
+      });
+    }
 
     // EVENT: Bouton J'aime
     const likeBtn = projectCard.querySelector('.like-btn');
-    const likeIcon = likeBtn.querySelector('i');
     if (likeBtn) {
       updateLikeUI(likeBtn, project.id, randomColor);
 
       likeBtn.addEventListener('click', function (e) {
         e.preventDefault();
+        e.stopPropagation();
+        
         const projectId = parseInt(project.id);
         const likedProjects = JSON.parse(
           localStorage.getItem('likedProjects') || '[]',
         );
+        const likeIcon = this.querySelector('i');
 
         if (likedProjects.includes(projectId)) {
-          // Retirer du liked
           const index = likedProjects.indexOf(projectId);
           likedProjects.splice(index, 1);
           likeIcon.style.color = '#ccc';
         } else {
-          // Ajouter au liked
           likedProjects.push(projectId);
-          likeIcon.style.color = randomColor;
+          likeIcon.style.color = primaryColor;
         }
 
         localStorage.setItem('likedProjects', JSON.stringify(likedProjects));
-        updateLikeUI(likeBtn, projectId, randomColor);
+        updateLikeUI(this, projectId, randomColor);
       });
     }
 
-    // EVENT: Bouton Voir le projet
+    // EVENT: Bouton Voir (ouvre le modal en mode 'image')
     const viewBtn = projectCard.querySelector('.view-project-btn');
     if (viewBtn) {
       viewBtn.addEventListener('click', function (e) {
         e.preventDefault();
-        const projectId = this.getAttribute('data-id');
-        showProjectModal(project);
+        e.stopPropagation();
+        showProjectModal(project, 'image');
       });
     }
 
-    // Gestionnaire clique sur image + erreur d'image
+    // Gestionnaire clique sur image
     const projectImg = projectCard.querySelector('.project-img');
     if (projectImg) {
-      // Rendre l'image cliquable pour ouvrir le modal
       projectImg.style.cursor = 'pointer';
       projectImg.addEventListener('click', function (e) {
         e.preventDefault();
-        showProjectModal(project);
+        showProjectModal(project, 'image');
       });
 
       projectImg.addEventListener('error', function () {
@@ -280,9 +493,199 @@ export function initProjects() {
     return projectCard;
   }
 
-  // Mettre à jour l'UI du like
+  // ==================== PAGINATION ====================
+  
+  function updatePagination() {
+    if (!paginationContainer) return;
+
+    if (totalPages <= 1 || filteredProjects.length === 0) {
+      paginationContainer.style.display = 'none';
+      return;
+    }
+
+    paginationContainer.style.display = 'block';
+    
+    let startPage = Math.max(1, currentPage - 2);
+    let endPage = Math.min(totalPages, startPage + 4);
+    
+    if (endPage - startPage < 4) {
+      startPage = Math.max(1, endPage - 4);
+    }
+
+    let paginationHTML = `
+      <div class="flex flex-col items-center space-y-4">
+        <div class="text-sm text-gray-600">
+          Page ${currentPage} sur ${totalPages} · 
+          <span class="font-medium">${filteredProjects.length} projets au total</span>
+        </div>
+        
+        <div class="flex items-center space-x-2">
+    `;
+
+    // Bouton Précédent
+    paginationHTML += `
+      <button class="pagination-btn prev-btn px-4 py-2 rounded-lg border border-gray-300 
+                     ${currentPage === 1 ? 'opacity-50 cursor-not-allowed bg-gray-100' : 'hover:bg-orange-50 hover:border-orange-300 transition-colors duration-200'}"
+              ${currentPage === 1 ? 'disabled' : ''}>
+        <i class="fas fa-chevron-left mr-1"></i>
+        Précédent
+      </button>
+    `;
+
+    // Numéros de pages
+    paginationHTML += `<div class="hidden sm:flex items-center space-x-2">`;
+    
+    for (let i = startPage; i <= endPage; i++) {
+      paginationHTML += `
+        <button class="pagination-btn page-btn w-10 h-10 rounded-lg 
+                       ${i === currentPage 
+                         ? 'bg-orange-500 text-white font-semibold' 
+                         : 'border border-gray-300 hover:bg-orange-50 hover:border-orange-300 transition-colors duration-200'}"
+                data-page="${i}">
+          ${i}
+        </button>
+      `;
+    }
+    
+    paginationHTML += `</div>`;
+
+    // Bouton Suivant
+    paginationHTML += `
+      <button class="pagination-btn next-btn px-4 py-2 rounded-lg border border-gray-300
+                     ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed bg-gray-100' : 'hover:bg-orange-50 hover:border-orange-300 transition-colors duration-200'}"
+              ${currentPage === totalPages ? 'disabled' : ''}>
+        Suivant
+        <i class="fas fa-chevron-right ml-1"></i>
+      </button>
+    `;
+
+    paginationHTML += `
+        </div>
+        <div class="sm:hidden text-sm text-gray-500">
+          ${currentPage}/${totalPages}
+        </div>
+      </div>
+    `;
+
+    paginationContainer.innerHTML = paginationHTML;
+    attachPaginationEvents();
+  }
+
+  function attachPaginationEvents() {
+    const prevBtn = paginationContainer.querySelector('.prev-btn');
+    if (prevBtn && !prevBtn.disabled) {
+      prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderProjectsData(false);
+          document.getElementById('projets').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      });
+    }
+
+    const nextBtn = paginationContainer.querySelector('.next-btn');
+    if (nextBtn && !nextBtn.disabled) {
+      nextBtn.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderProjectsData(false);
+          document.getElementById('projets').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      });
+    }
+
+    const pageBtns = paginationContainer.querySelectorAll('.page-btn');
+    pageBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const page = parseInt(btn.dataset.page);
+        if (page !== currentPage) {
+          currentPage = page;
+          renderProjectsData(false);
+          document.getElementById('projets').scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'start' 
+          });
+        }
+      });
+    });
+  }
+
+  // ==================== FILTRES ====================
+
+  function initProjectFilter() {
+    if (!filterButtons.length) return;
+
+    filterButtons.forEach((button) => {
+      button.addEventListener('click', function () {
+        const filter = this.getAttribute('data-filter');
+
+        if (filter === 'all') {
+          filterButtons.forEach((btn) => btn.classList.remove('active'));
+          this.classList.add('active');
+          currentFilter = 'all';
+        } else {
+          this.classList.toggle('active');
+
+          const allBtn = Array.from(filterButtons).find(
+            (btn) => btn.getAttribute('data-filter') === 'all',
+          );
+          if (allBtn) allBtn.classList.remove('active');
+
+          const anyActive = Array.from(filterButtons).some((btn) =>
+            btn.classList.contains('active'),
+          );
+          if (!anyActive && allBtn) {
+            allBtn.classList.add('active');
+            currentFilter = 'all';
+          } else {
+            currentFilter = getCurrentFilter();
+          }
+        }
+
+        applyFilter(currentFilter);
+      });
+    });
+  }
+
+  function applyFilter(filter) {
+    if (filter === 'all') {
+      filteredProjects = [...allProjects];
+    } else {
+      filteredProjects = allProjects.filter((project) => {
+        if (Array.isArray(filter)) {
+          return filter.includes(project.category);
+        }
+        return project.category === filter;
+      });
+    }
+
+    renderProjectsData(true);
+  }
+
+  function getCurrentFilter() {
+    const activeButtons = Array.from(filterButtons).filter((btn) =>
+      btn.classList.contains('active'),
+    );
+    if (activeButtons.length === 0) return 'all';
+
+    const activeFilters = activeButtons.map((btn) =>
+      btn.getAttribute('data-filter'),
+    );
+    if (activeFilters.includes('all')) return 'all';
+
+    return activeFilters;
+  }
+
+  // ==================== FONCTIONS UTILITAIRES ====================
+
   function updateLikeUI(likeBtn, projectId, color) {
-    const primaryColor = '#F95606'; // Orange
+    const primaryColor = '#F95606';
     const likedProjects = JSON.parse(
       localStorage.getItem('likedProjects') || '[]',
     );
@@ -298,250 +701,6 @@ export function initProjects() {
     }
   }
 
-  // Gérer l'erreur d'image
-  function handleImageError(imgElement, iconClass, color) {
-    imgElement.style.display = 'none';
-    const fallbackIcon = imgElement.nextElementSibling;
-    if (fallbackIcon && fallbackIcon.classList.contains('fallback-icon')) {
-      fallbackIcon.style.display = 'block';
-      fallbackIcon.style.color = color;
-      fallbackIcon.style.position = 'absolute';
-      fallbackIcon.style.top = '50%';
-      fallbackIcon.style.left = '50%';
-      fallbackIcon.style.transform = 'translate(-50%, -50%)';
-    }
-  }
-
-  // Voir les détails d'un projet
-  function viewProjectDetails(projectId) {
-    const project = allProjects.find((p) => p.id == projectId);
-    if (!project) {
-      console.warn('Projet non trouvé:', projectId);
-      return;
-    }
-
-    // Simple ouverture de l'image en grand
-    if (project.imageUrl) {
-      window.open(project.imageUrl, '_blank');
-    } else {
-      // Afficher une modal avec les détails
-      showProjectModal(project);
-    }
-  }
-
-  // Afficher une modal de projet
-  function showProjectModal(project) {
-    const modal = document.createElement('div');
-    modal.className =
-      'fixed inset-0 bg-black/80 z-50 flex items-center justify-center p-4 backdrop-blur-sm';
-    modal.setAttribute('id', 'project-modal');
-
-    modal.innerHTML = `
-    <div class="relative bg-white rounded-lg overflow-hidden animate-fade-in border-2 
-                inline-block max-w-[90vw] max-h-[80vh]"
-        style="border-color: #F95606;">
-      
-      <!-- Bouton fermeture -->
-      <button class="modal-close absolute top-4 right-4 z-10 bg-light/80 rounded-full p-2 
-                    hover:bg-gray-200 transition duration-300 shadow-lg backdrop-blur-lg backdrop-saturate-150"
-              aria-label="Fermer la modal">
-        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                d="M6 18L18 6M6 6l12 12"></path>
-        </svg>
-      </button>
-
-      <!-- Image -->
-      <div class="bg-gray-100 flex items-center justify-center">
-        ${
-          project.imageUrl
-            ? `<img src="${project.imageUrl}" alt="${project.title}" 
-                    class="object-contain" style="max-width: 80vw; max-height: 70vh;">`
-            : `<div class="text-center py-20">
-                <i class="fas fa-image text-6xl text-gray-300"></i>
-              </div>`
-        }
-      </div>
-    </div>
-    `;
-
-    document.body.appendChild(modal);
-    document.body.classList.add('modal-open');
-
-    // Bouton fermeture
-    const closeBtn = modal.querySelector('.modal-close');
-    closeBtn.addEventListener('click', () => {
-      modal.remove();
-      document.body.classList.remove('modal-open');
-    });
-
-    // Fermer en cliquant en dehors
-    modal.addEventListener('click', (e) => {
-      if (e.target === modal) {
-        modal.remove();
-        document.body.classList.remove('modal-open');
-      }
-    });
-
-    // Fermer avec Escape
-    const handleEscape = (e) => {
-      if (e.key === 'Escape') {
-        modal.remove();
-        document.body.classList.remove('modal-open');
-        document.removeEventListener('keydown', handleEscape);
-      }
-    };
-    document.addEventListener('keydown', handleEscape);
-  }
-
-  // Initialiser le filtrage
-  function initProjectFilter() {
-    if (!filterButtons.length) return;
-
-    filterButtons.forEach((button) => {
-      button.addEventListener('click', function () {
-        const filter = this.getAttribute('data-filter');
-
-        // Gérer le bouton "Tous"
-        if (filter === 'all') {
-          filterButtons.forEach((btn) => btn.classList.remove('active'));
-          this.classList.add('active');
-          currentFilter = 'all';
-        } else {
-          // Toggle du bouton cliqué
-          this.classList.toggle('active');
-
-          // Désactiver "Tous" si une catégorie est sélectionnée
-          const allBtn = Array.from(filterButtons).find(
-            (btn) => btn.getAttribute('data-filter') === 'all',
-          );
-          if (allBtn) allBtn.classList.remove('active');
-
-          // Si plus aucune catégorie n'est active, réactiver "Tous"
-          const anyActive = Array.from(filterButtons).some((btn) =>
-            btn.classList.contains('active'),
-          );
-          if (!anyActive && allBtn) {
-            allBtn.classList.add('active');
-            currentFilter = 'all';
-          } else {
-            currentFilter = getCurrentFilter();
-          }
-        }
-
-        // Appliquer le filtre
-        applyFilter(currentFilter);
-      });
-    });
-  }
-
-  // Appliquer le filtre
-  function applyFilter(filter) {
-    if (filter === 'all') {
-      filteredProjects = [...allProjects];
-    } else {
-      filteredProjects = allProjects.filter((project) => {
-        if (Array.isArray(filter)) {
-          return filter.includes(project.category);
-        }
-        return project.category === filter;
-      });
-    }
-
-    // Re-rendre les projets
-    renderProjectsData(true);
-  }
-
-  // Obtenir le filtre actuel
-  function getCurrentFilter() {
-    const activeButtons = Array.from(filterButtons).filter((btn) =>
-      btn.classList.contains('active'),
-    );
-    if (activeButtons.length === 0) return 'all';
-
-    const activeFilters = activeButtons.map((btn) =>
-      btn.getAttribute('data-filter'),
-    );
-    if (activeFilters.includes('all')) return 'all';
-
-    return activeFilters;
-  }
-
-  // Mettre à jour le bouton "Voir plus"
-  function updateLoadMoreButton() {
-    if (!loadMoreContainer) return;
-
-    const totalProjects = filteredProjects.length;
-    const projectsShown = Math.min(
-      currentPage * projectsPerPage,
-      totalProjects,
-    );
-    const hasMoreProjects = projectsShown < totalProjects;
-
-    if (hasMoreProjects && totalProjects > 0) {
-      loadMoreContainer.style.display = 'block';
-      loadMoreContainer.innerHTML = `
-                <button id="loadMoreBtn" class="btn btn-secondary">
-                    <i class="fas fa-plus"></i> Voir plus de projets (${projectsShown}/${totalProjects})
-                </button>
-                <p class="projects-count">Affichage de ${projectsShown} projets sur ${totalProjects}</p>
-            `;
-
-      const loadMoreBtn = document.getElementById('loadMoreBtn');
-      loadMoreBtn.addEventListener('click', loadMoreProjects);
-    } else if (totalProjects > 0) {
-      loadMoreContainer.style.display = 'block';
-      loadMoreContainer.innerHTML = `
-                <p class="all-projects-shown">
-                    <i class="fas fa-check-circle"></i> Tous les projets sont affichés (${totalProjects} projets)
-                </p>
-            `;
-    } else {
-      loadMoreContainer.style.display = 'none';
-    }
-  }
-
-  // Charger plus de projets
-  function loadMoreProjects() {
-    currentPage++;
-    renderProjectsData(false);
-
-    // Défiler vers les nouveaux projets
-    setTimeout(() => {
-      const projectCards = document.querySelectorAll('.project-card');
-      const newCardIndex = (currentPage - 2) * projectsPerPage;
-      if (projectCards[newCardIndex]) {
-        projectCards[newCardIndex].scrollIntoView({
-          behavior: 'smooth',
-          block: 'start',
-        });
-      }
-    }, 100);
-  }
-
-  // Animer l'apparition des projets
-  function animateProjectsAppearance() {
-    const projectCards = document.querySelectorAll('.project-card');
-    const startIndex = (currentPage - 1) * projectsPerPage;
-
-    projectCards.forEach((card, index) => {
-      if (index >= startIndex - projectsPerPage) {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-
-        setTimeout(
-          () => {
-            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-          },
-          (index - (startIndex - projectsPerPage)) * 100,
-        );
-      }
-    });
-  }
-
-  // Formater le nom de la catégorie
   function formatCategoryName(category) {
     const categoryNames = {
       all: 'Tous',
@@ -558,7 +717,30 @@ export function initProjects() {
     return categoryNames[category] || category;
   }
 
-  // Afficher un message d'erreur
+  function updateFilterCounts() {
+    if (!filterButtons.length || !allProjects.length) return;
+    
+    const counts = {
+      all: allProjects.length,
+      logo: allProjects.filter(p => p.category === 'logo').length,
+      branding: allProjects.filter(p => p.category === 'branding').length,
+      flyer: allProjects.filter(p => p.category === 'flyer').length,
+      socialMedia: allProjects.filter(p => p.category === 'socialMedia').length,
+      print: allProjects.filter(p => p.category === 'print').length,
+      mockup: allProjects.filter(p => p.category === 'mockup').length,
+      illustration: allProjects.filter(p => p.category === 'illustration').length,
+      autre: allProjects.filter(p => p.category === 'autre').length
+    };
+    
+    filterButtons.forEach(button => {
+      const filter = button.getAttribute('data-filter');
+      const count = counts[filter] || 0;
+      const categoryName = formatCategoryName(filter);
+      
+      button.innerHTML = `${categoryName}<span class="ml-1 text-xs bg-gray-200 px-1.5 py-0.5 rounded-full">${count}</span>`;
+    });
+  }
+
   function showErrorMessage(message) {
     const errorDiv = document.createElement('div');
     errorDiv.className = 'alert alert-error';

@@ -3,187 +3,255 @@
     "id": 1,
     "title": "Brainhub",
     "category": "logo",
-    "description": "Logo moderne et minimaliste pour une startup technologique spécialisée en intelligence artificielle.",
+    "solution": "Logo minimaliste bleu avec symbole cerveau stylisé",
+    "brief": "Bonjour, nous lançons notre startup en intelligence artificielle et avons besoin d'un logo qui inspire confiance aux investisseurs tout en restant accessible au grand public. L'identité doit évoquer l'intelligence sans faire peur. Nous aimons les designs épurés et les tons de bleu.",
     "imageUrl": "assets/images/projects/Brainhub.jpg",
     "icon": "fas fa-brain",
-    "date": "2024-01",
-    "client": "Startup Tech",
+    "client": {
+      "name": "Thomas Mercier",
+      "profile": "fas fa-user-tie",
+      "date": "2024-01-15"
+    },
     "technologies": ["Inkscape", "Vector Design"]
   },
   {
     "id": 2,
     "title": "Caritas - Identité visuelle",
     "category": "branding",
-    "description": "Identité visuelle complète pour une organisation caritative dans le domaine de la santé et l'éducation.",
+    "solution": "Identité visuelle chaleureuse avec palette de couleurs douces",
+    "brief": "Pour notre campagne de collecte de fonds, nous avons besoin d'une image chaleureuse qui rassure les donateurs. Le visuel doit communiquer l'espoir et la générosité, pas la misère. Nous voulons des couleurs douces et une typographie accessible à tous.",
     "imageUrl": "assets/images/projects/caritas.png",
     "icon": "fas fa-hands-helping",
-    "date": "2024-02",
-    "client": "Caritas International",
+    "client": {
+      "name": "Marie-Claire Dubois",
+      "profile": "fas fa-user-md",
+      "date": "2024-02-05"
+    },
     "technologies": ["Inkscape", "Photopea", "Branding"]
   },
   {
     "id": 3,
     "title": "Anniversaire Digital",
     "category": "socialMedia",
-    "description": "Concept de visuel pour fête d'anniversaire sur les réseaux sociaux avec animations minimales.",
+    "solution": "Série de 5 visuels animés rose et or pour stories Instagram",
+    "brief": "C'est les 30 ans de ma sœur et je voudrais des visuels originaux pour les stories Instagram. Quelque chose de festif avec des bulles ou des confettis, dans des tons rose et or. J'aimerais surprendre et toucher ses amis !",
     "imageUrl": "assets/images/projects/HBD1.jpeg",
     "icon": "fas fa-birthday-cake",
-    "date": "2024-03",
-    "client": "Particulier",
+    "client": {
+      "name": "Lucas Moreau",
+      "profile": "fas fa-user-astronaut",
+      "date": "2024-03-10"
+    },
     "technologies": ["Canva", "Social Media Design"]
   },
   {
     "id": 4,
     "title": "Mockup Professionnel",
     "category": "mockup",
-    "description": "Mise en situation du logo à travers un mockup professionnel pour présentation client.",
+    "solution": "Mockups réalistes incluant cartes, enseignes et uniformes",
+    "brief": "Nous devons présenter notre nouveau branding à un client majeur la semaine prochaine. Auriez-vous la possibilité de créer des mockups réalistes ? Nous aurions besoin de voir le logo sur des cartes de visite, une enseigne de magasin et des uniformes.",
     "imageUrl": "assets/images/projects/mockup1.jpg",
     "icon": "fas fa-desktop",
-    "date": "2024-01",
-    "client": "Agence Creative",
+    "client": {
+      "name": "Sophie Renaud",
+      "profile": "fas fa-briefcase",
+      "date": "2024-01-22"
+    },
     "technologies": ["Photopea", "Mockup"]
   },
   {
     "id": 5,
     "title": "Prod'Haiti",
     "category": "logo",
-    "description": "Création de logo pour une entreprise agro-alimentaire haïtienne spécialisée dans les produits locaux.",
+    "solution": "Logo avec plant de maïs stylisé et couleurs du drapeau haïtien",
+    "brief": "Nous sommes une entreprise agro-alimentaire haïtienne et voulons un logo qui représente nos racines. On aimerait intégrer un plant de maïs ou de mil, avec les couleurs du drapeau. Quelque chose d'authentique qui parle de notre terre.",
     "imageUrl": "assets/images/projects/ProdHaiti.jpg",
     "icon": "fas fa-seedling",
-    "date": "2023-11",
-    "client": "Prod'Haiti SA",
+    "client": {
+      "name": "Jean-Baptiste Pierre",
+      "profile": "fas fa-tractor",
+      "date": "2023-11-18"
+    },
     "technologies": ["Inkscape", "Logo Design"]
   },
   {
     "id": 6,
     "title": "Composition Artistique",
     "category": "autre",
-    "description": "Projet fictif mettant en relief les principes d'une bonne composition et d'équilibre visuel.",
+    "solution": "Composition expérimentale mêlant formes géométriques et photographie",
+    "brief": "Je travaille sur un projet personnel pour améliorer ma maîtrise de la composition. J'aimerais explorer l'équilibre asymétrique et l'harmonie des couleurs complémentaires. Pas de contraintes client, juste de la créativité pure.",
     "imageUrl": "assets/images/projects/autre1.jpg",
     "icon": "fas fa-palette",
-    "date": "2023-12",
-    "client": "Projet Personnel",
+    "client": {
+      "name": "Projet de recherche",
+      "profile": "fas fa-graduation-cap",
+      "date": "2023-12-01"
+    },
     "technologies": ["Inkscape", "Composition"]
   },
   {
     "id": 7,
     "title": "Max Motors",
     "category": "logo",
-    "description": "Conception de logo pour une entreprise automobile moderne avec une identité forte et dynamique.",
+    "solution": "Logo dynamique avec voiture stylisée et lignes de vitesse",
+    "brief": "Nous voulons moderniser l'image de notre concession automobile. Le logo actuel est dépassé. On cherche quelque chose de dynamique, qui évoque le mouvement et la performance. Pas trop agressif, mais professionnel et fiable.",
     "imageUrl": "assets/images/projects/MaxMotors.jpg",
     "icon": "fas fa-car",
-    "date": "2024-02",
-    "client": "Max Motors",
+    "client": {
+      "name": "Maximilien Rousseau",
+      "profile": "fas fa-user-mechanic",
+      "date": "2024-02-28"
+    },
     "technologies": ["Inkscape", "Vector Design"]
   },
   {
     "id": 8,
     "title": "Bela Store Logo",
     "category": "logo",
-    "description": "Logo élégant et féminin pour une boutique en ligne de mode et accessoires.",
+    "solution": "Logo avec police manuscrite raffinée et icône de porte-manteau",
+    "brief": "Je lance ma boutique en ligne de mode féminine. Je veux un logo élégant, féminin mais pas trop girly. J'aime les polices manuscrites et les tons poudrés. Quelque chose qui fait rêver mais qui reste professionnel.",
     "imageUrl": "assets/images/projects/BelaStoreLogo.png",
     "icon": "fas fa-shopping-bag",
-    "date": "2024-01",
-    "client": "Bela Store",
+    "client": {
+      "name": "Isabelle Kervin",
+      "profile": "fas fa-user-tag",
+      "date": "2024-01-08"
+    },
     "technologies": ["Inkscape", "Logo Design"]
   },
   {
     "id": 9,
     "title": "Bela Store Flyer",
     "category": "flyer",
-    "description": "Design de flyer promotionnel pour le lancement de la boutique en ligne Bela Store.",
+    "solution": "Flyer promotionnel avec codes visuels du logo et réductions",
+    "brief": "Pour le lancement de la boutique, j'aurais besoin d'un flyer à distribuer dans le quartier. Il faut reprendre les codes du logo mais avec les infos de lancement : date, réductions, etc. Quelque chose d'aéré et élégant.",
     "imageUrl": "assets/images/projects/BelaStoreFlyer.jpeg",
     "icon": "fas fa-store",
-    "date": "2024-01",
-    "client": "Bela Store",
+    "client": {
+      "name": "Isabelle Kervin",
+      "profile": "fas fa-user-tag",
+      "date": "2024-01-08"
+    },
     "technologies": ["Canva", "Print Design"]
   },
   {
     "id": 10,
     "title": "Bibliyotek Batravil",
     "category": "logo",
-    "description": "Conception de logo pour une bibliothèque communautaire promouvant la lecture et l'éducation.",
+    "solution": "Logo représentant un livre ouvert formant les ailes d'un oiseau",
+    "brief": "Nous ouvrons une bibliothèque communautaire dans le quartier. On voudrait un logo qui symbolise la liberté par la lecture et l'ouverture à la connaissance. Quelque chose de chaleureux qui donne envie de pousser la porte.",
     "imageUrl": "assets/images/projects/bblogo.png",
     "icon": "fas fa-book-reader",
-    "date": "2023-10",
-    "client": "Bibliothèque Communautaire",
+    "client": {
+      "name": "Comité de la bibliothèque",
+      "profile": "fas fa-users",
+      "date": "2023-10-12"
+    },
     "technologies": ["Inkscape", "Logo Design"]
   },
   {
     "id": 11,
     "title": "Composition Avancée",
     "category": "autre",
-    "description": "Projet explorant les principes avancés de composition et d'harmonie des couleurs.",
+    "solution": "Étude sur l'équilibre asymétrique et l'harmonie des couleurs",
+    "brief": "Dans le cadre de ma formation continue, je dois produire une série d'études sur les principes avancés de composition. L'objectif est d'explorer et de documenter différentes approches pour enrichir ma pratique.",
     "imageUrl": "assets/images/projects/autre2.jpg",
     "icon": "fas fa-sliders-h",
-    "date": "2023-11",
-    "client": "Projet Personnel",
+    "client": {
+      "name": "Développement personnel",
+      "profile": "fas fa-pencil-ruler",
+      "date": "2023-11-05"
+    },
     "technologies": ["Photopea", "Color Theory"]
   },
   {
     "id": 12,
     "title": "Baboo Epis",
     "category": "logo",
-    "description": "Logo épuré et organique pour une entreprise du secteur culinaire spécialisée en épices.",
+    "solution": "Logo organique avec épis de blé et graines en tons terreux",
+    "brief": "Je lance ma marque d'épices artisanales. Je veux un logo qui sent bon la cuisine de grand-mère, authentique et chaleureux. Des tons naturels, terreux, et un design qui fonctionne aussi en noir et blanc.",
     "imageUrl": "assets/images/projects/baboo.jpg",
     "icon": "fas fa-pepper-hot",
-    "date": "2023-09",
-    "client": "Baboo Epis",
+    "client": {
+      "name": "Carlos Hernandez",
+      "profile": "fas fa-chef",
+      "date": "2023-09-20"
+    },
     "technologies": ["Inkscape", "Logo Design"]
   },
   {
     "id": 13,
     "title": "Bon Début de Mois",
     "category": "socialMedia",
-    "description": "Concept de visuel mensuel pour les réseaux sociaux avec message motivationnel.",
+    "solution": "Série mensuelle de visuels motivationnels avec citations",
+    "brief": "Je gère une communauté en ligne et je voudrais publier chaque début de mois un visuel inspirant. Quelque chose de simple mais beau, avec une citation positive. L'idée est de fidéliser et d'apporter de la bonne humeur.",
     "imageUrl": "assets/images/projects/november.jpeg",
     "icon": "fas fa-calendar-alt",
-    "date": "2023-11",
-    "client": "Particulier",
+    "client": {
+      "name": "Communauté en ligne",
+      "profile": "fas fa-heart",
+      "date": "2023-11-01"
+    },
     "technologies": ["Canva", "Social Media"]
   },
   {
     "id": 14,
     "title": "Renaud Agency",
     "category": "logo",
-    "description": "Logo épuré, moderne et minimaliste pour une agence de voyage premium.",
+    "solution": "Logo minimaliste avec avion stylisé et palette bleu profond/or",
+    "brief": "Notre agence de voyage se positionne sur le luxe et l'exclusivité. Nous avons besoin d'un logo qui respire l'élégance et l'évasion. Quelque chose de minimaliste mais qui fait rêver. Le bleu profond et l'or sont nos couleurs.",
     "imageUrl": "assets/images/projects/RenaudAgency.jpg",
     "icon": "fas fa-plane",
-    "date": "2023-08",
-    "client": "Renaud Agency",
+    "client": {
+      "name": "Philippe Renaud",
+      "profile": "fas fa-suitcase",
+      "date": "2023-08-15"
+    },
     "technologies": ["Inkscape", "Minimal Design"]
   },
   {
     "id": 15,
     "title": "Tableau Digital",
     "category": "illustration",
-    "description": "Réalisation de tableau numérique sur logiciel de graphisme, explorant les textures digitales.",
+    "solution": "Illustration numérique en couches du quartier préféré du client",
+    "brief": "Je voudrais une illustration numérique de mon quartier préféré pour l'encadrer dans mon salon. Un style mi-réaliste mi-illustration, qui capture l'ambiance des lieux sans être une photo. C'est un cadeau pour moi-même !",
     "imageUrl": "assets/images/projects/tableaul.jpeg",
     "icon": "fas fa-paint-brush",
-    "date": "2023-12",
-    "client": "Projet Artistique",
+    "client": {
+      "name": "Antoine Lefebvre",
+      "profile": "fas fa-camera",
+      "date": "2023-12-18"
+    },
     "technologies": ["Photopea", "Digital Art"]
   },
   {
     "id": 16,
     "title": "Marco Zelle Flyer",
     "category": "flyer",
-    "description": "Flyer promotionnel pour une entreprise spécialisée dans les services d'échange et transfert d'argent.",
+    "solution": "Flyer vert avec icônes clairs pour services de transfert d'argent",
+    "brief": "Nous proposons des services de transfert d'argent et avons besoin d'un flyer qui inspire confiance. Il faut que ce soit clair, rassurant, avec des icônes simples. Le vert est important car il évoque la croissance et la sécurité.",
     "imageUrl": "assets/images/projects/marcoflyer.jpeg",
     "icon": "fas fa-exchange-alt",
-    "date": "2024-01",
-    "client": "Marco Zelle",
+    "client": {
+      "name": "Marc-Olivier Pierre",
+      "profile": "fas fa-coins",
+      "date": "2024-01-25"
+    },
     "technologies": ["Canva", "Print Design"]
   },
   {
     "id": 17,
     "title": "Rhum LaCitadelle",
     "category": "logo",
-    "description": "Logo prestigieux pour une entreprise de rhum artisanal mettant en valeur l'héritage culturel.",
+    "solution": "Logo patrimonial intégrant la silhouette de la Citadelle Haïtienne",
+    "brief": "Notre distillerie artisanale produit un rhum traditionnel depuis trois générations. Nous voulons un logo qui raconte cette histoire et notre patrimoine. La Citadelle est un symbole fort pour nous, pourrait-on l'intégrer ?",
     "imageUrl": "assets/images/projects/RhumLaCitadelle.jpg",
     "icon": "fas fa-wine-glass-alt",
-    "date": "2023-07",
-    "client": "Rhum LaCitadelle",
+    "client": {
+      "name": "Famille Estimé",
+      "profile": "fas fa-crown",
+      "date": "2023-07-30"
+    },
     "technologies": ["Inkscape", "Premium Design"]
   }
 ]

@@ -11,6 +11,27 @@
   }
 }
 
+/* Animation pour la mini modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Empêcher le scroll quand une modal est ouverte */
+body.modal-open {
+  overflow: hidden;
+}
+
 @keyframes fade-in-delayed {
   0% {
     opacity: 0;
@@ -158,7 +179,6 @@
     position: static !important;
     display: flex !important;
     flex-direction: row !important;
-    background-color: transparent !important;
     padding: 0 !important;
     box-shadow: none !important;
     gap: var(--spacing-xl) !important;
@@ -252,36 +272,6 @@
     padding: 0 15px;
   }
 
-  /* Navigation mobile */
-  #navMenu {
-    position: fixed !important;
-    top: 70px;
-    left: 0;
-    width: 100%;
-    background-color: white;
-    flex-direction: column !important;
-    align-items: center !important;
-    padding: 30px 0 !important;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    z-index: 9998 !important;
-    margin: 0 !important;
-    border-radius: 0;
-    gap: 0 !important;
-  }
-
-  #navMenu.hidden {
-    display: none !important;
-  }
-
-  #navMenu ul li {
-    margin: 15px 0;
-    display: flex;
-    justify-content: center;
-  }
-
-  #menuToggle {
-    display: flex !important;
-  }
 
   /* Sections */
   .section-title {
@@ -449,17 +439,6 @@
 
   .projects-grid {
     grid-template-columns: repeat(2, 1fr) !important;
-  }
-
-  a {
-    color: #000 !important;
-    text-decoration: underline !important;
-  }
-
-  a[href^='http']::after {
-    content: ' (' attr(href) ')';
-    font-size: 0.9em;
-    font-weight: normal;
   }
 }
 

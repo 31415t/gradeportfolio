@@ -5,13 +5,12 @@ export function initNavigation() {
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
   const navLinks = document.querySelectorAll('.nav-link');
-  const navbar = document.getElementById('navbar');
 
   // SVG icons used for the toggle (open / close)
   const openSvg =
-    '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">\n                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>\n                </svg>';
+    '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">\n                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>\n                </svg>';
   const closeSvg =
-    '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">\n                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"></path>\n                </svg>';
+    '<svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">\n                <path stroke-linecap="round" stroke-linejoin="round" d="M6 6l12 12M6 18L18 6"></path>\n                </svg>';
 
   // Menu mobile
   const navMenuMobile = document.getElementById('navMenuMobile');

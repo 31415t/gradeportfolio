@@ -253,3 +253,16 @@
     color: var(--primary-color);
     transform: rotate(90deg);
 }
+
+/* Effet de flou pour l'arrière-plan quand le modal est ouvert */
+body.modal-open > *:not(#project-modal):not(script) {
+    filter: blur(3px);
+    transition: filter 0.3s ease;
+    pointer-events: none;
+}
+
+/* Le modal reste net et cliquable */
+#project-modal {
+    filter: none !important;
+    pointer-events: auto !important;
+}
