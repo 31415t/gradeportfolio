@@ -3,11 +3,14 @@
 export function renderProjects() {
   return `
     <section class="section projects" id="projets">
-      <div class="container">
-        <h2 class="section-title">Mon <span>Portfolio</span></h2>
-        <p class="section-subtitle">Explorez ici une sélection de mes travaux récents en graphic design</p>
+      <div class="flex items-center justify-between flex-col mx-auto px-4 py-4 md:py-6 lg:py-8 max-w-7xl">
+        <h2 class="text-2xl lg:text-3xl font-semibold text-orange-600 text-center mb-4">Mon Portfolio</h2>
+        <p class="text-gray-600 text-center max-w-4xl mx-auto mb-8 text-sm md:text-lg">
+        Plongez dans mon univers visuel à travers une sélection de projets récents. 
+        Derrière chacune de ces créations se cache une histoire singulière, mêlant émotions, ma passion pour le 
+        design graphique et mes échanges avec les clients, qui témoignent de mon engagement à leur offrir la solution idéale.</p>
         
-        <div class="projects-filter">
+        <div class="flex justify-center gap-3 md:gap-4 lg:gap-5 mb-8 flex-wrap">
           <button class="filter-btn active" data-filter="all">Tous</button>
           <button class="filter-btn" data-filter="logo">Logo</button>
           <button class="filter-btn" data-filter="branding">Branding</button>
@@ -19,7 +22,7 @@ export function renderProjects() {
           <button class="filter-btn" data-filter="autre">Autres</button>
         </div>
         
-        <div class="projects-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 md:gap-10" id="projectsGrid">
+        <div class="projects-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10" id="projectsGrid">
           <div class="loading-projects col-span-full flex flex-col items-center justify-center py-12">
             <i class="fas fa-spinner fa-spin text-4xl text-primary mb-4"></i>
             <p>Chargement des projets...</p>
@@ -27,7 +30,7 @@ export function renderProjects() {
         </div>
         
         <!-- Conteneur de pagination -->
-        <div class="pagination-container mt-12" id="paginationContainer" style="display: none;">
+        <div class="pagination-container mt-4" id="paginationContainer" style="display: none;">
         </div>
       </div>
     </section>
@@ -177,8 +180,8 @@ export function initProjects() {
     let formattedDate = client.date;
     if (client.date && !isNaN(new Date(client.date))) {
       formattedDate = new Date(client.date).toLocaleDateString('fr-FR', {
-        day: 'numeric',
-        month: 'long',
+        day: '2-digit',
+        month: 'short',
         year: 'numeric'
       });
     }
@@ -219,37 +222,42 @@ export function initProjects() {
     } else {
       // Mode INFO (style message client)
       modalContent = `
-        <div class="relative bg-white rounded-2xl overflow-hidden animate-fade-in max-w-md w-full mx-4 shadow-2xl"
-            style="border: 1px solid ${categoryColor}20;">
+        <div class="relative bg-white rounded-lg overflow-hidden animate-fade-in max-w-md w-full mx-2 shadow-2xl"
+            style="border: 2px solid #F95606;">
           
           <!-- Bouton fermeture (seul, en haut à droite) -->
-          <button class="modal-close absolute top-4 right-4 w-8 h-8 rounded-full hover:bg-gray-100 transition-colors flex items-center justify-center z-10">
-            <i class="fas fa-times text-gray-500"></i>
+          <button class="modal-close absolute top-4 right-4 z-10 bg-light/80 rounded-full p-2 
+                        hover:bg-gray-200 transition duration-300 shadow-lg backdrop-blur-lg backdrop-saturate-150"
+                  aria-label="Fermer la modal">
+            <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                    d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
           </button>
           
           <!-- En-tête avec juste le nom du client -->
-          <div class="px-6 pt-8 pb-2 text-center">
-            <h3 class="font-semibold text-gray-800">${client.name}</h3>
-            <span class="text-xs text-gray-400">${categoryName}</span>
+          <div class="px-6 pt-6 pb-2 text-center border-b border-gray-100">
+            <span class="text-xs text-gray-400">Brief client</span>
+            <h3 class="font-semibold text-purple-800">${client.name}</h3>
           </div>
           
           <!-- Corps - Message client uniquement -->
-          <div class="px-6 py-4">
-            <div class="inline-block max-w-[90%] rounded-2xl px-5 py-4 text-sm"
-                style="background-color: #f0f0f0; color: #1a1a1a; border-bottom-left-radius: 4px;">
-              <p class="leading-relaxed whitespace-pre-line">"${brief}"</p>
+          <div class="px-5 py-4">
+            <div class="inline-block max-w-[90%] rounded-2xl px-5 py-4 bg-purple-50 text-purple-800"
+                style="border-bottom-left-radius: 4px;">
+              <p class="leading-relaxed whitespace-pre-line text-xs lg:text-sm">${brief}</p>
             </div>
             <div class="flex items-center gap-1 mt-2 ml-2">
-              <span class="text-xs text-gray-400">${formattedDate}</span>
-              <span class="text-xs text-gray-400">
-                <i class="fas fa-check-double" style="color: ${categoryColor};"></i>
+              <span class="text-[0.65rem] lg:text-xs text-gray-400">${formattedDate}</span>
+              <span class="text-[0.65rem] lg:text-xs text-green-600">
+                <i class="fas fa-check-double"></i>
               </span>
             </div>
           </div>
           
           <!-- Pied avec titre du projet (discret) -->
           <div class="px-6 py-3 border-t border-gray-100 text-center text-xs text-gray-400">
-            Projet: ${project.title}
+            ${project.title}
           </div>
         </div>
       `;
@@ -322,7 +330,7 @@ export function initProjects() {
   function createProjectCard(project) {
     const projectCard = document.createElement('div');
     projectCard.className =
-      'rounded overflow-hidden shadow-lg flex flex-col h-full hover:shadow-2xl transition-shadow duration-300 relative';
+      'rounded overflow-hidden shadow-md flex flex-col h-full hover:shadow-lg transition-shadow duration-300 relative';
     projectCard.setAttribute('data-category', project.category);
     projectCard.setAttribute('data-id', project.id);
 
@@ -368,7 +376,7 @@ export function initProjects() {
       </div>
 
       <!-- Badge catégorie -->
-      <div class="text-xs absolute top-0 right-0 px-3 py-1 mt-3 mr-3 font-medium rounded border pointer-events-none bg-light text-secondary"
+      <div class="text-xs absolute top-0 right-0 px-3 py-1 mt-3 mr-3 font-normal rounded border pointer-events-none bg-white/60 backdrop-blur-md text-secondary"
           style="border-color: ${randomColor}; color: ${randomColor};">
         ${categoryName}
       </div>
@@ -376,7 +384,7 @@ export function initProjects() {
 
     <!-- Contenu -->
     <div class="px-6 py-4 mb-auto flex-grow">
-      <h3 class="font-medium text-lg mb-2" style="color: ${randomColor};">
+      <h3 class="font-medium text-md mb-2" style="color: ${randomColor};">
         ${project.title}
       </h3>
       <!-- Affichage de la SOLUTION (courte) -->
@@ -399,14 +407,14 @@ export function initProjects() {
         <button class="info-toggle w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
                 data-modal-open="false"
                 aria-label="Voir le brief client">
-          <i class="fas fa-chevron-down text-xs" style="color: ${randomColor};"></i>
+          <i class="fas fa-chevron-down text-xs text-orange-600"></i>
         </button>
       </div>
 
       <!-- Bouton voir (image) -->
       <button class="view-project-btn py-2 px-4 btn-secondary text-sm font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 group/view">
         <span>Voir</span>
-        <i class="fas fa-arrow-right text-xs opacity-100 -translate-x-2 group-hover/view:opacity-100 group-hover/view:translate-x-0 transition-all duration-300"></i>
+        <i class="fas fa-arrow-right text-xs opacity-100 -translate-x-0.5 group-hover/view:opacity-100 group-hover/view:translate-x-0.5 transition-all duration-300"></i>
       </button>
     </div>
     `;
@@ -513,8 +521,8 @@ export function initProjects() {
     }
 
     let paginationHTML = `
-      <div class="flex flex-col items-center space-y-4">
-        <div class="text-sm text-gray-600">
+      <div class="flex flex-col items-center space-y-3">
+        <div class="text-sm text-orange-400">
           Page ${currentPage} sur ${totalPages} · 
           <span class="font-medium">${filteredProjects.length} projets au total</span>
         </div>
@@ -524,7 +532,7 @@ export function initProjects() {
 
     // Bouton Précédent
     paginationHTML += `
-      <button class="pagination-btn prev-btn px-4 py-2 rounded-lg border border-gray-300 
+      <button class="pagination-btn text-xs md:text-sm prev-btn px-4 py-2 rounded-lg border border-gray-300 
                      ${currentPage === 1 ? 'opacity-50 cursor-not-allowed bg-gray-100' : 'hover:bg-orange-50 hover:border-orange-300 transition-colors duration-200'}"
               ${currentPage === 1 ? 'disabled' : ''}>
         <i class="fas fa-chevron-left mr-1"></i>
@@ -537,9 +545,9 @@ export function initProjects() {
     
     for (let i = startPage; i <= endPage; i++) {
       paginationHTML += `
-        <button class="pagination-btn page-btn w-10 h-10 rounded-lg 
+        <button class="pagination-btn page-btn px-4 py-2 rounded-lg text-xs md:text-sm
                        ${i === currentPage 
-                         ? 'bg-orange-500 text-white font-semibold' 
+                         ? 'bg-orange-600 text-white font-semibold' 
                          : 'border border-gray-300 hover:bg-orange-50 hover:border-orange-300 transition-colors duration-200'}"
                 data-page="${i}">
           ${i}
@@ -551,21 +559,14 @@ export function initProjects() {
 
     // Bouton Suivant
     paginationHTML += `
-      <button class="pagination-btn next-btn px-4 py-2 rounded-lg border border-gray-300
+      <button class="pagination-btn text-xs md:text-sm next-btn px-4 py-2 rounded-lg border border-gray-300
                      ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed bg-gray-100' : 'hover:bg-orange-50 hover:border-orange-300 transition-colors duration-200'}"
               ${currentPage === totalPages ? 'disabled' : ''}>
         Suivant
         <i class="fas fa-chevron-right ml-1"></i>
       </button>
     `;
-
-    paginationHTML += `
-        </div>
-        <div class="sm:hidden text-sm text-gray-500">
-          ${currentPage}/${totalPages}
-        </div>
-      </div>
-    `;
+  ;
 
     paginationContainer.innerHTML = paginationHTML;
     attachPaginationEvents();
@@ -737,9 +738,11 @@ export function initProjects() {
       const count = counts[filter] || 0;
       const categoryName = formatCategoryName(filter);
       
-      button.innerHTML = `${categoryName}<span class="ml-1 text-xs bg-gray-200 px-1.5 py-0.5 rounded-full">${count}</span>`;
+      button.innerHTML = `${categoryName}<span class="badge-count">${count}</span>`;
     });
   }
+
+  
 
   function showErrorMessage(message) {
     const errorDiv = document.createElement('div');

@@ -6,39 +6,39 @@ export function renderHero() {
         <img 
           src="./../../assets/images/logos/heroBG.png" 
           alt="Background créatif" 
-          class="block object-cover object-center w-full h-full z-0"
+          class="block object-cover object-[40%] lg:object-center w-full h-full z-0"
           loading="lazy"
         />
         <!-- Overlay noir pour meilleur contraste -->
-        <div class="absolute inset-0 bg-black/90 z-10"></div>
+        <div class="absolute inset-0 bg-purple-950/50 z-10"></div>
       </div>
       
       <!-- Content Layer -->
       <div class="relative z-20 flex flex-col justify-center items-center h-full text-center px-4 sm:px-6 md:px-8">
         <div class="max-w-4xl mx-auto">
           <!-- Main Title -->
-          <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-6xl text-gray-100 font-bold leading-tight mb-4 sm:mb-6">
-            <span class="block animate-bounce">Bienvenue dans ma gallerie de création</span>
+          <h1 class="text-3xl sm:text-5xl md:text-6xl block animate-bounce text-gray-100 font-bold leading-tight mb-4 sm:mb-6">
+            Bienvenue dans ma gallerie de création
           </h1>
 
           <!-- Subtitle -->
-          <p class="text-base sm:text-lg md:text-xl text-gray-200 mb-6 sm:mb-8 leading-relaxed">
+          <p class="text-sm sm:text-base md:text-lg text-gray-200 mb-4 sm:mb-4 leading-relaxed">
             Je suis <span class="font-semibold">Peterley Auguste</span>, 
-            <span class="block sm:inline">graphic designer freelance et fondateur de <span class="font-bold">Grade</span>, avec 5 ans d'expérience dans la création de supports visuels percutants.</span></br><span class="text-orange-600 font-bold">120+ projets réalisés</span>
+            <span class="block sm:inline">graphic designer freelance et fondateur de <span class="font-bold">Grade</span>, avec 5 ans d'expérience dans la création de supports visuels percutants.</span>
           </p>
-          
+
           <!-- CTA Buttons -->
           <div class="flex flex-col max-w-2xl mx-auto sm:flex-row gap-4 sm:gap-6 justify-center mt-8 sm:mt-10">
             <a 
               href="#projets" 
-              class="btn-primary rounded-md font-semibold py-3 sm:py-4 px-8 sm:px-12 rounded transition duration-300 ease-in-out transform hover:scale-110 hover:shadow-2xl shadow-lg flex items-center justify-center gap-2 whitespace-nowrap"
+              class="bg-orange-600 hover:bg-transparent hover:border-2 hover:border-orange-600 hover:text-orange-600 rounded-md font-semibold py-3 sm:py-4 px-8 sm:px-12 rounded transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center gap-2 whitespace-nowrap"
             >
               <i class="fas fa-eye"></i>
               <span>Voir mes projets</span>
             </a>
             <a 
               href="#contact" 
-              class="btn-secondary rounded-md font-semibold py-3 sm:py-4 px-8 sm:px-12 rounded transition duration-300 ease-in-out transform hover:scale-110 hover:shadow-2xl hover:border-orange-600 shadow-lg backdrop-blur-md flex items-center justify-center gap-2 whitespace-nowrap"
+              class="bg-transparent text-orange-600 border-2 border-orange-600 hover:bg-orange-600 hover:text-white rounded-md font-semibold py-3 sm:py-4 px-8 sm:px-12 rounded transition duration-300 ease-in-out transform hover:scale-105 flex items-center justify-center gap-2 whitespace-nowrap"
             >
               <i class="fas fa-envelope"></i>
               <span>Me contacter</span>

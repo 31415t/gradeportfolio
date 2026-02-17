@@ -9,10 +9,7 @@
       content="Portfolio de Peterley Auguste, Graphic Designer freelance"
     />
     <link rel="stylesheet" href="css/style.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
-      rel="stylesheet"
-    />
+    <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -27,11 +24,11 @@
       href="assets/images/logos/GradeLogo.png"
     />
   </head>
-  <body>
+  <body class="bg-white w-full">
     <!-- Navigation (reste en place) -->
     <nav
       id="navbar"
-      class="block w-full max-w-screen-lg mx-auto px-4 py-2 lg:px-6 lg:py-3 sticky top-4 bg-white border border-white/20 xl:rounded-lg z-50 transition-all duration-300 ease-in-out"
+      class="block w-full lg:max-w-[80%] mx-auto px-4 py-2 lg:px-6 lg:py-3 sticky top-2 lg:top-4 bg-white/90 backdrop-blur-md backdrop-brightness-150 border border-white/20 shadow-md lg:rounded-lg z-50 transition-all duration-300 ease-in-out"
     >
       <div
         class="container relative flex justify-between mx-auto text-text h-10"
@@ -107,7 +104,7 @@
         <span class="inline-block h-5 border-l border-gray-900/30 mr-6"></span>
         <a
           href=""
-          class="inline-flex items-center gap-2 bg-primary hover:bg-secondary
+          class="inline-flex items-center gap-2 bg-orange-600 hover:bg-purple-600
                 text-white font-semibold 
                 py-2 px-4 rounded-md
                 transition duration-300 ease-in-out 
@@ -152,7 +149,7 @@
       <!-- Menu mobile dropdown -->
       <div
         id="navMenuMobile"
-        class="hidden lg:hidden border-t border-neutral mt-2 pt-2"
+        class="hidden lg:hidden border-t border-neutral mt-2 pt-2 transition-all duration-300 ease-in-out"
       >
         <ul class="flex flex-col gap-2 list-none items-center">
           <li>
@@ -210,6 +207,7 @@
     </nav>
 
     <!-- Placeholders pour les sections -->
+    <div class="bg-gray-50">
     <div id="hero-section"></div>
     <div id="projects-section"></div>
     <div id="testimonials-section"></div>
@@ -222,6 +220,8 @@
     <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
       <i class="fas fa-chevron-up"></i>
     </button>
+
+    </div>
 
     <script type="module" src="js/main.js"></script>
   </body>
