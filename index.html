@@ -14,6 +14,7 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <script src="https://unpkg.com/phosphor-icons"></script>
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap"
       rel="stylesheet"
@@ -24,204 +25,144 @@
       href="assets/images/logos/GradeLogo.png"
     />
   </head>
+
   <body class="bg-white w-full">
-    <!-- Navigation (reste en place) -->
-    <nav
-      id="navbar"
-      class="block w-full lg:max-w-[80%] mx-auto px-4 py-2 lg:px-6 lg:py-3 sticky top-2 lg:top-4 bg-white/90 backdrop-blur-md backdrop-brightness-150 border border-white/20 shadow-md lg:rounded-lg z-50 transition-all duration-300 ease-in-out"
-    >
-      <div
-        class="container relative flex justify-between mx-auto text-text h-10"
-      >
-        <!-- Logo (flex-1 lg:absolute lg:left-0) -->
-        <div
-          class="flex items-center absolute top-0 left-0 inset-y-0 left-0 flex-1"
-        >
-          <a
-            href="#"
-            class="flex items-center cursor-pointer text-lg text-purple-600 hover:text-orange-600 font-semibold "
-          >
-            <img
-              src="assets/images/logos/GradeLogo.png"
-              alt="Grade3.0 Logo"
-              class=" block h-8 w-auto mr-2 logo-animate"
-            />
+    <nav id="navbar" class="block w-full lg:max-w-[80%] mx-auto px-4 py-2 lg:px-6 lg:py-3 sticky top-2 lg:top-4 bg-white/90 backdrop-blur-lg backdrop-brightness-150 border border-white/20 shadow-t-lg lg:shadow-lg lg:rounded-lg z-50 transition-all duration-300 ease-in-out">
+      <div class="flex items-center justify-between mx-auto text-text">
+        <!-- Logo à gauche -->
+        <div class="flex items-center">
+          <a href="#accueil" class="flex items-center cursor-pointer text-lg text-purple-600 hover:text-orange-600 font-semibold whitespace-nowrap">
+            <img src="assets/images/logos/GradeLogo.png" alt="Grade3.0 Logo" class="block h-8 w-auto mr-2 logo-animate" />
             Grade3.0
           </a>
+          <!-- Séparateur visible uniquement sur desktop -->
           <span class="hidden lg:inline-block h-5 border-l border-gray-900/30 ml-6"></span>
         </div>
 
-        <!-- Liens au centre (hidden lg:flex lg:justify-center) -->
-        <div id="navMenu" class="hidden lg:flex lg:justify-center lg:w-full">
-          <ul class="flex gap-2 list-none">
+        <!-- Menu principal (Desktop + Mobile unifiés) -->
+        <div id="navMenu" class="hidden lg:flex lg:flex-1 lg:justify-center">
+          <ul class="flex flex-col lg:flex-row items-center lg:items-center list-none gap-4 lg:gap-2">
             <li>
-              <a
-                href="#accueil"
-                class="nav-link text-purple-600 hover:text-orange-600"
-              >
+              <a href="#accueil" class="nav-link text-purple-600 hover:text-orange-600 px-2 py-1 text-sm whitespace-nowrap transition-colors duration-200">
                 Accueil
               </a>
             </li>
             <li>
-              <a
-                href="#projets"
-                class="nav-link text-purple-600 hover:text-orange-600"
-              >
+              <a href="#projets" class="nav-link text-purple-600 hover:text-orange-600 px-2 py-1 text-sm whitespace-nowrap transition-colors duration-200">
                 Portfolio
               </a>
             </li>
             <li>
-              <a
-                href="#apropos"
-                class="nav-link text-purple-600 hover:text-orange-600"
-              >
+              <a href="#apropos" class="nav-link text-purple-600 hover:text-orange-600 px-2 py-1 text-sm whitespace-nowrap transition-colors duration-200">
                 À propos
               </a>
             </li>
             <li>
-              <a
-                href="#competences"
-                class="nav-link text-purple-600 hover:text-orange-600"
-              >
+              <a href="#competences" class="nav-link text-purple-600 hover:text-orange-600 px-2 py-1 text-sm whitespace-nowrap transition-colors duration-200">
                 Services
               </a>
             </li>
             <li>
-              <a
-                href="#contact"
-                class="nav-link text-purple-600 hover:text-orange-600"
-              >
+              <a href="#contact" class="nav-link text-purple-600 hover:text-orange-600 px-2 py-1 text-sm whitespace-nowrap transition-colors duration-200">
                 Contact
+              </a>
+            </li>
+            <!-- Bouton CV dans le menu mobile uniquement -->
+            <li class="lg:hidden w-full mt-2 pt-2 border-t border-gray-200">
+              <a href="/assets/images/logos/cv_peterleyauguste_graphicdesigner.pdf" class="inline-flex items-center gap-2 bg-orange-600 hover:bg-purple-600 text-white font-semibold py-2 px-4 rounded-lg transition duration-300 w-full justify-center" download>
+                <i class="ph ph-file-arrow-down-bold"></i>
+                <span>Mon CV</span>
               </a>
             </li>
           </ul>
         </div>
 
-        <!-- Bouton CV à droite (hidden lg:absolute lg:flex lg:right-0) -->
-        <div
-          class="hidden lg:absolute lg:flex lg:items-center lg:justify-end lg:inset-y-0 lg:right-0"
-        >
-        <span class="inline-block h-5 border-l border-gray-900/30 mr-6"></span>
-        <a
-          href=""
-          class="inline-flex items-center gap-2 bg-orange-600 hover:bg-purple-600
-                text-white font-semibold 
-                py-2 px-4 rounded-md
-                transition duration-300 ease-in-out 
-                transform hover:scale-105 
-                active:border active:border-primary"
-          download
-        >
-          <i class="fas fa-download"></i>
-          <span>Mon CV</span>
-        </a>
-        </div>
-
-        <!-- Menu toggle mobile -->
-        <button
-          id="menuToggle"
-          aria-label="Toggle navigation"
-          aria-expanded="false"
-          class="absolute top-0 right-0 h-6 w-6 select-none rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit transition-all lg:hidden"
-        >
-          <span
-            class="absolute transform -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-          >
-            <svg
-              id="menuOpenIcon"
-              xmlns="http://www.w3.org/2000/svg"
-              class="w-6 h-6 text-orange-600"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="2"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M4 6h16M4 12h16M4 18h16"
-              ></path>
-            </svg>
-          </span>
-        </button>
-      </div>
-
-      <!-- Menu mobile dropdown -->
-      <div
-        id="navMenuMobile"
-        class="hidden lg:hidden border-t border-neutral mt-2 pt-2 transition-all duration-300 ease-in-out"
-      >
-        <ul class="flex flex-col gap-2 list-none items-center">
-          <li>
-            <a
-              href="#accueil"
-              class="nav-link text-purple-600 hover:text-orange-600 block py-1"
-            >
-              Accueil
-            </a>
-          </li>
-          <li>
-            <a
-              href="#projets"
-              class="nav-link text-purple-600 hover:text-orange-600 block py-1"
-            >
-              Portfolio
-            </a>
-          </li>
-          <li>
-            <a
-              href="#apropos"
-              class="nav-link text-purple-600 hover:text-orange-600 block py-1"
-            >
-              À propos
-            </a>
-          </li>
-          <li>
-            <a
-              href="#competences"
-              class="nav-link text-purple-600 hover:text-orange-600 block py-1"
-            >
-              Services
-            </a>
-          </li>
-          <li>
-            <a
-              href="#contact"
-              class="nav-link text-purple-600 hover:text-orange-600 block py-1"
-            >
-              Contact
-            </a>
-          </li>
-          <li class="mt-2 pt-2 border-t border-neutral">
-            <a
-              href=""
-              class="inline-flex items-center gap-2 bg-primary hover:bg-secondary text-white font-semibold py-2 px-4 rounded transition duration-300 w-full justify-center"
-              download
-            >
-              <i class="fas fa-download"></i>
+        <!-- Bouton CV desktop et menu toggle -->
+        <div class="flex items-center gap-2">
+          <!-- Bouton CV desktop (visible seulement sur desktop) -->
+          <div class="hidden lg:flex items-center">
+            <span class="inline-block h-5 border-l border-gray-900/30 mr-4"></span>
+            <a href="/assets/images/logos/cv_peterleyauguste_graphicdesigner.pdf" class="inline-flex items-center gap-2 bg-orange-600 text-white hover:bg-transparent hover:border-2 hover:border-orange-600 hover:text-orange-600 font-semibold py-2 px-4 rounded-lg transition duration-300 ease-in-out transform hover:scale-105 active:border active:border-primary whitespace-nowrap" download>
+              <i class="ph ph-file-arrow-down-bold"></i>
               <span>Mon CV</span>
             </a>
-          </li>
-        </ul>
+          </div>
+
+          <!-- Menu toggle mobile -->
+          <button id="menuToggle" aria-label="Toggle navigation" aria-expanded="false" class="lg:hidden flex items-center justify-center h-10 w-10 select-none rounded-lg text-center align-middle text-xs font-medium uppercase text-inherit transition-all">
+            <svg id="menuIcon" xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+        </div>
       </div>
     </nav>
+    
 
     <!-- Placeholders pour les sections -->
-    <div class="bg-gray-50">
-    <div id="hero-section"></div>
-    <div id="projects-section"></div>
-    <div id="testimonials-section"></div>
-    <div id="about-section"></div>
-    <div id="skills-section"></div>
-    <div id="contact-section"></div>
-    <div id="footer-section"></div>
+    <section id="hero-section" class=""></section>
+    <section id="projects-section" class="py-6 lg:py-12 bg-gray-50
+         opacity-0 translate-y-10 transition-all duration-700 ease-out"></section>
+    <section class="wave-divider bg-gray-100 opacity-0 translate-y-10 transition-all duration-700 ease-out">
+      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z"
+        class="fill-gray-50"></path>
+      </svg>
+    </section>
+    <section id="testimonials-section" class="pt-6 pb-3 lg:pt-6 lg:pb-6 bg-gray-100
+         opacity-0 translate-y-10 transition-all duration-700 ease-out"></section>
+    <section id="about-section" class="py-3 lg:py-6  bg-gray-100
+         opacity-0 translate-y-10 transition-all duration-700 ease-out"></section>
+    <section id="skills-section" class="py-6 lg:py-12 bg-gray-50
+         opacity-0 translate-y-10 transition-all duration-700 ease-out"></section>
+    <section id="contact-section" class="py-6 lg:py-12 bg-gray-50
+         opacity-0 translate-y-10 transition-all duration-700 ease-out"></section>
+    <section id="footer-section" class="pt-6 lg:pt-12 bg-gray-50
+         opacity-0 translate-y-10 transition-all duration-700 ease-out"></section>
 
-    <!-- Bouton retour en haut -->
-    <button class="back-to-top" id="backToTop" aria-label="Retour en haut">
-      <i class="fas fa-chevron-up"></i>
+    <!-- Bouton flottant Back-to-top -->
+    <button 
+      id="backToTop" 
+      class="fixed bottom-6 right-6 bg-transparent backdrop-blur-lg text-orange-600 lg:text-xl
+            px-3 py-2 lg:px-4 lg:py-3 rounded-full shadow-lg animate-pulse hover:scale-105 hover:animate-none
+            transition-all duration-300 hidden">
+      <i class="ph ph-arrow-up-bold"></i>
     </button>
 
+      <!-- Modal d'alerte pour liens non actifs -->
+<div id="alertModal" class="fixed inset-0 flex items-center justify-center z-[100] hidden">
+  <!-- Overlay avec blur -->
+  <div class="absolute inset-0 bg-black/40 backdrop-blur-sm"></div>
+  
+  <!-- Contenu du modal -->
+  <div class="relative bg-white rounded-2xl shadow-2xl max-w-md w-full mx-4 p-6 md:p-8 transform transition-all duration-300 scale-95 opacity-0" id="alertModalContent">
+    <!-- Icône d'alerte -->
+    <div class="flex justify-center mb-4">
+      <div class="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center">
+        <i class="ph ph-lock text-4xl text-orange-600"></i>
+      </div>
     </div>
+
+    <!-- Message -->
+    <p class="text-gray-600 text-center mb-6 leading-relaxed">
+      Non disponible pour l'instant !<br>
+      <span class="text-sm text-gray-500">Merci de contacter le propriétaire du site pour plus d'informations y concernant.</span>
+    </p>
+    
+    <!-- Bouton de fermeture -->
+    <div class="flex justify-center">
+      <button id="closeAlertModal" class="bg-orange-600 hover:bg-purple-600 text-white font-semibold py-2 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2">
+        Compris
+      </button>
+    </div>
+    
+    <!-- Bouton fermer (croix) -->
+    <button id="closeAlertModalCross" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 transition-colors">
+      <i class="ph ph-x text-2xl"></i>
+    </button>
+  </div>
+</div>
+
 
     <script type="module" src="js/main.js"></script>
   </body>

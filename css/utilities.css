@@ -170,6 +170,7 @@ body.modal-open {
 /* ===== RESPONSIVE DESIGN ===== */
 
 /* Desktop (min 993px) - default layout */
+/*
 @media (min-width: 993px) {
   #menuToggle {
     display: none !important;
@@ -206,11 +207,12 @@ body.modal-open {
     display: flex !important;
   }
 }
+*/
 
 /* Tablettes (max 992px) */
-@media (max-width: 992px) {
+/* @media (max-width: 992px) { */
   /* Navigation pour tablette */
-  #navMenu {
+  /* #navMenu {
     position: fixed !important;
     top: 70px;
     left: 0;
@@ -239,6 +241,7 @@ body.modal-open {
   #menuToggle {
     display: flex !important;
   }
+*/
 
   .hero .container,
   .about-content-wrapper,
@@ -264,7 +267,7 @@ body.modal-open {
   .footer-content {
     grid-template-columns: repeat(2, 1fr);
   }
-}
+/*} */
 
 /* Mobiles (max 768px) */
 @media (max-width: 768px) {

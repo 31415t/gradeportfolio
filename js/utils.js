@@ -1,7 +1,7 @@
 // utils.js - Fonctions utilitaires réutilisables
 
 // Bouton retour en haut
-export function initBackToTop() {
+/* export function initBackToTop() {
     console.log('⬆️ Initialisation du bouton retour en haut...');
     
     const backToTopButton = document.getElementById('backToTop');
@@ -25,7 +25,8 @@ export function initBackToTop() {
     });
     
     console.log('✅ Bouton retour en haut initialisé');
-}
+} */
+
 
 // Précharger les images
 export function preloadImages() {
@@ -144,10 +145,76 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Exporter pour le debugging
 export const utils = {
-    initBackToTop,
+    // initBackToTop,
     preloadImages,
     initTypingAnimation,
     initResizeHandler,
     formatNumber,
     checkFeatureSupport
 };
+
+// ============================================
+// MODAL D'ALERTE POUR LIENS NON ACTIFS
+// ============================================
+
+export function initAlertModal() {
+  const modal = document.getElementById('alertModal');
+  const modalContent = document.getElementById('alertModalContent');
+  const closeBtn = document.getElementById('closeAlertModal');
+  const closeCross = document.getElementById('closeAlertModalCross');
+  
+  // Sélectionner tous les liens avec la classe 'disabled-link' ou 'inactive'
+  const inactiveLinks = document.querySelectorAll('.disabled-link, .inactive');
+  
+  if (!modal || !modalContent) return;
+  
+  // Fonction pour ouvrir le modal
+  function openModal() {
+    modal.classList.remove('hidden');
+    // Petite animation d'entrée
+    setTimeout(() => {
+      modalContent.classList.remove('scale-95', 'opacity-0');
+      modalContent.classList.add('scale-100', 'opacity-100');
+    }, 10);
+  }
+  
+  // Fonction pour fermer le modal
+  function closeModal() {
+    modalContent.classList.remove('scale-100', 'opacity-100');
+    modalContent.classList.add('scale-95', 'opacity-0');
+    
+    // Cacher le modal après l'animation
+    setTimeout(() => {
+      modal.classList.add('hidden');
+    }, 300);
+  }
+  
+  // Ajouter l'événement à tous les liens inactifs
+  inactiveLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      openModal();
+    });
+  });
+  
+  // Fermeture par les boutons
+  if (closeBtn) closeBtn.addEventListener('click', closeModal);
+  if (closeCross) closeCross.addEventListener('click', closeModal);
+  
+  // Fermeture en cliquant sur l'overlay
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+  
+  // Fermeture avec la touche Echap
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+      closeModal();
+    }
+  });
+  
+  console.log('✅ Alert modal initialized');
+}

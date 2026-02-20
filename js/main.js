@@ -10,6 +10,7 @@ import { renderSkills, initSkills } from './sections/skills.js';
 import { renderContact } from './sections/contact.js';
 import { renderFooter } from './sections/footer.js';
 import { initNavigation } from './sections/navigation.js';
+import { initAlertModal } from './utils.js';
 
 // État global de l'application
 let appState = {
@@ -144,7 +145,75 @@ async function init() {
     showErrorMessage('Erreur lors du chargement du site: ' + error.message);
     appState.isLoading = false;
   }
+
+    // 6. Initialiser le modal d'alerte (pour les projets à venir)
+    initAlertModal();
 }
+
+// slide-up section animation
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.remove('opacity-0', 'translate-y-10');
+      entry.target.classList.add('opacity-100', 'translate-y-0');
+      observer.unobserve(entry.target); // optionnel
+    }
+  });
+});
+
+document.querySelectorAll('section').forEach(sec => {
+  observer.observe(sec);
+});
+
+// Version finale avec throttling pour les performances
+const backToTop = document.getElementById('backToTop');
+let timeoutId;
+
+function throttleScroll() {
+  if (timeoutId) return;
+  
+  timeoutId = setTimeout(() => {
+    if (window.scrollY > 2000) {
+      backToTop.classList.remove('hidden');
+      requestAnimationFrame(() => {
+        backToTop.classList.add('show');
+      });
+    } else {
+      backToTop.classList.remove('show');
+      setTimeout(() => {
+        if (!backToTop.classList.contains('show')) {
+          backToTop.classList.add('hidden');
+        }
+      }, 400);
+    }
+    timeoutId = null;
+  }, 10);
+}
+
+window.addEventListener('scroll', throttleScroll, { passive: true });
+
+backToTop.addEventListener('click', (e) => {
+  e.preventDefault();
+  
+  // Smooth scroll moderne
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+  
+  // Petit effet supplémentaire
+  backToTop.style.transform = 'scale(0.9)';
+  setTimeout(() => {
+    backToTop.style.transform = '';
+  }, 200);
+});
+
+// Montrer le bouton si on charge la page déjà en bas
+if (window.scrollY > 2000) {
+  backToTop.classList.remove('hidden');
+  backToTop.classList.add('show');
+}
+
 
 // Démarrer l'application QUAND le DOM est prêt
 document.addEventListener('DOMContentLoaded', init);

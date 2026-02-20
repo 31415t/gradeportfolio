@@ -1,6 +1,6 @@
 export function renderContact() {
   return `
-    <section class="section contact" id="contact">
+    <div class="section contact" id="contact">
       <div class="container">
         <h2 class="section-title">Travaillons <span>ensemble</span></h2>
         <p class="section-subtitle">Vous avez un projet en tête ? Contactez-moi pour en discuter !</p>
@@ -76,6 +76,6 @@ export function renderContact() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   `;
 }

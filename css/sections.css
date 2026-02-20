@@ -1,4 +1,26 @@
 /* ===== NAVIGATION ===== */
+  .wave-divider {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+
+  .wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 60px;
+  }
+
+  @media (min-width: 768px) {
+    .wave-divider svg {
+      height: 150px;
+    }
+  }
+
 .nav-menu {
   position: sticky !important;
   top: 0;
@@ -74,6 +96,7 @@
   width: 100%;
 }
 
+/*
 #menuToggle {
   background: none;
   border: none;
@@ -83,11 +106,11 @@
   padding: var(--spacing-xs);
   transition: var(--transition);
   width: 40px;
-  height: 40px;
   display: none;
   align-items: center;
   justify-content: center;
 }
+
 
 #menuToggle:hover {
   color: var(--primary-color);
@@ -97,7 +120,7 @@
   width: 24px;
   height: 24px;
 }
-
+*/
 
 /* ===== HERO SECTION ===== */
 .hero {
@@ -380,10 +403,11 @@ button.filter-btn.active span {
 }
 
 /* ===== TESTIMONIALS SECTION ===== */
-.testimonials {
+/* .testimonials {
   background-color: #f9f9ff;
-}
+} */
 
+/*
 .testimonials-slider {
   display: flex;
   gap: 24px;
@@ -407,7 +431,7 @@ button.filter-btn.active span {
 .testimonial-card:hover {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
-
+*/
 .testimonials-dots {
   display: none;
   display: flex;

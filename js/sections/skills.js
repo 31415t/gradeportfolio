@@ -1,6 +1,6 @@
 export function renderSkills() {
   return `
-    <section class="section skills" id="competences">
+    <div class="section skills" id="competences">
       <div class="container">
         <h2 class="section-title">Mes <span>Services</span></h2>
         
@@ -104,7 +104,7 @@ export function renderSkills() {
           </div>
         </div>
       </div>
-    </section>
+    </div>
   `;
 }
 

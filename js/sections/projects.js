@@ -2,9 +2,9 @@
 
 export function renderProjects() {
   return `
-    <section class="section projects" id="projets">
-      <div class="flex items-center justify-between flex-col mx-auto px-4 py-4 md:py-6 lg:py-8 max-w-7xl">
-        <h2 class="text-2xl lg:text-3xl font-semibold text-orange-600 text-center mb-4">Mon Portfolio</h2>
+    <div class="section projects" id="projets">
+      <div class="flex items-center justify-between flex-col mx-auto px-4 py-6 md:py-8 lg:py-12 max-w-7xl">
+        <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-4">Mon Portfolio</h2>
         <p class="text-gray-600 text-center max-w-4xl mx-auto mb-8 text-sm md:text-lg">
         Plongez dans mon univers visuel à travers une sélection de projets récents. 
         Derrière chacune de ces créations se cache une histoire singulière, mêlant émotions, ma passion pour le 
@@ -33,7 +33,7 @@ export function renderProjects() {
         <div class="pagination-container mt-4" id="paginationContainer" style="display: none;">
         </div>
       </div>
-    </section>
+    </div>
   `;
 }
 
@@ -280,7 +280,7 @@ export function initProjects() {
             btn.setAttribute('data-modal-open', 'false');
             const icon = btn.querySelector('i');
             if (icon) {
-              icon.className = 'fas fa-chevron-down text-xs';
+              icon.className = 'ph ph-caret-down-bold text-xs';
             }
           });
         }
@@ -298,7 +298,7 @@ export function initProjects() {
             btn.setAttribute('data-modal-open', 'false');
             const icon = btn.querySelector('i');
             if (icon) {
-              icon.className = 'fas fa-chevron-down text-xs';
+              icon.className = 'ph ph-caret-down-bold text-xs';
             }
           });
         }
@@ -317,7 +317,7 @@ export function initProjects() {
             btn.setAttribute('data-modal-open', 'false');
             const icon = btn.querySelector('i');
             if (icon) {
-              icon.className = 'fas fa-chevron-down text-xs';
+              icon.className = 'ph ph-caret-down-bold text-xs';
             }
           });
         }
@@ -330,7 +330,7 @@ export function initProjects() {
   function createProjectCard(project) {
     const projectCard = document.createElement('div');
     projectCard.className =
-      'rounded overflow-hidden shadow-md flex flex-col h-full hover:shadow-lg transition-shadow duration-300 relative';
+      'rounded overflow-hidden shadow-md flex flex-col h-full hover:shadow-lg hover:backdrop-saturate-200 transition-all duration-300 relative';
     projectCard.setAttribute('data-category', project.category);
     projectCard.setAttribute('data-id', project.id);
 
@@ -381,9 +381,8 @@ export function initProjects() {
         ${categoryName}
       </div>
     </div>
-
-    <!-- Contenu -->
-    <div class="px-6 py-4 mb-auto flex-grow">
+ 
+    <div class="px-6 py-4 mb-auto flex-grow bg-gray-50/50">
       <h3 class="font-medium text-md mb-2" style="color: ${randomColor};">
         ${project.title}
       </h3>
@@ -394,7 +393,7 @@ export function initProjects() {
     </div>
 
     <!-- Footer avec les boutons -->
-    <div class="px-6 py-3 flex flex-row items-center justify-between bg-light border-t border-neutral">
+    <div class="px-6 py-3 flex flex-row items-center justify-between bg-gray-50/50 border-t border-neutral">
       <!-- Groupe de gauche : like + info -->
       <div class="flex items-center gap-2">
         <!-- Bouton like -->
@@ -407,14 +406,14 @@ export function initProjects() {
         <button class="info-toggle w-8 h-8 flex items-center justify-center rounded-full hover:bg-gray-100 transition-colors"
                 data-modal-open="false"
                 aria-label="Voir le brief client">
-          <i class="fas fa-chevron-down text-xs text-orange-600"></i>
+          <i class="ph ph-caret-down text-xs text-orange-600"></i>
         </button>
       </div>
 
       <!-- Bouton voir (image) -->
       <button class="view-project-btn py-2 px-4 btn-secondary text-sm font-semibold rounded-lg transition-all duration-300 hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 group/view">
         <span>Voir</span>
-        <i class="fas fa-arrow-right text-xs opacity-100 -translate-x-0.5 group-hover/view:opacity-100 group-hover/view:translate-x-0.5 transition-all duration-300"></i>
+        <i class="ph ph-arrow-right-bold text-xs opacity-100 -translate-x-0.5 group-hover/view:opacity-100 group-hover/view:translate-x-0.5 transition-all duration-300"></i>
       </button>
     </div>
     `;
@@ -521,52 +520,49 @@ export function initProjects() {
     }
 
     let paginationHTML = `
-      <div class="flex flex-col items-center space-y-3">
-        <div class="text-sm text-orange-400">
-          Page ${currentPage} sur ${totalPages} · 
-          <span class="font-medium">${filteredProjects.length} projets au total</span>
-        </div>
-        
-        <div class="flex items-center space-x-2">
+      <div class="flex flex-col items-center space-y-4">
+        <div class="flex items-center flex-wrap justify-center">
+          <!-- Bouton Précédent -->
+          <button class="pagination-btn text-xs md:text-sm prev-btn px-4 py-2 border rounded-l-lg border-gray-300 flex items-center justify-center gap-2
+                        ${currentPage === 1 ? 'opacity-50 cursor-not-allowed bg-gray-100' : 'hover:bg-orange-50 hover:border-orange-300 hover:gap-4 hover:px-6 transition-all duration-300'}"
+                  ${currentPage === 1 ? 'disabled' : ''}>
+            <i class="ph ph-caret-left-bold"></i>
+            <span class="hidden sm:inline">Précédent</span>
+          </button>
+          
+          <!-- Numéros de pages -->
+          <div class="hidden sm:flex items-center">
     `;
 
-    // Bouton Précédent
-    paginationHTML += `
-      <button class="pagination-btn text-xs md:text-sm prev-btn px-4 py-2 rounded-lg border border-gray-300 
-                     ${currentPage === 1 ? 'opacity-50 cursor-not-allowed bg-gray-100' : 'hover:bg-orange-50 hover:border-orange-300 transition-colors duration-200'}"
-              ${currentPage === 1 ? 'disabled' : ''}>
-        <i class="fas fa-chevron-left mr-1"></i>
-        Précédent
-      </button>
-    `;
-
-    // Numéros de pages
-    paginationHTML += `<div class="hidden sm:flex items-center space-x-2">`;
-    
     for (let i = startPage; i <= endPage; i++) {
       paginationHTML += `
-        <button class="pagination-btn page-btn px-4 py-2 rounded-lg text-xs md:text-sm
-                       ${i === currentPage 
-                         ? 'bg-orange-600 text-white font-semibold' 
-                         : 'border border-gray-300 hover:bg-orange-50 hover:border-orange-300 transition-colors duration-200'}"
-                data-page="${i}">
-          ${i}
-        </button>
+            <button class="pagination-btn border-y border-gray-300 page-btn px-4 py-2 text-xs md:text-sm 
+                          hover:px-8 hover:bg-orange-50 transition-all duration-300
+                          ${i === currentPage ? 'bg-orange-600 text-white font-semibold hover:bg-orange-500' : ''}"
+                    data-page="${i}">
+              ${i}
+            </button>
       `;
     }
-    
-    paginationHTML += `</div>`;
 
-    // Bouton Suivant
     paginationHTML += `
-      <button class="pagination-btn text-xs md:text-sm next-btn px-4 py-2 rounded-lg border border-gray-300
-                     ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed bg-gray-100' : 'hover:bg-orange-50 hover:border-orange-300 transition-colors duration-200'}"
-              ${currentPage === totalPages ? 'disabled' : ''}>
-        Suivant
-        <i class="fas fa-chevron-right ml-1"></i>
-      </button>
+          </div>
+          
+          <!-- Bouton Suivant -->
+          <button class="pagination-btn text-xs md:text-sm next-btn px-4 py-2 rounded-r-lg border border-gray-300 flex items-center justify-center gap-2
+                        ${currentPage === totalPages ? 'opacity-50 cursor-not-allowed bg-gray-100' : 'hover:bg-orange-50 hover:border-orange-300 hover:gap-4 hover:px-6 transition-all duration-300'}"
+                  ${currentPage === totalPages ? 'disabled' : ''}>
+            <span class="hidden sm:inline">Suivant</span>
+            <i class="ph ph-caret-right-bold"></i>
+          </button>
+        </div>
+        
+        <!-- Compteur de projets en dessous -->
+        <div class="text-sm font-medium text-orange-400">
+          ${filteredProjects.length} projets au total
+        </div>
+      </div>
     `;
-  ;
 
     paginationContainer.innerHTML = paginationHTML;
     attachPaginationEvents();
