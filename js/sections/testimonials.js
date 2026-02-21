@@ -1,268 +1,408 @@
-// sections/testimonials.js - Génération HTML + Slider de témoignages
+// sections/testimonials.js - Version Card Stack avec hauteurs normalisées
 
 export function renderTestimonials() {
   return `
-    <div class="testimonials" id="temoignages">
-      <div class="container">
-        <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-12">Ce que disent mes clients...</h2>
+    <div class="testimonials w-full py-12 bg-gray-100" id="temoignages">
+      <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-4">Ce que disent mes clients...</h2>
+        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Découvrez les retours de ceux qui m'ont fait confiance</p>
         
-        <!-- Ajout de py-4 pour donner de l'espace vertical -->
-        <div class="overflow-hidden py-4">
-          <div class="testimonials-slider flex gap-6 transition-transform" id="testimonialsSlider" style="will-change: transform;">
-            <div class="loading-testimonials flex items-center justify-center w-full py-12">
-              <i class="fas fa-spinner fa-spin text-4xl text-primary mb-4 mr-4"></i>
-              <p>Chargement des témoignages...</p>
+        <!-- Container du stack -->
+        <div class="relative w-full max-w-[350px] sm:max-w-[450px] md:max-w-[500px] lg:max-w-[600px] mx-auto transition-all duration-300" id="stackContainer">
+          
+          <!-- Loading state -->
+          <div class="loading-testimonials absolute inset-0 flex items-center justify-center bg-white/80 backdrop-blur-sm rounded-2xl z-50">
+            <i class="fas fa-spinner fa-spin text-4xl text-orange-600 mr-4"></i>
+            <p class="text-gray-600">Chargement des témoignages...</p>
+          </div>
+          
+          <!-- Les cartes seront injectées ici -->
+          <div id="stackCards" class="relative w-full h-full"></div>
+          
+          <!-- Indicateurs de position -->
+          <div class="absolute -bottom-20 left-0 right-0 flex flex-col items-center gap-3">
+            <!-- Points de navigation -->
+            <div class="flex items-center gap-2" id="stackDots"></div>
+            
+            <!-- Légende avec nombre total (message temporaire) -->
+            <div class="text-sm mb-6 text-gray-500 font-medium" id="stackLegend">
+              Chargement...
             </div>
           </div>
         </div>
+        
+        <!-- Boutons de navigation --> <!--
+        <div class="flex items-center justify-center gap-4 mt-20">
+          <button id="prevCard" class="w-12 h-12 rounded-full bg-white shadow-md hover:shadow-lg flex items-center justify-center text-orange-600 hover:text-purple-600 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Témoignage précédent">
+            <i class="ph ph-caret-left text-2xl"></i>
+          </button>
+          <button id="nextCard" class="w-12 h-12 rounded-full bg-white shadow-md hover:shadow-lg flex items-center justify-center text-orange-600 hover:text-purple-600 transition-all duration-300 disabled:opacity-30 disabled:cursor-not-allowed" aria-label="Témoignage suivant">
+            <i class="ph ph-caret-right text-2xl"></i>
+          </button>
+        </div> -->
       </div>
     </div>
   `;
 }
-export function initTestimonials() {
-  console.log('💬 Initialisation des témoignages...');
 
-  // Variables d'état
+export function initTestimonials() {
+  console.log('💬 Initialisation du stack de témoignages...');
+
   let testimonials = [];
   let currentIndex = 0;
   let autoScrollInterval;
-  let isScrolling = false;
-  let gap = 24; // gap-6 = 24px
+  let isPaused = false;
   
-  const scrollDuration = 4000;
-  const transitionDuration = 600;
+  const autoScrollDelay = 5000;
+  const transitionDuration = 500;
 
-  // Éléments DOM
-  const slider = document.getElementById('testimonialsSlider');
+  const stackContainer = document.getElementById('stackContainer');
+  const stackCards = document.getElementById('stackCards');
+  const stackDots = document.getElementById('stackDots');
+  const stackLegend = document.getElementById('stackLegend');
+  const prevButton = document.getElementById('prevCard');
+  const nextButton = document.getElementById('nextCard');
   const section = document.querySelector('.testimonials');
 
-  // Fonction pour obtenir le nombre de cartes par vue selon la largeur
-  function getCardsPerView() {
-    const width = window.innerWidth;
-    if (width < 640) return 1;      // mobile
-    if (width < 1024) return 2;     // tablette
-    return 3;                        // desktop
-  }
-
-  // Calculer la largeur de chaque carte
-  function calculateCardWidth() {
-    if (!slider) return 0;
-    
-    const cards = document.querySelectorAll('.testimonial-card');
-    if (cards.length === 0) return 0;
-    
-    const containerWidth = slider.parentElement?.offsetWidth || 0;
-    const cardsPerView = getCardsPerView();
-    
-    // Largeur d'une carte = (largeur du conteneur - (gap * (cardsPerView - 1))) / cardsPerView
-    return (containerWidth - (gap * (cardsPerView - 1))) / cardsPerView;
-  }
-
-  // Scroller vers un index spécifique
-  function scrollToIndex(index) {
-    if (!slider) return;
-    
-    const cardWidth = calculateCardWidth();
-    if (cardWidth === 0) return;
-    
-    const translateX = -(index * (cardWidth + gap));
-    
-    slider.style.transition = `transform ${transitionDuration}ms ease-out`;
-    slider.style.transform = `translateX(${translateX}px)`;
-    currentIndex = index;
-  }
-
-  // Auto-scroll automatique
-  function autoScroll() {
-    if (isScrolling || !slider) return;
-    
-    const cardsPerView = getCardsPerView();
-    const maxIndex = Math.max(0, testimonials.length - cardsPerView);
-    
-    if (currentIndex >= maxIndex) {
-      // Retour au début
-      isScrolling = true;
-      
-      slider.style.transition = 'none';
-      slider.style.transform = 'translateX(0)';
-      
-      // Forcer un reflow
-      void slider.offsetHeight;
-      
-      setTimeout(() => {
-        slider.style.transition = `transform ${transitionDuration}ms ease-out`;
-        scrollToIndex(1);
-        
-        setTimeout(() => {
-          isScrolling = false;
-        }, transitionDuration);
-      }, 50);
-      
-      currentIndex = 0;
-    } else {
-      isScrolling = true;
-      scrollToIndex(currentIndex + 1);
-      
-      setTimeout(() => {
-        isScrolling = false;
-      }, transitionDuration);
-    }
-  }
-
-  // Gérer le redimensionnement
-  function handleResize() {
-    stopAutoScroll();
-    
-    if (slider) {
-      const cardsPerView = getCardsPerView();
-      const maxIndex = Math.max(0, testimonials.length - cardsPerView);
-      if (currentIndex > maxIndex) {
-        currentIndex = maxIndex;
+  // ============================================
+  // 1. CSS MINIMAL (corrigé)
+  // ============================================
+  function injectStackStyles() {
+    const style = document.createElement('style');
+    style.textContent = `
+      .stack-card {
+        position: absolute;
+        width: 100%;
+        transition: all ${transitionDuration}ms cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+        box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.02);
+        border-radius: 1rem;
+        background: white;
+        backface-visibility: hidden;
+        transform-origin: top center;
+        overflow: visible;
+        opacity: 1;
       }
       
-      const cardWidth = calculateCardWidth();
-      if (cardWidth > 0) {
-        slider.style.transition = 'none';
-        slider.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+      .stack-card.active {
+        transform: translateX(0) scale(1);
+        z-index: 10;
+        opacity: 1;
+        filter: blur(0);
+        box-shadow: 0 20px 30px -10px rgba(0, 0, 0, 0.2);
       }
-    }
-    
-    setTimeout(() => {
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-        if (isVisible) {
-          startAutoScroll();
+      
+      .stack-card.next-1 {
+        transform: translateX(0) translateY(10px) scaleX(0.95);
+        z-index: 9;
+        opacity: 0.9;
+        filter: blur(1px);
+      }
+
+      .stack-card.next-2 {
+        transform: translateX(0) translateY(20px) scaleX(0.9);
+        z-index: 8;
+        opacity: 0.9;
+        filter: blur(1.5px);
+      }
+
+      .stack-card.next-3 {
+        transform: translateX(0) translateY(30px) scaleX(0.85);
+        z-index: 7;
+        opacity: 0.9;
+        filter: blur(2px);
+      }
+
+      .stack-card.hidden-stack {
+        transform: translateX(0px) translateY(40px) scaleY(0.8);
+        z-index: 6;
+        opacity: 0.9;
+        filter: blur(2.5px);
+      }
+      
+      .stack-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 20px;
+        background-color: #d1d5db;
+        transition: all 0.3s ease;
+        cursor: pointer;
+      }
+      
+      .stack-dot.active {
+        width: 24px;
+        background: linear-gradient(90deg, #f97316, #7a3eb1);
+      }
+      
+      /* Ajustements pour mobile */
+      @media (max-width: 640px) {
+        .stack-card.next-1 {
+          transform: translateX(0) translateY(8px) scaleX(0.97);
+          filter: blur(0.5px);
+          opacity: 0.8;
         }
-      }
-    }, 500);
-  }
 
-  // Charger les témoignages
-  async function loadTestimonials() {
-    try {
-      const response = await fetch('data/testimonials.json');
-      if (!response.ok) throw new Error('Erreur de chargement');
+        .stack-card.next-2 {
+          transform: translateX(0) translateY(16px) scaleX(0.94);
+          filter: blur(1px);
+          opacity: 0.8;
+        }
 
-      testimonials = await response.json();
+        .stack-card.next-3 {
+          transform: translateX(0) translateY(24px) scaleX(0.91);
+          filter: blur(1.5px);
+          opacity: 0.8;
+        }
 
-      if (testimonials.length === 0) {
-        showNoTestimonialsMessage();
-        return;
-      }
-
-      generateTestimonials();
-      
-      setTimeout(() => {
-        updateCardsPerView();
-        setupIntersectionObserver();
-        
-        const loadingElement = document.querySelector('.loading-testimonials');
-        if (loadingElement) {
-          loadingElement.style.display = 'none';
+        .stack-card.hidden-stack {
+          transform: translateX(0px) translateY(32px) scaleY(0.88);
+          filter: blur(2px);
+          opacity: 0.5;
         }
         
-        console.log(`✅ ${testimonials.length} témoignages chargés`);
-      }, 100);
-      
-    } catch (error) {
-      console.error('❌ Erreur:', error);
-      showNoTestimonialsMessage();
-    }
-  }
-
-
-// Générer les témoignages
-function generateTestimonials() {
-  if (!slider) return;
-
-  slider.innerHTML = '';
-
-  testimonials.forEach((testimonial) => {
-    const testimonialCard = document.createElement('div');
-    
-    // SEULEMENT les classes pour le défilement responsive
-    testimonialCard.className = 'testimonial-card flex-shrink-0 w-full sm:w-1/2 lg:w-1/3';
-    
-    let avatarContent = '';
-    if (testimonial.avatar) {
-      avatarContent = `<img src="${testimonial.avatar}" alt="${testimonial.name}" class="w-full h-full object-cover" onerror="this.style.display='none';">`;
-    } else {
-      avatarContent = `<span class="text-xl font-bold">${testimonial.initials || testimonial.name.charAt(0)}</span>`;
-    }
-
-    // Fonction interne pour générer les étoiles
-    function generateStars(rating) {
-      let stars = '';
-      for (let i = 0; i < 5; i++) {
-        if (i < rating) {
-          stars += `<i class="ph ph-star-fill text-yellow-400"></i>`;
-        } else {
-          stars += `<i class="ph ph-star text-yellow-400"></i>`;
+        #stackContainer {
+          max-width: 300px;
         }
       }
-      return stars;
+    `;
+    document.head.appendChild(style);
+  }
+
+  // ============================================
+  // 2. NORMALISATION DES HAUTEURS
+  // ============================================
+  function normalizeCardHeights() {
+    const cards = document.querySelectorAll('.stack-card');
+    if (cards.length === 0) return;
+    
+    console.log('📏 Normalisation des hauteurs...');
+    
+    cards.forEach(card => {
+      card.style.height = 'auto';
+    });
+    
+    let maxHeight = 0;
+    cards.forEach(card => {
+      const height = card.offsetHeight;
+      maxHeight = Math.max(maxHeight, height);
+    });
+    
+    cards.forEach(card => {
+      card.style.height = `${maxHeight}px`;
+    });
+    
+    if (stackContainer) {
+      stackContainer.style.height = `${maxHeight + 40}px`;
     }
     
-    const avatarColor = getAvatarColor(testimonial.name);
+    console.log(`✅ Hauteur normalisée: ${maxHeight}px`);
+    
+    cards.forEach(card => {
+      card.style.overflow = 'visible';
+    });
+    
+    updateStack();
+  }
 
-    // Structure CORRIGÉE - plus de double conteneur
-    testimonialCard.innerHTML = `
-      <!-- UNIQUEMENT le contenu de la carte, pas de conteneur slider supplémentaire -->
-      <div class="flex flex-col min-h-full bg-white/50 backdrop-blur-lg rounded-lg p-6 border-l-4 border-transparent shadow-[0_1px_3px_rgba(0,0,0,0.1)] transition-[box-shadow] duration-300 ease-in-out hover:shadow-[0_10px_25px_rgba(0,0,0,0.1)]">
-        
-        <!-- Étoiles -->
-        <div class="flex gap-1 mb-3">
-          ${generateStars(testimonial.rating || 5)}
-        </div>
-        
-        <!-- Contenu -->
-        <p class="text-gray-700 text-sm mb-auto leading-relaxed italic">
-          "${testimonial.content}"
-        </p>
-        
-        <!-- Pied de carte avec avatar -->
-        <div class="flex items-center gap-4 mt-6 pt-4 border-t border-gray-100">
-          <!-- Avatar avec dégradé -->
-          <div class="w-12 h-12 rounded-full flex items-center justify-center text-white flex-shrink-0" 
-               style="background: linear-gradient(135deg, ${avatarColor}, ${lightenColor(avatarColor, 20)});">
-            ${avatarContent}
+  // ============================================
+  // 3. GÉNÉRATION DES CARTES (hover:border-orange retiré)
+  // ============================================
+  function generateCards() {
+    if (!stackCards) return;
+
+    stackCards.innerHTML = '';
+
+    testimonials.forEach((testimonial, index) => {
+      const card = document.createElement('div');
+      card.className = 'stack-card';
+      card.dataset.index = index;
+      
+      let avatarContent = '';
+      if (testimonial.avatar) {
+        avatarContent = `<img src="${testimonial.avatar}" alt="${testimonial.name}" class="w-full h-full object-cover rounded-full" onerror="this.style.display='none';">`;
+      } else {
+        avatarContent = `<span class="text-xl font-bold text-white">${testimonial.initials || testimonial.name.charAt(0)}</span>`;
+      }
+
+      function generateStars(rating) {
+        let stars = '';
+        for (let i = 0; i < 5; i++) {
+          if (i < rating) {
+            stars += `<i class="ph ph-star-fill text-yellow-400 text-lg"></i>`;
+          } else {
+            stars += `<i class="ph ph-star text-yellow-400 text-lg"></i>`;
+          }
+        }
+        return stars;
+      }
+      
+      const avatarColor = getAvatarColor(testimonial.name);
+
+      card.innerHTML = `
+        <div class="stack-content flex flex-col bg-white rounded-xl p-6 sm:p-8 border-l-4 border-transparent h-full">
+          
+          <div class="flex gap-1 mb-4 flex-shrink-0">
+            ${generateStars(testimonial.rating || 5)}
           </div>
           
-          <!-- Informations utilisateur -->
-          <div class="min-w-0">
-            <h4 class="font-semibold text-gray-900 text-sm truncate">${testimonial.name}</h4>
-            <p class="text-gray-600 text-xs truncate">${testimonial.position || ''}</p>
-            <p class="text-primary text-xs font-medium truncate">${testimonial.company || ''}</p>
+          <div class="flex-grow flex flex-col min-h-0 mb-4">
+            <p class="text-gray-700 text-sm sm:text-base leading-relaxed italic">
+              "${testimonial.content}"
+            </p>
+          </div>
+          
+          <div class="flex items-center gap-4 pt-4 border-t border-gray-100 flex-shrink-0">
+            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-md" 
+                style="background: linear-gradient(135deg, ${avatarColor}, ${lightenColor(avatarColor, 20)});">
+              ${avatarContent}
+            </div>
+            
+            <div class="min-w-0 flex-1">
+              <h4 class="font-semibold text-gray-900 text-sm sm:text-base truncate">${testimonial.name}</h4>
+              <p class="text-gray-500 text-xs truncate">${testimonial.position || ''}</p>
+              <p class="text-orange-600 text-xs font-medium truncate">${testimonial.company || ''}</p>
+            </div>
           </div>
         </div>
-      </div>
-    `;
+      `;
 
-    slider.appendChild(testimonialCard);
-  });
+      // NOUVEAU : Clic sur la carte active seulement
+      card.addEventListener('click', (e) => {
+        e.stopPropagation();
+        // Vérifier si c'est la carte active
+        if (card.classList.contains('active')) {
+          nextCard(); // Passer à la carte suivante
+        }
+      });
 
-  if (slider.parentElement) {
-    slider.parentElement.addEventListener('mouseenter', pauseAutoScroll);
-    slider.parentElement.addEventListener('mouseleave', resumeAutoScroll);
+      stackCards.appendChild(card);
+    });
+
+    setTimeout(() => {
+      normalizeCardHeights();
+    }, 200);
   }
-}
 
-  // Mettre à jour le nombre de cartes visibles
-  function updateCardsPerView() {
-    const cardsPerView = getCardsPerView();
-    const maxIndex = Math.max(0, testimonials.length - cardsPerView);
-    if (currentIndex > maxIndex) {
-      currentIndex = maxIndex;
-    }
+  // ============================================
+  // 4. GESTION DU STACK
+  // ============================================
+  function updateStack() {
+    const cards = document.querySelectorAll('.stack-card');
+    const totalCards = cards.length;
     
-    const cardWidth = calculateCardWidth();
-    if (cardWidth > 0 && slider) {
-      slider.style.transition = 'none';
-      slider.style.transform = `translateX(-${currentIndex * (cardWidth + gap)}px)`;
+    cards.forEach((card, index) => {
+      card.classList.remove('active', 'next-1', 'next-2', 'next-3', 'hidden-stack');
+      
+      let position = (index - currentIndex + totalCards) % totalCards;
+      
+      if (position === 0) {
+        card.classList.add('active');
+      } else if (position === 1) {
+        card.classList.add('next-1');
+      } else if (position === 2) {
+        card.classList.add('next-2');
+      } else if (position === 3) {
+        card.classList.add('next-3');
+      } else {
+        card.classList.add('hidden-stack');
+      }
+    });
+  }
+
+  // ============================================
+  // 5. INDICATEURS (avec mise à jour améliorée)
+  // ============================================
+  function updateIndicators() {
+    if (!stackDots || !stackLegend) return;
+    
+    stackDots.innerHTML = '';
+    testimonials.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = `stack-dot ${index === currentIndex ? 'active' : ''}`;
+      dot.setAttribute('aria-label', `Voir témoignage ${index + 1}`);
+      dot.addEventListener('click', () => goToIndex(index));
+      stackDots.appendChild(dot);
+    });
+    
+    // Mise à jour de la légende seulement si des témoignages sont chargés
+    if (testimonials.length > 0) {
+      const legendText = `${currentIndex + 1} / ${testimonials.length} témoignage${testimonials.length > 1 ? 's' : ''}`;
+      stackLegend.textContent = legendText;
     }
   }
 
+  // ============================================
+  // 6. NAVIGATION
+  // ============================================
+  function goToIndex(index) {
+    if (index < 0 || index >= testimonials.length || index === currentIndex) return;
+    
+    currentIndex = index;
+    updateStack();
+    updateIndicators();
+    resetAutoScroll();
+  }
+
+  function nextCard() {
+    const nextIndex = (currentIndex + 1) % testimonials.length;
+    goToIndex(nextIndex);
+  }
+
+  function prevCard() {
+    const prevIndex = (currentIndex - 1 + testimonials.length) % testimonials.length;
+    goToIndex(prevIndex);
+  }
+
+  // ============================================
+  // 7. AUTO-DÉFILEMENT (avec gestion hover améliorée)
+  // ============================================
+  function startAutoScroll() {
+    if (autoScrollInterval) stopAutoScroll();
+    if (testimonials.length <= 1) return;
+    
+    autoScrollInterval = setInterval(() => {
+      if (!isPaused) {
+        nextCard();
+      }
+    }, autoScrollDelay);
+  }
+
+  function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+    autoScrollInterval = null;
+  }
+
+  function resetAutoScroll() {
+    if (!section) return;
+    stopAutoScroll();
+    
+    const rect = section.getBoundingClientRect();
+    const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+    
+    if (isVisible && testimonials.length > 1 && !isPaused) {
+      startAutoScroll();
+    }
+  }
+
+  function pauseAutoScroll() {
+    isPaused = true;
+    stopAutoScroll();
+  }
+
+  function resumeAutoScroll() {
+    isPaused = false;
+    if (section) {
+      const rect = section.getBoundingClientRect();
+      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+      if (isVisible && testimonials.length > 1) {
+        startAutoScroll();
+      }
+    }
+  }
+
+  // ============================================
+  // 8. OBSERVATEUR D'INTERSECTION
+  // ============================================
   function setupIntersectionObserver() {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -274,7 +414,7 @@ function generateTestimonials() {
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0.3 }
     );
 
     if (section) {
@@ -282,45 +422,9 @@ function generateTestimonials() {
     }
   }
 
-  function showNoTestimonialsMessage() {
-    if (slider) {
-      slider.innerHTML = `
-        <div class="flex items-center justify-center w-full py-12">
-          <i class="fas fa-comment-slash text-4xl text-gray-300 mr-4"></i>
-          <p class="text-gray-500">Aucun témoignage disponible pour le moment.</p>
-        </div>
-      `;
-    }
-  }
-
-  function startAutoScroll() {
-    if (autoScrollInterval) return;
-    
-    const cardsPerView = getCardsPerView();
-    if (testimonials.length <= cardsPerView) return;
-    
-    autoScrollInterval = setInterval(autoScroll, scrollDuration);
-  }
-
-  function stopAutoScroll() {
-    clearInterval(autoScrollInterval);
-    autoScrollInterval = null;
-  }
-
-  function pauseAutoScroll() {
-    stopAutoScroll();
-  }
-
-  function resumeAutoScroll() {
-    if (section) {
-      const rect = section.getBoundingClientRect();
-      const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
-      if (isVisible) {
-        startAutoScroll();
-      }
-    }
-  }
-
+  // ============================================
+  // 9. FONCTIONS UTILITAIRES
+  // ============================================
   function getAvatarColor(name) {
     const colors = [
       '#6C63FF', '#FF6584', '#36B37E', '#FFAB00', '#6554C0', '#00BBD9', '#FF5630'
@@ -346,6 +450,95 @@ function generateTestimonials() {
     ).toString(16).slice(1);
   }
 
-  window.addEventListener('resize', handleResize);
+  // ============================================
+  // 10. GESTION DU RESIZE
+  // ============================================
+  function handleResize() {
+    stopAutoScroll();
+    
+    setTimeout(() => {
+      normalizeCardHeights();
+      
+      if (section) {
+        const rect = section.getBoundingClientRect();
+        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        if (isVisible && !isPaused) {
+          startAutoScroll();
+        }
+      }
+    }, 300);
+  }
+
+  // ============================================
+  // 11. CHARGEMENT DES DONNÉES (amélioré)
+  // ============================================
+  async function loadTestimonials() {
+    try {
+      // Message temporaire plus explicite
+      if (stackLegend) {
+        stackLegend.textContent = 'Chargement des témoignages...';
+      }
+
+      const response = await fetch('data/testimonials.json');
+      if (!response.ok) throw new Error('Erreur de chargement');
+
+      testimonials = await response.json();
+      console.log(`📦 ${testimonials.length} témoignages chargés`);
+
+      if (testimonials.length === 0) {
+        showNoTestimonialsMessage();
+        return;
+      }
+
+      injectStackStyles();
+      generateCards();
+      
+      setTimeout(() => {
+        const loader = document.querySelector('.loading-testimonials');
+        if (loader) loader.style.display = 'none';
+        
+        // Mettre à jour les indicateurs après chargement
+        updateIndicators();
+      }, 300);
+
+      if (prevButton) prevButton.addEventListener('click', prevCard);
+      if (nextButton) nextButton.addEventListener('click', nextCard);
+
+      if (stackContainer) {
+        stackContainer.addEventListener('mouseenter', pauseAutoScroll);
+        stackContainer.addEventListener('mouseleave', resumeAutoScroll);
+      }
+
+      setupIntersectionObserver();
+      
+      window.addEventListener('resize', handleResize);
+      
+    } catch (error) {
+      console.error('❌ Erreur:', error);
+      showNoTestimonialsMessage();
+      
+      if (stackLegend) {
+        stackLegend.textContent = 'Erreur de chargement';
+      }
+    }
+  }
+
+  function showNoTestimonialsMessage() {
+    if (stackCards) {
+      stackCards.innerHTML = `
+        <div class="absolute inset-0 flex items-center justify-center bg-white rounded-2xl">
+          <div class="text-center p-8">
+            <i class="ph ph-chat-circle text-6xl text-gray-300 mb-4"></i>
+            <p class="text-gray-500">Aucun témoignage disponible</p>
+          </div>
+        </div>
+      `;
+    }
+    
+    if (stackLegend) {
+      stackLegend.textContent = '0 témoignage';
+    }
+  }
+
   loadTestimonials();
 }
