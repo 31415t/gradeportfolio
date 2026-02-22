@@ -1,110 +1,104 @@
 export function renderSkills() {
   return `
-    <div class="section skills" id="competences">
-      <div class="container">
-        <h2 class="section-title">Mes <span>Services</span></h2>
+    <section id="competences" class="py-12 md:py-16">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Title -->
+        <div class="text-center max-w-2xl mx-auto mb-12 md:mb-16">
+          <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-4">
+            Mes Services
+          </h2>
+          <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Des solutions créatives et professionnelles pour donner vie à vos projets
+          </p>
+        </div>
         
         <!-- Services Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-          <div class="group cursor-pointer">
-            <div class="flex items-start gap-4">
-              <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-2xl text-primary group-hover:shadow-lg group-hover:from-primary/30 transition-all duration-300 flex-shrink-0">
-                <i class="fas fa-paint-brush"></i>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 md:mb-24">
+          <!-- Graphic Design -->
+          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-600/10 to-orange-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-orange-600/20 transition-all duration-300">
+                <i class="ph ph-paint-brush-broad text-3xl text-orange-600"></i>
               </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 text-lg mb-2">Graphic Design</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Création de visuels impactants qui allient esthétique et stratégie.</p>
-              </div>
+              <h3 class="font-bold text-orange-600 text-lg md:text-xl mb-2">Graphic Design</h3>
+              <p class="text-gray-600 text-sm md:text-base pt-2 border-t border-gray-100 leading-relaxed">
+                Création de visuels impactants qui allient esthétique et stratégie.
+              </p>
             </div>
           </div>
           
-          <div class="group cursor-pointer">
-            <div class="flex items-start gap-4">
-              <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 flex items-center justify-center text-2xl text-cyan-500 group-hover:shadow-lg group-hover:from-cyan-500/30 transition-all duration-300 flex-shrink-0">
-                <i class="fas fa-pen-fancy"></i>
+          <!-- Logo Design -->
+          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600/10 to-purple-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-purple-600/20 transition-all duration-300">
+                <i class="ph ph-pen-nib text-3xl text-purple-600"></i>
               </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 text-lg mb-2">Logo Design</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Logos uniques et mémorables, pensés pour durer.</p>
-              </div>
+              <h3 class="font-bold text-orange-600 text-lg md:text-xl mb-2">Logo Design</h3>
+              <p class="text-gray-600 text-sm md:text-base pt-2 border-t border-gray-100 leading-relaxed">
+                Logos uniques et mémorables, pensés pour durer.
+              </p>
             </div>
           </div>
           
-          <div class="group cursor-pointer">
-            <div class="flex items-start gap-4">
-              <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-violet-500/20 to-violet-500/5 flex items-center justify-center text-2xl text-violet-500 group-hover:shadow-lg group-hover:from-violet-500/30 transition-all duration-300 flex-shrink-0">
-                <i class="fas fa-cube"></i>
+          <!-- Branding -->
+          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-600/10 to-orange-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-orange-600/20 transition-all duration-300">
+                <i class="ph ph-cube text-3xl text-orange-600"></i>
               </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 text-lg mb-2">Branding</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Identités visuelles cohérentes qui donnent une personnalité forte à votre marque.</p>
-              </div>
+              <h3 class="font-bold text-orange-600 text-lg md:text-xl mb-2">Branding</h3>
+              <p class="text-gray-600 text-sm md:text-base pt-2 border-t border-gray-100 leading-relaxed">
+                Identités visuelles cohérentes qui donnent une personnalité forte à votre marque.
+              </p>
             </div>
           </div>
           
-          <div class="group cursor-pointer">
-            <div class="flex items-start gap-4">
-              <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center text-2xl text-green-500 group-hover:shadow-lg group-hover:from-green-500/30 transition-all duration-300 flex-shrink-0">
-                <i class="fas fa-graduation-cap"></i>
+          <!-- Formation -->
+          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+            <div class="flex flex-col items-center text-center">
+              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600/10 to-purple-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-purple-600/20 transition-all duration-300">
+                <i class="ph ph-graduation-cap text-3xl text-purple-600"></i>
               </div>
-              <div>
-                <h3 class="font-semibold text-gray-900 text-lg mb-2">Formation</h3>
-                <p class="text-gray-600 text-sm leading-relaxed">Ateliers pratiques pour apprendre et maîtriser les outils du design.</p>
-              </div>
+              <h3 class="font-bold text-orange-600 text-lg md:text-xl mb-2">Formation</h3>
+              <p class="text-gray-600 text-sm md:text-base pt-2 border-t border-gray-100 leading-relaxed">
+                Ateliers pratiques pour apprendre et maîtriser les outils du design.
+              </p>
             </div>
           </div>
         </div>
         
         <!-- Tools Section -->
-        <div>
-          <div class="flex items-center justify-between mb-8">
-            <div>
-              <h3 class="text-2xl lg:text-3xl font-bold text-gray-900 mb-2">Outils & Partenaires</h3>
-              <p class="text-gray-600">Les outils et technologies que j'utilise pour donner vie à mes créations</p>
-            </div>
-            <button id="viewAllToolsBtn" class="hidden md:flex items-center gap-2 px-6 py-3 rounded-lg border border-gray-300 text-gray-700 font-medium hover:border-primary hover:text-primary hover:shadow-md transition-all duration-300 bg-white">
-              <i class="fas fa-grid-2x2"></i>
-              <span>Voir tout</span>
-            </button>
+        <div class="mt-16">
+          <div class="text-center max-w-2xl mx-auto mb-10">
+            <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-4">Outils & Logiciels</h2>
+            <p class="text-gray-600 text-sm md:text-base">
+              Les outils que j'utilise au quotidien pour donner vie à mes créations
+            </p>
           </div>
           
-          <!-- Carousel avec scroll libre -->
-          <div class="tools-carousel-wrapper overflow-x-auto scroll-smooth" id="toolsCarouselWrapper">
-            <div class="tools-carousel flex gap-4 md:gap-6 pb-4" id="toolsCarousel">
-              <!-- Tools will be generated by JavaScript -->
-            </div>
-          </div>
-
-          <!-- Mobile "Voir tout" button -->
-          <div class="md:hidden flex justify-center mt-4">
-            <button id="viewAllToolsMobileBtn" class="flex items-center gap-2 px-6 py-2 rounded-lg border border-gray-300 text-gray-700 font-medium text-sm hover:border-primary hover:text-primary transition-all duration-300">
-              <i class="fas fa-grid-2x2"></i>
-              <span>Voir les 6 outils</span>
-            </button>
-          </div>
-        </div>
-
-        <!-- Modal "Voir tous" -->
-        <div id="toolsModal" class="hidden fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4 backdrop-blur-sm">
-          <div class="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
-            <!-- Modal Header -->
-            <div class="sticky top-0 bg-white border-b border-gray-200 px-6 py-4 md:px-8 md:py-6 flex items-center justify-between">
-              <h2 class="text-2xl font-bold text-gray-900">Tous les outils</h2>
-              <button id="closeToolsModal" class="text-gray-500 hover:text-gray-700 text-2xl transition-colors">
-                <i class="fas fa-times"></i>
-              </button>
-            </div>
-
-            <!-- Modal Content -->
-            <div class="p-6 md:p-8">
-              <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
-                <!-- Tools grid will be generated by JavaScript -->
-              </div>
-            </div>
+          <!-- Tools Grid - Simple grid on all devices -->
+          <div id="toolsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+            <!-- Tools will be generated by JavaScript -->
           </div>
         </div>
       </div>
-    </div>
+    </section>
+
+    <style>
+      /* Animations subtiles */
+      .group:hover .ph {
+        transform: scale(1.1);
+        transition: transform 0.3s ease;
+      }
+      
+      .tool-card {
+        transition: all 0.3s ease;
+      }
+      
+      .tool-card:hover {
+        transform: translateY(-4px) scale(1.02);
+      }
+    </style>
   `;
 }
 
@@ -112,127 +106,97 @@ export function initSkills() {
   const tools = [
     {
       name: 'Inkscape',
-      icon: 'https://cdn.brandfetch.io/id_evqohnj/theme/dark/logo.svg',
+      icon: './../../assets/images/logos/inkscape.svg',
     },
     {
       name: 'Photopea',
-      icon: 'https://cdn.brandfetch.io/idjom661t2/theme/dark/logo.svg',
+      icon: './../../assets/images/logos/photopea.svg',
     },
     {
       name: 'Canva',
-      icon: 'https://cdn.brandfetch.io/id9mVQlyBl/w/400/h/400/theme/dark/icon.jpeg',
+      icon: './../../assets/images/logos/canva.svg',
     },
     {
       name: 'Snapseed',
-      icon: 'https://cdn.brandfetch.io/id9bEvVa-d/w/400/h/400/theme/dark/icon.jpeg',
+      icon: './../../assets/images/logos/snapseed.svg',
     },
-    { name: 'PixelLab', icon: 'assets/images/logos/pixellablogo.jpg' },
+    {
+      name: 'Figma',
+      icon: './../../assets/images/logos/figma.svg',
+    },
+    {
+      name: 'Picsart',
+      icon: './../../assets/images/logos/picsart.svg',
+    },
     {
       name: 'Capcut',
-      icon: 'https://cdn.brandfetch.io/idUmqKFgE3/w/400/h/400/theme/dark/icon.jpeg',
+      icon: './../../assets/images/logos/capcut.svg',
+    },
+    { 
+      name: 'Jitter', 
+      icon: './../../assets/images/logos/jitter.svg' 
     },
   ];
 
-  const carousel = document.getElementById('toolsCarousel');
-  const carouselWrapper = document.getElementById('toolsCarouselWrapper');
-  const modal = document.getElementById('toolsModal');
-  const viewAllBtn = document.getElementById('viewAllToolsBtn');
-  const viewAllMobileBtn = document.getElementById('viewAllToolsMobileBtn');
-  const closeModalBtn = document.getElementById('closeToolsModal');
-  const isMobile = window.innerWidth < 768;
-
-  if (!carousel || !carouselWrapper) return;
-
-  // Créer un élément tool réutilisable
-  const createToolElement = (tool, inModal = false) => {
-    const div = document.createElement('div');
-
-    if (inModal) {
-      // Version pour la modale (grille)
-      div.className =
-        'flex flex-col items-center gap-3 p-4 rounded-lg  hover:border-primary hover:shadow-lg transition-all duration-300';
-    } else {
-      // Version pour le carousel (horizontal)
-      div.className =
-        'tool-item flex-shrink-0 flex items-center gap-3 px-5 py-3 rounded-lg hover:border-primary hover:shadow-md transition-all duration-300 min-w-max hover:scale-105';
-    }
-
-    if (inModal) {
-      div.innerHTML = `
-        <img src="${tool.icon}" alt="${tool.name}" class="h-12 w-12 object-contain" onerror="this.style.opacity='0.5'" loading="lazy" />
-        <span class="font-medium text-gray-700 text-center text-sm">${tool.name}</span>
-      `;
-    } else {
-      div.innerHTML = `
-        <img src="${tool.icon}" alt="${tool.name}" class="h-9 w-9 object-contain flex-shrink-0" onerror="this.style.opacity='0.5'" loading="lazy" />
-        <span class="font-medium text-gray-700 whitespace-nowrap">${tool.name}</span>
-      `;
-    }
-
-    return div;
-  };
-
-  // Remplir le carousel (une seule copie pour le scroll libre)
-  tools.forEach((tool) => {
-    carousel.appendChild(createToolElement(tool, false));
-  });
-
-  // Ajouter l'animation auto-scroll uniquement sur desktop
-  if (!isMobile) {
-    carouselWrapper.classList.add('carousel-auto-scroll');
-  } else {
-    // Sur mobile, désactiver l'animation auto-scroll
-    carousel.classList.remove('animate-scroll');
+  const toolsGrid = document.getElementById('toolsGrid');
+  
+  if (!toolsGrid) {
+    console.warn('⚠️ toolsGrid non trouvé');
+    return;
   }
 
-  // Gérer la modale "Voir tout"
-  const openModal = () => {
-    modal.classList.remove('hidden');
-    document.body.style.overflow = 'hidden';
+  // Vider la grid
+  toolsGrid.innerHTML = '';
 
-    // Remplir la modale avec la grille des outils
-    const modalGrid = modal.querySelector('.grid');
-    modalGrid.innerHTML = '';
-    tools.forEach((tool) => {
-      modalGrid.appendChild(createToolElement(tool, true));
+  // Créer et ajouter chaque outil
+  tools.forEach((tool) => {
+    const toolCard = document.createElement('div');
+    toolCard.className = 'tool-card bg-gray-50 rounded-xl p-4 flex flex-col items-center text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer';
+    
+    // Gérer les erreurs d'images
+    const img = new Image();
+    img.src = tool.icon;
+    img.alt = tool.name;
+    img.className = 'h-12 w-12 md:h-14 md:w-14 object-contain mb-3';
+    img.loading = 'lazy';
+    img.onerror = function() {
+      console.warn(`⚠️ Image non chargée pour ${tool.name}`);
+      this.style.opacity = '0.5';
+      this.src = 'data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'40\' height=\'40\' viewBox=\'0 0 24 24\' fill=\'%23f97316\'%3E%3Cpath d=\'M4 4h16v16H4z\'/%3E%3C/svg%3E';
+    };
+    
+    toolCard.appendChild(img);
+    
+    const nameSpan = document.createElement('span');
+    nameSpan.className = 'font-medium text-gray-800 text-sm md:text-base';
+    nameSpan.textContent = tool.name;
+    toolCard.appendChild(nameSpan);
+    
+    toolsGrid.appendChild(toolCard);
+  });
+
+  // Animation d'apparition au scroll
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.style.opacity = '1';
+        entry.target.style.transform = 'translateY(0)';
+        observer.unobserve(entry.target);
+      }
     });
-  };
-
-  const closeModal = () => {
-    modal.classList.add('hidden');
-    document.body.style.overflow = 'auto';
-  };
-
-  // Event listeners pour ouvrir la modale
-  viewAllBtn?.addEventListener('click', openModal);
-  viewAllMobileBtn?.addEventListener('click', openModal);
-  closeModalBtn?.addEventListener('click', closeModal);
-
-  // Fermer la modale en cliquant sur le backdrop
-  modal?.addEventListener('click', (e) => {
-    if (e.target === modal) {
-      closeModal();
-    }
+  }, { 
+    threshold: 0.2,
+    rootMargin: '50px' 
   });
 
-  // Fermer avec Escape
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
-      closeModal();
-    }
+  // Appliquer les styles initiaux et observer
+  document.querySelectorAll('.tool-card').forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px)';
+    card.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.3s ease, border-color 0.3s ease';
+    card.style.transitionDelay = `${index * 0.05}s`;
+    observer.observe(card);
   });
 
-  // Gérer le redimensionnement
-  window.addEventListener('resize', () => {
-    const newIsMobile = window.innerWidth < 768;
-    if (newIsMobile && !isMobile) {
-      // Passage de desktop à mobile
-      carouselWrapper.classList.remove('carousel-auto-scroll');
-      carousel.classList.remove('animate-scroll');
-    } else if (!newIsMobile && isMobile) {
-      // Passage de mobile à desktop
-      carouselWrapper.classList.add('carousel-auto-scroll');
-      carousel.classList.add('animate-scroll');
-    }
-  });
+  console.log('✅ Tools grid initialized avec', tools.length, 'outils');
 }

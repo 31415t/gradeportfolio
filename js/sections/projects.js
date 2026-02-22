@@ -198,25 +198,35 @@ export function initProjects() {
           
           <!-- Bouton fermeture -->
           <button class="modal-close absolute top-4 right-4 z-10 bg-light/80 rounded-full p-2 
-                        hover:bg-gray-200 transition duration-300 shadow-lg backdrop-blur-lg backdrop-saturate-150"
-                  aria-label="Fermer la modal">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
-                    d="M6 18L18 6M6 6l12 12"></path>
-            </svg>
+                            hover:bg-gray-200 transition duration-300 shadow-lg backdrop-blur-lg backdrop-saturate-150"
+                      aria-label="Fermer la modal">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" 
+                        d="M6 18L18 6M6 6l12 12"></path>
+                </svg>
           </button>
 
-          <!-- Image -->
-          <div class="bg-gray-100 flex items-center justify-center">
-            ${
-              imageUrl
-                ? `<img src="${imageUrl}" alt="${title}" 
-                        class="object-contain" style="max-width: 80vw; max-height: 70vh;">`
-                : `<div class="text-center py-20">
-                    <i class="fas fa-image text-6xl text-gray-300"></i>
-                  </div>`
-            }
-          </div>
+<!-- Bouton B/W minimaliste -->
+<button class="absolute bottom-4 right-4 z-10 w-10 h-10 bg-white/90 rounded-full 
+              shadow-lg hover:shadow-xl transition-all duration-300 
+              flex items-center justify-center group
+              hover:bg-orange-50 border border-gray-200"
+        id="bwToggleBtn"
+        aria-label="Basculer en noir et blanc">
+  <i class="ph ph-drop-half text-xl text-gray-600 group-hover:text-orange-600 transition-colors"></i>
+  <span class="absolute -top-8 right-0 bg-gray-800 text-white text-xs px-2 py-1 rounded 
+               opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+    Noir & Blanc
+  </span>
+</button>
+
+<!-- Image (sans effet au clic) -->
+<div class="bg-gray-100 flex items-center justify-center">
+  <img src="${imageUrl}" alt="${title}" 
+       class="object-contain transition-all duration-300" 
+       id="modalImage"
+       style="max-width: 80vw; max-height: 70vh;">
+</div>
         </div>
       `;
     } else {
@@ -266,7 +276,47 @@ export function initProjects() {
     modal.innerHTML = modalContent;
     document.body.appendChild(modal);
     document.body.classList.add('modal-open');
+    // === LOGIQUE POUR LE BOUTON B/W ===
+if (mode === 'image') {
+  const bwBtn = document.getElementById('bwToggleBtn');
+  const modalImage = document.getElementById('modalImage');
+  
+  if (bwBtn && modalImage) {
+    let isBW = false;
+    
+    bwBtn.addEventListener('click', () => {
+      isBW = !isBW;
+      modalImage.style.filter = isBW ? 'grayscale(100%)' : 'grayscale(0%)';
+      modalImage.style.transition = 'filter 0.3s ease';
+      
+      // Changer la couleur de l'icône
+      const icon = bwBtn.querySelector('i');
+      if (icon) {
+        icon.style.color = isBW ? '#F95606' : '#4b5563';
+      }
+    });
+  }
+}
 
+// Gestionnaires de fermeture (identiques pour les deux modes)
+const closeButton = modal.querySelectorAll('.modal-close');
+closeButton.forEach(btn => {
+  btn.addEventListener('click', () => {
+    modal.remove();
+    document.body.classList.remove('modal-open');
+    
+    // Réinitialiser l'icône du bouton info si nécessaire
+    if (mode === 'info') {
+      document.querySelectorAll('.info-toggle[data-modal-open="true"]').forEach(btn => {
+        btn.setAttribute('data-modal-open', 'false');
+        const icon = btn.querySelector('i');
+        if (icon) {
+          icon.className = 'ph ph-caret-down-bold text-xs';
+        }
+      });
+    }
+  });
+});
     // Gestionnaires de fermeture (identiques pour les deux modes)
     const closeButtons = modal.querySelectorAll('.modal-close');
     closeButtons.forEach(btn => {
@@ -330,7 +380,7 @@ export function initProjects() {
   function createProjectCard(project) {
     const projectCard = document.createElement('div');
     projectCard.className =
-      'rounded overflow-hidden shadow-md flex flex-col h-full hover:shadow-lg hover:backdrop-saturate-200 transition-all duration-300 relative';
+      'rounded overflow-hidden shadow-md flex flex-col h-full hover:shadow-lg transition-all duration-300 relative group';
     projectCard.setAttribute('data-category', project.category);
     projectCard.setAttribute('data-id', project.id);
 
@@ -355,7 +405,7 @@ export function initProjects() {
         <img src="${project.imageUrl}" 
              alt="${project.title}" 
              loading="lazy"
-             class="project-img w-full h-56 object-cover"
+             class="project-img w-full h-56 object-cover transition-all duration-300 group-hover:scale-110"
              data-id="${project.id}">
       `;
     } else {

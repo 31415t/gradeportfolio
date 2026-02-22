@@ -25,7 +25,7 @@ export function renderTestimonials() {
             <div class="flex items-center gap-2" id="stackDots"></div>
             
             <!-- Légende avec nombre total (message temporaire) -->
-            <div class="text-sm mb-6 text-gray-500 font-medium" id="stackLegend">
+            <div class="text-sm mb-6 text-orange-400 font-medium" id="stackLegend">
               Chargement...
             </div>
           </div>
@@ -109,14 +109,14 @@ export function initTestimonials() {
       .stack-card.next-3 {
         transform: translateX(0) translateY(30px) scaleX(0.85);
         z-index: 7;
-        opacity: 0.9;
+        opacity: 0;
         filter: blur(2px);
       }
 
       .stack-card.hidden-stack {
         transform: translateX(0px) translateY(40px) scaleY(0.8);
         z-index: 6;
-        opacity: 0.9;
+        opacity:0;
         filter: blur(2.5px);
       }
       
@@ -145,19 +145,19 @@ export function initTestimonials() {
         .stack-card.next-2 {
           transform: translateX(0) translateY(16px) scaleX(0.94);
           filter: blur(1px);
-          opacity: 0.8;
+          opacity: 0;
         }
 
         .stack-card.next-3 {
           transform: translateX(0) translateY(24px) scaleX(0.91);
           filter: blur(1.5px);
-          opacity: 0.8;
+          opacity: 0;
         }
 
         .stack-card.hidden-stack {
           transform: translateX(0px) translateY(32px) scaleY(0.88);
           filter: blur(2px);
-          opacity: 0.5;
+          opacity: 0;
         }
         
         #stackContainer {
@@ -309,12 +309,97 @@ export function initTestimonials() {
     });
   }
 
-  // ============================================
-  // 5. INDICATEURS (avec mise à jour améliorée)
-  // ============================================
-  function updateIndicators() {
-    if (!stackDots || !stackLegend) return;
+// ============================================
+// 5. INDICATEURS avec gradient mobile
+// ============================================
+function initIndicators() {
+  if (!stackDots) return;
+  
+  const style = document.createElement('style');
+  style.textContent = `
+    .indicators-container {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
     
+    .stack-dots {
+      display: flex;
+      gap: 8px;
+      position: relative;
+      padding: 10px 0;
+    }
+    
+    .stack-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: linear-gradient(90deg, #d1d5db, #9ca3af);
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: transform 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .stack-dot::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 50%;
+      background: linear-gradient(90deg, #f97316, #fb923c);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    
+    .stack-dot.active::before {
+      opacity: 1;
+    }
+    
+    .stack-dot:hover {
+      transform: scale(1.2);
+    }
+    
+    /* Effet de vague */
+    .snake-wave {
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #f97316, #fb923c, #f97316, transparent);
+      background-size: 200% 100%;
+      border-radius: 3px;
+      transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1), width 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      filter: blur(1px);
+      animation: waveFlow 2s linear infinite;
+    }
+    
+    @keyframes waveFlow {
+      0% { background-position: 0% 0%; }
+      100% { background-position: 200% 0%; }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  // Créer l'effet de vague
+  const wave = document.createElement('div');
+  wave.className = 'snake-wave';
+  stackDots.parentElement.style.position = 'relative';
+  stackDots.parentElement.appendChild(wave);
+}
+
+function updateIndicators() {
+  if (!stackDots || !stackLegend) return;
+  
+  const dots = Array.from(stackDots.children);
+  const wave = document.querySelector('.snake-wave');
+  
+  if (dots.length !== testimonials.length) {
     stackDots.innerHTML = '';
     testimonials.forEach((_, index) => {
       const dot = document.createElement('button');
@@ -323,13 +408,42 @@ export function initTestimonials() {
       dot.addEventListener('click', () => goToIndex(index));
       stackDots.appendChild(dot);
     });
+  } else {
+    dots.forEach((dot, index) => {
+      if (index === currentIndex) {
+        dot.classList.add('active');
+      } else {
+        dot.classList.remove('active');
+      }
+    });
+  }
+  
+  // Animation de la vague
+  if (wave && dots.length > 0) {
+    const dotWidth = 12;
+    const gap = 8;
+    const left = currentIndex * (dotWidth + gap);
+    const width = dotWidth;
     
-    // Mise à jour de la légende seulement si des témoignages sont chargés
-    if (testimonials.length > 0) {
-      const legendText = `${currentIndex + 1} / ${testimonials.length} témoignage${testimonials.length > 1 ? 's' : ''}`;
-      stackLegend.textContent = legendText;
+    wave.style.left = `${left}px`;
+    wave.style.width = `${width}px`;
+  }
+  
+  // Légende avec animation
+  if (testimonials.length > 0) {
+    const newText = `${currentIndex + 1} / ${testimonials.length}`;
+    if (stackLegend.textContent !== newText) {
+      stackLegend.style.opacity = '0';
+      stackLegend.style.transform = 'translateY(-5px)';
+      
+      setTimeout(() => {
+        stackLegend.textContent = newText;
+        stackLegend.style.opacity = '1';
+        stackLegend.style.transform = 'translateY(0)';
+      }, 150);
     }
   }
+}
 
   // ============================================
   // 6. NAVIGATION
