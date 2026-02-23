@@ -252,7 +252,7 @@ export function initTestimonials() {
           </div>
           
           <div class="flex items-center gap-4 pt-4 border-t border-gray-100 flex-shrink-0">
-            <div class="w-12 h-12 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-md" 
+            <div class="w-12 h-12 border border-xs md:border-sm border-orange-600 rounded-full flex items-center justify-center text-white flex-shrink-0 shadow-md" 
                 style="background: linear-gradient(135deg, ${avatarColor}, ${lightenColor(avatarColor, 20)});">
               ${avatarContent}
             </div>

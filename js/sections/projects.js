@@ -197,7 +197,7 @@ export function initProjects() {
             style="border-color: #F95606;">
           
           <!-- Bouton fermeture -->
-          <button class="modal-close absolute top-4 right-4 z-10 bg-light/80 rounded-full p-2 
+          <button class="modal-close absolute top-4 right-4 z-10 bg-light/80 text-orange-600 rounded-full p-2 
                             hover:bg-gray-200 transition duration-300 shadow-lg backdrop-blur-lg backdrop-saturate-150"
                       aria-label="Fermer la modal">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -206,27 +206,27 @@ export function initProjects() {
                 </svg>
           </button>
 
-<!-- Bouton B/W minimaliste -->
-<button class="absolute bottom-4 right-4 z-10 w-10 h-10 bg-white/90 rounded-full 
-              shadow-lg hover:shadow-xl transition-all duration-300 
-              flex items-center justify-center group
-              hover:bg-orange-50 border border-gray-200"
-        id="bwToggleBtn"
-        aria-label="Basculer en noir et blanc">
-  <i class="ph ph-drop-half text-xl text-gray-600 group-hover:text-orange-600 transition-colors"></i>
-  <span class="absolute -top-8 right-0 bg-gray-800 text-white text-xs px-2 py-1 rounded 
-               opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-    Noir & Blanc
-  </span>
-</button>
+          <!-- Bouton B/W minimaliste -->
+          <button class="absolute bottom-4 right-4 z-10 w-10 h-10 bg-light/80 backdrop-blur-lg backdrop-saturate-150 rounded-full 
+                        shadow-lg hover:shadow-xl transition-all duration-300 
+                        flex items-center justify-center group
+                        hover:bg-orange-50"
+                  id="bwToggleBtn"
+                  aria-label="Basculer en noir et blanc">
+            <i class="ph ph-drop-half text-xl text-gray-600 group-hover:text-orange-600 transition-colors"></i>
+            <span class="absolute -top-8 right-0 bg-gray-800 text-white text-xs px-2 py-1 rounded 
+                        opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+              Noir & Blanc
+            </span>
+          </button>
 
-<!-- Image (sans effet au clic) -->
-<div class="bg-gray-100 flex items-center justify-center">
-  <img src="${imageUrl}" alt="${title}" 
-       class="object-contain transition-all duration-300" 
-       id="modalImage"
-       style="max-width: 80vw; max-height: 70vh;">
-</div>
+          <!-- Image (sans effet au clic) -->
+          <div class="bg-gray-100 flex items-center justify-center">
+            <img src="${imageUrl}" alt="${title}" 
+                class="object-contain transition-all duration-300" 
+                id="modalImage"
+                style="max-width: 80vw; max-height: 70vh;">
+          </div>
         </div>
       `;
     } else {
@@ -236,7 +236,7 @@ export function initProjects() {
             style="border: 2px solid #F95606;">
           
           <!-- Bouton fermeture (seul, en haut à droite) -->
-          <button class="modal-close absolute top-4 right-4 z-10 bg-light/80 rounded-full p-2 
+          <button class="modal-close absolute top-4 text-orange-600 right-4 z-10 bg-light/80 rounded-full p-2 
                         hover:bg-gray-200 transition duration-300 shadow-lg backdrop-blur-lg backdrop-saturate-150"
                   aria-label="Fermer la modal">
             <svg class="w-6 h-6 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -277,26 +277,54 @@ export function initProjects() {
     document.body.appendChild(modal);
     document.body.classList.add('modal-open');
     // === LOGIQUE POUR LE BOUTON B/W ===
-if (mode === 'image') {
-  const bwBtn = document.getElementById('bwToggleBtn');
-  const modalImage = document.getElementById('modalImage');
-  
-  if (bwBtn && modalImage) {
-    let isBW = false;
-    
-    bwBtn.addEventListener('click', () => {
-      isBW = !isBW;
-      modalImage.style.filter = isBW ? 'grayscale(100%)' : 'grayscale(0%)';
-      modalImage.style.transition = 'filter 0.3s ease';
+    if (mode === 'image') {
+      const bwBtn = document.getElementById('bwToggleBtn');
+      const modalImage = document.getElementById('modalImage');
       
-      // Changer la couleur de l'icône
-      const icon = bwBtn.querySelector('i');
-      if (icon) {
-        icon.style.color = isBW ? '#F95606' : '#4b5563';
+      if (bwBtn && modalImage) {
+        let isBW = false;
+        
+        // Récupérer les éléments à modifier
+        const icon = bwBtn.querySelector('i');
+        const tooltipSpan = bwBtn.querySelector('span');
+        
+        // Fonction de mise à jour de l'interface
+        function updateBWUI() {
+          // Appliquer le filtre
+          modalImage.style.filter = isBW ? 'grayscale(100%)' : 'grayscale(0%)';
+          modalImage.style.transition = 'filter 0.3s ease';
+          
+          // Mettre à jour l'icône
+          if (icon) {
+            icon.style.color = isBW ? '#F95606' : '#4b5563';
+          }
+          
+          // Mettre à jour le texte du tooltip
+          if (tooltipSpan) {
+            tooltipSpan.textContent = isBW ? 'Original' : 'Noir & Blanc';
+          }
+          
+          // Mettre à jour le aria-label
+          bwBtn.setAttribute(
+            'aria-label', 
+            isBW ? 'Voir l\'image originale' : 'Voir en noir et blanc'
+          );
+        }
+        
+        // Ajouter l'event listener
+        bwBtn.addEventListener('click', () => {
+          isBW = !isBW;
+          updateBWUI();
+          
+          // Feedback visuel (optionnel)
+          bwBtn.classList.add('scale-110');
+          setTimeout(() => bwBtn.classList.remove('scale-110'), 200);
+        });
+        
+        // Initialisation (optionnel)
+        updateBWUI(); // Pour s'assurer que tout est cohérent au départ
       }
-    });
-  }
-}
+    }
 
 // Gestionnaires de fermeture (identiques pour les deux modes)
 const closeButton = modal.querySelectorAll('.modal-close');
@@ -317,25 +345,6 @@ closeButton.forEach(btn => {
     }
   });
 });
-    // Gestionnaires de fermeture (identiques pour les deux modes)
-    const closeButtons = modal.querySelectorAll('.modal-close');
-    closeButtons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        modal.remove();
-        document.body.classList.remove('modal-open');
-        
-        // Réinitialiser l'icône du bouton info si nécessaire
-        if (mode === 'info') {
-          document.querySelectorAll('.info-toggle[data-modal-open="true"]').forEach(btn => {
-            btn.setAttribute('data-modal-open', 'false');
-            const icon = btn.querySelector('i');
-            if (icon) {
-              icon.className = 'ph ph-caret-down-bold text-xs';
-            }
-          });
-        }
-      });
-    });
 
     // Fermer en cliquant sur l'overlay
     modal.addEventListener('click', (e) => {
