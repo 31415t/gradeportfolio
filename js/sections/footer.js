@@ -12,6 +12,7 @@ export function renderFooter() {
               <span class="hover:text-orange-600 ml-2 transition-all duration-300 ease-in-out">Grade3.0</span>
             </a>
             <p class="text-gray-100/70 text-sm leading-relaxed">Conception de supports visuels et d'identités visuelles impactants</p>
+            <p class="text-gray-100/70 text-xs mt-4 pt-4 border-t border-white/10 leading-relaxed">V2.0.1</p>
           </div>
 
           <!-- Colonne 2 : Navigation (allégée) -->
@@ -30,7 +31,7 @@ export function renderFooter() {
           <div class="footer-resources pt-4 border-t border-white/10 w-full lg:pt-0 lg:border-t-0">
             <h4 class="block mb-4 text-[1.2rem] font-semibold text-white hover:pl-[5px] hover:text-orange-600 transition-all duration-300 ease-in-out">Ressources</h4>
             <ul class="space-y-[5px] text-sm">
-              <li><a href="/assets/images/logos/cv_peterleyauguste_graphicdesigner.pdf" class="text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]" download>Mon CV</a></li>
+              <li><a href="assets/images/logos/cv_peterleyauguste_graphicdesigner.pdf" class="text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]" download>Mon CV</a></li>
               <li><a href="#" class="inactive text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]">Demande de devis</a></li>
               <li><a href="#" class="inactive text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]">Modèle de contrat</a></li>
               <li><a href="#" class="inactive text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]">Kit média</a></li>

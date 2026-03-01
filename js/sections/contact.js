@@ -20,37 +20,37 @@ const contactData = {
   logos: [
     {
       name: "Entreprise 1",
-      url: "./../../assets/images/logos/natirelayitilogo.png",
+      url: "assets/images/logos/natirelayitilogo.png",
       width: 120,
       height: 120
     },
     {
       name: "Entreprise 2", 
-      url: "./../../assets/images/logos/yolvanovalogo.jpg",
+      url: "assets/images/logos/yolvanovalogo.jpg",
       width: 120,
       height: 120
     },
     {
       name: "Entreprise 3",
-      url: "./../../assets/images/projects/BelaStoreLogo.png", 
+      url: "assets/images/projects/BelaStoreLogo.png", 
       width: 120,
       height: 120
     },
     {
       name: "Entreprise 4",
-      url: "./../../assets/images/projects/Brainhub.jpg",
+      url: "assets/images/projects/Brainhub.jpg",
       width: 120,
       height: 120
     },
     {
       name: "Entreprise 5",
-      url: "./../../assets/images/projects/gidhaiti.jpg",
+      url: "assets/images/projects/gidhaiti.jpg",
       width: 120,
       height: 120
     },
     {
       name: "Entreprise 6",
-      url: "./../../assets/images/projects/baboo.jpg",
+      url: "assets/images/projects/baboo.jpg",
       width: 120,
       height: 120
     },

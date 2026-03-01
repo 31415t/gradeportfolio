@@ -21,19 +21,19 @@ export function renderAbout() {
       <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 justify-items-center">
         <!-- Badge 1 -->
         <div class="w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 transition-all duration-300 hover:scale-110">
-          <img src="./../../assets/images/logos/badgexperience.png" alt="5+ années d'expérience"
+          <img src="assets/images/logos/badgexperience.png" alt="5+ années d'expérience"
           class="w-full h-full object-contain" style="filter: drop-shadow(0 0 35px rgba(255, 255, 254, 0.98));">
         </div>
 
         <!-- Badge 2 -->
         <div class="w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 transition-all duration-300 hover:scale-110 hover:drop-shadow-lg">
-          <img src="./../../assets/images/logos/badgeprojets.png" alt="120+ projets réalisés"
+          <img src="assets/images/logos/badgeprojets.png" alt="120+ projets réalisés"
           class="w-full h-full object-contain" style="filter: drop-shadow(0 0 35px rgba(255, 255, 254, 0.98));">
         </div>
 
         <!-- Badge 3 -->
         <div class="w-48 h-48 sm:w-60 sm:h-60 md:w-72 md:h-72 transition-all duration-300 hover:scale-110 hover:drop-shadow-lg">
-          <img src="./../../assets/images/logos/badgeclients.png" alt="25+ clients satisfaits"
+          <img src="assets/images/logos/badgeclients.png" alt="25+ clients satisfaits"
           class="w-full h-full object-contain" style="filter: drop-shadow(0 0 35px rgba(255, 255, 254, 0.98));">
         </div>
       </div>

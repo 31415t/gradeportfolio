@@ -4,7 +4,7 @@ export function renderHero() {
       <!-- Background Image Layer -->
       <div class="absolute inset-0 w-full h-full overflow-hidden">
         <img 
-          src="./../../assets/images/logos/heroBG.png" 
+          src="assets/images/logos/heroBG.png" 
           alt="Background créatif" 
           class="block object-cover object-[40%] lg:object-center w-full h-full z-0"
           loading="lazy"

@@ -106,35 +106,35 @@ export function initSkills() {
   const tools = [
     {
       name: 'Inkscape',
-      icon: './../../assets/images/logos/inkscape.svg',
+      icon: 'assets/images/logos/inkscape.svg',
     },
     {
       name: 'Photopea',
-      icon: './../../assets/images/logos/photopea.svg',
+      icon: 'assets/images/logos/photopea.svg',
     },
     {
       name: 'Canva',
-      icon: './../../assets/images/logos/canva.svg',
+      icon: 'assets/images/logos/canva.svg',
     },
     {
       name: 'Snapseed',
-      icon: './../../assets/images/logos/snapseed.svg',
+      icon: 'assets/images/logos/snapseed.svg',
     },
     {
       name: 'Figma',
-      icon: './../../assets/images/logos/figma.svg',
+      icon: 'assets/images/logos/figma.svg',
     },
     {
       name: 'Picsart',
-      icon: './../../assets/images/logos/picsart.svg',
+      icon: 'assets/images/logos/picsart.svg',
     },
     {
       name: 'Capcut',
-      icon: './../../assets/images/logos/capcut.svg',
+      icon: 'assets/images/logos/capcut.svg',
     },
     { 
       name: 'Jitter', 
-      icon: './../../assets/images/logos/jitter.svg' 
+      icon: 'assets/images/logos/jitter.svg' 
     },
   ];
 
