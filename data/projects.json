@@ -1,14 +1,14 @@
 [
   {
     "id": 1,
-    "title": "Brainhub",
+    "title": "Brainhub - Logo",
     "category": "logo",
-    "solution": "Logo minimaliste bleu avec symbole cerveau stylisé",
-    "brief": "Bonjour, nous lançons notre startup en intelligence artificielle et avons besoin d'un logo qui inspire confiance aux investisseurs tout en restant accessible au grand public. L'identité doit évoquer l'intelligence sans faire peur. Nous aimons les designs épurés et les tons de bleu.",
+    "solution": "Conception d'un logo mixte moderne et minimaliste pour startup tech",
+    "brief": "Nous lançons une application web pour aider les étudiants à mieux gérer leurs études. Nous avons besoin d'un logo moderne, minimaliste, facilement mémorable et distinctif.",
     "imageUrl": "assets/images/projects/Brainhub.jpg",
     "icon": "fas fa-brain",
     "client": {
-      "name": "Thomas Mercier",
+      "name": "Beaucicot",
       "profile": "fas fa-user-tie",
       "date": "2024-01-15"
     },
@@ -16,29 +16,29 @@
   },
   {
     "id": 2,
-    "title": "Caritas - Identité visuelle",
+    "title": "Caritas - Brand",
     "category": "branding",
-    "solution": "Identité visuelle chaleureuse avec palette de couleurs douces",
-    "brief": "Pour notre campagne de collecte de fonds, nous avons besoin d'une image chaleureuse qui rassure les donateurs. Le visuel doit communiquer l'espoir et la générosité, pas la misère. Nous voulons des couleurs douces et une typographie accessible à tous.",
+    "solution": "Création d'un logo moderne, légèrement illustratif pour organisation caritative",
+    "brief": "Notre organisation caritative aide les institutions sanitaires (hôpitaux, cliniques). Nous avons besoin d'un logo unique, facilement reconnaissable et légèrement illustratif du secteur de la santé.",
     "imageUrl": "assets/images/projects/caritas.png",
     "icon": "fas fa-hands-helping",
     "client": {
-      "name": "Marie-Claire Dubois",
+      "name": "Sophia",
       "profile": "fas fa-user-md",
       "date": "2024-02-05"
     },
-    "technologies": ["Inkscape", "Photopea", "Branding"]
+    "technologies": ["Inkscape", "Branding"]
   },
   {
     "id": 3,
-    "title": "Anniversaire Digital",
+    "title": "Poster d'anniversaire",
     "category": "socialMedia",
-    "solution": "Série de 5 visuels animés rose et or pour stories Instagram",
-    "brief": "C'est les 30 ans de ma sœur et je voudrais des visuels originaux pour les stories Instagram. Quelque chose de festif avec des bulles ou des confettis, dans des tons rose et or. J'aimerais surprendre et toucher ses amis !",
+    "solution": "Création d'un poster d'anniversaire inspiré de l'univers du cinéma",
+    "brief": "Je voulais faire une surprise à ma sœur pour son anniversaire. J'ai imaginé un poster unique avec ses plus belles photos, dans un style inspiré des affiches de film.",
     "imageUrl": "assets/images/projects/HBD1.jpeg",
     "icon": "fas fa-birthday-cake",
     "client": {
-      "name": "Lucas Moreau",
+      "name": "Grade",
       "profile": "fas fa-user-astronaut",
       "date": "2024-03-10"
     },
@@ -46,14 +46,14 @@
   },
   {
     "id": 4,
-    "title": "Mockup Professionnel",
+    "title": "Prod'Haiti - Mockup",
     "category": "mockup",
-    "solution": "Mockups réalistes incluant cartes, enseignes et uniformes",
-    "brief": "Nous devons présenter notre nouveau branding à un client majeur la semaine prochaine. Auriez-vous la possibilité de créer des mockups réalistes ? Nous aurions besoin de voir le logo sur des cartes de visite, une enseigne de magasin et des uniformes.",
+    "solution": "Création de mockups réalistes avec incrustation du logo sur papier bristol",
+    "brief": "Pour notre logo, nous aurions besoin de quelques mockups. Cela nous permettrait de visualiser sa prise de vie sur nos différents supports digitaux et imprimés.",
     "imageUrl": "assets/images/projects/mockup1.jpg",
     "icon": "fas fa-desktop",
     "client": {
-      "name": "Sophie Renaud",
+      "name": "Peter",
       "profile": "fas fa-briefcase",
       "date": "2024-01-22"
     },
@@ -61,14 +61,14 @@
   },
   {
     "id": 5,
-    "title": "Prod'Haiti",
+    "title": "Prod'Haiti - Logo",
     "category": "logo",
-    "solution": "Logo avec plant de maïs stylisé et couleurs du drapeau haïtien",
-    "brief": "Nous sommes une entreprise agro-alimentaire haïtienne et voulons un logo qui représente nos racines. On aimerait intégrer un plant de maïs ou de mil, avec les couleurs du drapeau. Quelque chose d'authentique qui parle de notre terre.",
+    "solution": "Création d'un logo moderne jouant avec l'espace négatif",
+    "brief": "Nous avons besoin d'un nouveau logo pour notre entreprise spécialisée dans l'achat et la vente de denrées alimentaires, incluant une transformation légère.",
     "imageUrl": "assets/images/projects/ProdHaiti.jpg",
     "icon": "fas fa-seedling",
     "client": {
-      "name": "Jean-Baptiste Pierre",
+      "name": "Peter",
       "profile": "fas fa-tractor",
       "date": "2023-11-18"
     },
@@ -78,27 +78,27 @@
     "id": 6,
     "title": "Composition Artistique",
     "category": "autre",
-    "solution": "Composition expérimentale mêlant formes géométriques et photographie",
-    "brief": "Je travaille sur un projet personnel pour améliorer ma maîtrise de la composition. J'aimerais explorer l'équilibre asymétrique et l'harmonie des couleurs complémentaires. Pas de contraintes client, juste de la créativité pure.",
+    "solution": "Création d'une composition expérimentale mêlant géométrie, typographie et photo",
+    "brief": "Dans le cadre d'un projet personnel, je souhaitais explorer l'équilibre asymétrique et l'harmonie des couleurs complémentaires. Pas de contraintes, juste de la créativité pure.",
     "imageUrl": "assets/images/projects/autre1.jpg",
     "icon": "fas fa-palette",
     "client": {
-      "name": "Projet de recherche",
+      "name": "Grade",
       "profile": "fas fa-graduation-cap",
       "date": "2023-12-01"
     },
-    "technologies": ["Inkscape", "Composition"]
+    "technologies": ["Photopea", "Composition"]
   },
   {
     "id": 7,
-    "title": "Max Motors",
+    "title": "Max Motors - Logo",
     "category": "logo",
-    "solution": "Logo dynamique avec voiture stylisée et lignes de vitesse",
-    "brief": "Nous voulons moderniser l'image de notre concession automobile. Le logo actuel est dépassé. On cherche quelque chose de dynamique, qui évoque le mouvement et la performance. Pas trop agressif, mais professionnel et fiable.",
+    "solution": "Création d'un monogramme créatif avec les lettres M pour concession auto",
+    "brief": "Nous souhaitons moderniser l'image de notre concession automobile avec un logo plus élégant et dynamique. Il doit évoquer la robustesse de nos véhicules tout en restant professionnel et fiable.",
     "imageUrl": "assets/images/projects/MaxMotors.jpg",
     "icon": "fas fa-car",
     "client": {
-      "name": "Maximilien Rousseau",
+      "name": "Maximilien",
       "profile": "fas fa-user-mechanic",
       "date": "2024-02-28"
     },
@@ -106,29 +106,29 @@
   },
   {
     "id": 8,
-    "title": "Bela Store Logo",
+    "title": "Bela Store - Logo",
     "category": "logo",
-    "solution": "Logo avec police manuscrite raffinée et icône de porte-manteau",
-    "brief": "Je lance ma boutique en ligne de mode féminine. Je veux un logo élégant, féminin mais pas trop girly. J'aime les polices manuscrites et les tons poudrés. Quelque chose qui fait rêver mais qui reste professionnel.",
+    "solution": "Conception d'un logo mixte avec icône de chariot pour e-commerce",
+    "brief": "Je lance ma boutique en ligne d'accessoires et vêtements. Je souhaite un logo élégant qui évoque l'univers du e-commerce, avec du bleu et de l'orange comme couleurs principales.",
     "imageUrl": "assets/images/projects/BelaStoreLogo.png",
     "icon": "fas fa-shopping-bag",
     "client": {
-      "name": "Isabelle Kervin",
+      "name": "Love",
       "profile": "fas fa-user-tag",
-      "date": "2024-01-08"
+      "date": "2025-12-08"
     },
     "technologies": ["Inkscape", "Logo Design"]
   },
   {
     "id": 9,
-    "title": "Bela Store Flyer",
+    "title": "Bela Store - Flyer",
     "category": "flyer",
-    "solution": "Flyer promotionnel avec codes visuels du logo et réductions",
-    "brief": "Pour le lancement de la boutique, j'aurais besoin d'un flyer à distribuer dans le quartier. Il faut reprendre les codes du logo mais avec les infos de lancement : date, réductions, etc. Quelque chose d'aéré et élégant.",
+    "solution": "Création d'un flyer de lancement reprenant les codes du logo",
+    "brief": "Pour le lancement de la boutique, j'aurais besoin d'un flyer promotionnel pour les réseaux. Il doit reprendre l'identité du logo et intégrer les infos de lancement (date, réductions).",
     "imageUrl": "assets/images/projects/BelaStoreFlyer.jpeg",
     "icon": "fas fa-store",
     "client": {
-      "name": "Isabelle Kervin",
+      "name": "Love",
       "profile": "fas fa-user-tag",
       "date": "2024-01-08"
     },
@@ -136,10 +136,10 @@
   },
   {
     "id": 10,
-    "title": "Bibliyotek Batravil",
+    "title": "Bibliyotèk Batravil - Logo",
     "category": "logo",
-    "solution": "Logo représentant un livre ouvert formant les ailes d'un oiseau",
-    "brief": "Nous ouvrons une bibliothèque communautaire dans le quartier. On voudrait un logo qui symbolise la liberté par la lecture et l'ouverture à la connaissance. Quelque chose de chaleureux qui donne envie de pousser la porte.",
+    "solution": "Création d'un logo circulaire mêlant lettre B et étagère de bibliothèque",
+    "brief": "Nous ouvrons une bibliothèque communautaire et voulons un logo symbolisant la liberté par la lecture. Il doit pouvoir s'incruster facilement dans un sceau.",
     "imageUrl": "assets/images/projects/bblogo.png",
     "icon": "fas fa-book-reader",
     "client": {
@@ -153,29 +153,29 @@
     "id": 11,
     "title": "Composition Avancée",
     "category": "autre",
-    "solution": "Étude sur l'équilibre asymétrique et l'harmonie des couleurs",
-    "brief": "Dans le cadre de ma formation continue, je dois produire une série d'études sur les principes avancés de composition. L'objectif est d'explorer et de documenter différentes approches pour enrichir ma pratique.",
+    "solution": "Création d'un poster de film fictif pour explorer les principes de composition",
+    "brief": "Dans le cadre de ma formation, je souhaitais m'exercer aux principes avancés de composition. L'objectif était d'améliorer la structure et le professionnalisme de mes visuels.",
     "imageUrl": "assets/images/projects/autre2.jpg",
     "icon": "fas fa-sliders-h",
     "client": {
-      "name": "Développement personnel",
+      "name": "Grade",
       "profile": "fas fa-pencil-ruler",
-      "date": "2023-11-05"
+      "date": "2024-11-05"
     },
     "technologies": ["Photopea", "Color Theory"]
   },
   {
     "id": 12,
-    "title": "Baboo Epis",
+    "title": "Baboo Epis - Logo",
     "category": "logo",
-    "solution": "Logo organique avec épis de blé et graines en tons terreux",
-    "brief": "Je lance ma marque d'épices artisanales. Je veux un logo qui sent bon la cuisine de grand-mère, authentique et chaleureux. Des tons naturels, terreux, et un design qui fonctionne aussi en noir et blanc.",
+    "solution": "Création d'un logo moderne et illustratif pour épices locales",
+    "brief": "Je lance une entreprise de vente de bocaux d'épices locales. Je veux un logo moderne, légèrement illustratif, avec du vert pour évoquer le côté naturel de mon produit.",
     "imageUrl": "assets/images/projects/baboo.jpg",
     "icon": "fas fa-pepper-hot",
     "client": {
-      "name": "Carlos Hernandez",
+      "name": "Vanessa",
       "profile": "fas fa-chef",
-      "date": "2023-09-20"
+      "date": "2025-03-20"
     },
     "technologies": ["Inkscape", "Logo Design"]
   },
@@ -183,12 +183,12 @@
     "id": 13,
     "title": "Bon Début de Mois",
     "category": "socialMedia",
-    "solution": "Série mensuelle de visuels motivationnels avec citations",
-    "brief": "Je gère une communauté en ligne et je voudrais publier chaque début de mois un visuel inspirant. Quelque chose de simple mais beau, avec une citation positive. L'idée est de fidéliser et d'apporter de la bonne humeur.",
+    "solution": "Création d'une série mensuelle de visuels pour les réseaux sociaux",
+    "brief": "Pour ma page, je souhaitais publier chaque début de mois un visuel captivant. L'idée est de fidéliser ma communauté et d'apporter de la bonne humeur.",
     "imageUrl": "assets/images/projects/november.jpeg",
     "icon": "fas fa-calendar-alt",
     "client": {
-      "name": "Communauté en ligne",
+      "name": "Grade",
       "profile": "fas fa-heart",
       "date": "2023-11-01"
     },
@@ -198,12 +198,12 @@
     "id": 14,
     "title": "Renaud Agency",
     "category": "logo",
-    "solution": "Logo minimaliste avec avion stylisé et palette bleu profond/or",
-    "brief": "Notre agence de voyage se positionne sur le luxe et l'exclusivité. Nous avons besoin d'un logo qui respire l'élégance et l'évasion. Quelque chose de minimaliste mais qui fait rêver. Le bleu profond et l'or sont nos couleurs.",
+    "solution": "Création d'un logo mêlant la lettre R à la silhouette d'un avion",
+    "brief": "Notre agence de voyage est positionnée sur le luxe. Nous avons besoin d'un logo minimaliste qui respire l'élégance et l'évasion, avec du bleu profond et du bleu ciel.",
     "imageUrl": "assets/images/projects/RenaudAgency.jpg",
     "icon": "fas fa-plane",
     "client": {
-      "name": "Philippe Renaud",
+      "name": "Renaud",
       "profile": "fas fa-suitcase",
       "date": "2023-08-15"
     },
@@ -213,12 +213,12 @@
     "id": 15,
     "title": "Tableau Digital",
     "category": "illustration",
-    "solution": "Illustration numérique en couches du quartier préféré du client",
-    "brief": "Je voudrais une illustration numérique de mon quartier préféré pour l'encadrer dans mon salon. Un style mi-réaliste mi-illustration, qui capture l'ambiance des lieux sans être une photo. C'est un cadeau pour moi-même !",
-    "imageUrl": "assets/images/projects/tableaul.jpeg",
+    "solution": "Création d'une illustration numérique de paysage avec formes et couleurs",
+    "brief": "Pour maîtriser les outils, je me suis lancé le défi de concevoir un paysage à partir de zéro, en utilisant uniquement des formes géométriques et des couleurs.",
+    "imageUrl": "assets/images/projects/tableau1.jpeg",
     "icon": "fas fa-paint-brush",
     "client": {
-      "name": "Antoine Lefebvre",
+      "name": "Grade",
       "profile": "fas fa-camera",
       "date": "2023-12-18"
     },
@@ -226,14 +226,14 @@
   },
   {
     "id": 16,
-    "title": "Marco Zelle Flyer",
+    "title": "Stella - Flyer Formation",
     "category": "flyer",
-    "solution": "Flyer vert avec icônes clairs pour services de transfert d'argent",
-    "brief": "Nous proposons des services de transfert d'argent et avons besoin d'un flyer qui inspire confiance. Il faut que ce soit clair, rassurant, avec des icônes simples. Le vert est important car il évoque la croissance et la sécurité.",
-    "imageUrl": "assets/images/projects/marcoflyer.jpeg",
+    "solution": "Conception d'un flyer promotionnel avec images HD pour formation",
+    "brief": "J'organise une formation sur les dread locks et j'ai besoin d'un flyer. Je te fournis les photos et les infos. Pour le reste, laisse parler ta créativité !",
+    "imageUrl": "assets/images/projects/stellaflyer.png",
     "icon": "fas fa-exchange-alt",
     "client": {
-      "name": "Marc-Olivier Pierre",
+      "name": "Marc-Olivier",
       "profile": "fas fa-coins",
       "date": "2024-01-25"
     },
@@ -241,10 +241,10 @@
   },
   {
     "id": 17,
-    "title": "Rhum LaCitadelle",
+    "title": "Rhum LaCitadelle - Logo",
     "category": "logo",
-    "solution": "Logo patrimonial intégrant la silhouette de la Citadelle Haïtienne",
-    "brief": "Notre distillerie artisanale produit un rhum traditionnel depuis trois générations. Nous voulons un logo qui raconte cette histoire et notre patrimoine. La Citadelle est un symbole fort pour nous, pourrait-on l'intégrer ?",
+    "solution": "Création d'un logo badge mêlant modernité et tradition",
+    "brief": "Notre distillerie artisanale produit un rhum traditionnel depuis trois générations. Pour notre nouvelle saveur, nous voulons un logo qui marie harmonieusement modernité et tradition.",
     "imageUrl": "assets/images/projects/RhumLaCitadelle.jpg",
     "icon": "fas fa-wine-glass-alt",
     "client": {
@@ -253,5 +253,290 @@
       "date": "2023-07-30"
     },
     "technologies": ["Inkscape", "Premium Design"]
+  },
+  {
+    "id": 18,
+    "title": "Brainhub - Brand",
+    "category": "branding",
+    "solution": "Développement d'une identité visuelle avec présentation en bento",
+    "brief": "Nous lançons une application web pour étudiants. Après le logo, nous avons besoin d'une identité visuelle cohérente pour renforcer notre image de marque.",
+    "imageUrl": "assets/images/projects/brainhublogopresentation.png",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Beaucicot",
+      "profile": "fas fa-crown",
+      "date": "2024-01-15"
+    },
+    "technologies": ["Inkscape", "Premium Design"]
+  },
+  {
+    "id": 19,
+    "title": "Aman-X - Mockup",
+    "category": "mockup",
+    "solution": "Création de mockups de cartes de visite pour contextualiser le logo",
+    "brief": "J'aimerais voir le logo dans des mockups pour visualiser son rendu réel. Commençons par une carte de visite, pour voir comment il se comporte.",
+    "imageUrl": "assets/images/projects/amanxlogomockup.jpg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Peet",
+      "profile": "fas fa-crown",
+      "date": "2025-01-18"
+    },
+    "technologies": ["Inkscape", "Premium Design"]
+  },
+  {
+    "id": 20,
+    "title": "Foot - Poster",
+    "category": "autre",
+    "solution": "Création d'un poster de CR7 inspiré des affiches de films d'action",
+    "brief": "Toujours dans un but de perfectionnement et par passion du foot, j'ai réalisé ce poster de CR7 en m'inspirant des codes des affiches de cinéma.",
+    "imageUrl": "assets/images/projects/cr7poster.jpeg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Grade",
+      "profile": "fas fa-crown",
+      "date": "2025-04-18"
+    },
+    "technologies": ["Photopea", "Premium Design"]
+  },
+  {
+    "id": 21,
+    "title": "Loutchina - Music Cover",
+    "category": "mockup",
+    "solution": "Conception minimaliste d'une cover de musique avec mockup CD",
+    "brief": "Pour me perfectionner et par passion pour la musique, j'ai imaginé une cover pour le titre d'un artiste évangélique, et l'ai placée dans un mockup de pochette CD.",
+    "imageUrl": "assets/images/projects/loutchinacovermusic.png",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Grade",
+      "profile": "fas fa-crown",
+      "date": "2024-12-18"
+    },
+    "technologies": ["Canva","Premium Design"]
+  },
+  {
+    "id": 22,
+    "title": "Carte de Saint-Valentin",
+    "category": "print",
+    "solution": "Création d'une carte de Saint-Valentin minimaliste et poétique",
+    "brief": "Pour la Saint-Valentin, j'aimerais offrir une carte à ma compagne avec un message personnel. Je cherche un design simple et élégant qui mettra en valeur les mots.",
+    "imageUrl": "assets/images/projects/stvalentincarte2.png",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Roberto",
+      "profile": "fas fa-crown",
+      "date": "2024-02-12"
+    },
+    "technologies": ["Canva", "Premium Design"]
+  },
+  {
+    "id": 23,
+    "title": "Natirel Ayiti - Calendrier",
+    "category": "print",
+    "solution": "Création d'un calendrier 11x17 pour impression",
+    "brief": "Pour honorer notre partenariat avec Natirel Ayiti Salon, je leur ai conçu un calendrier à l'occasion du nouvel an, un cadeau utile et personnalisé.",
+    "imageUrl": "assets/images/projects/natirelayiticalendrier.png",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Grade",
+      "profile": "fas fa-crown",
+      "date": "2025-01-02"
+    },
+    "technologies": ["Canva", "Premium Design"]
+  },
+  {
+    "id": 24,
+    "title": "Blue sky and bird",
+    "category": "socialMedia",
+    "solution": "Création d'un visuel minimaliste d'oiseau dans le ciel",
+    "brief": "Dans ma série de publications pour les réseaux, j'ai réalisé ce visuel minimaliste, inspiré de tutoriels YouTube, pour explorer la simplicité et l'impact visuel.",
+    "imageUrl": "assets/images/projects/bird.jpeg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Grade",
+      "profile": "fas fa-crown",
+      "date": "2025-06-01"
+    },
+    "technologies": ["Inkscape", "Premium Design"]
+  },
+  {
+    "id": 25,
+    "title": "Gooloo",
+    "category": "socialMedia",
+    "solution": "Création d'une affiche publicitaire pour une marque fictive",
+    "brief": "Pour m'exercer, j'ai imaginé une affiche publicitaire pour une marque de boisson fictive. L'objectif était de travailler l'impact visuel et la persuasion.",
+    "imageUrl": "assets/images/projects/goolooads.jpeg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Grade",
+      "profile": "fas fa-crown",
+      "date": "2023-09-23"
+    },
+    "technologies": ["Canva", "Premium Design"]
+  },
+  {
+    "id": 26,
+    "title": "Gounou - Etiquette Mamba",
+    "category": "print",
+    "solution": "Création d'une étiquette aérée pour mamba local",
+    "brief": "Je lance ma marque de produits locaux et j'ai besoin d'une étiquette pour mon mamba. L'idée est d'avoir une mise en page claire et aérée, avec le marron comme couleur dominante.",
+    "imageUrl": "assets/images/projects/gounouetiquettemamba.jpg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Love",
+      "profile": "fas fa-crown",
+      "date": "2025-01-30"
+    },
+    "technologies": ["Inkscape", "Premium Design"]
+  },
+  {
+    "id": 27,
+    "title": "Grade - 200 followers",
+    "category": "socialMedia",
+    "solution": "Création d'un visuel pour célébrer les 200 followers sur Instagram",
+    "brief": "Pour marquer le cap des 200 followers sur Instagram, j'ai voulu créer un visuel inspiré de l'interface de la plateforme, à la manière des tendances actuelles.",
+    "imageUrl": "assets/images/projects/grade200followers.jpg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Grade",
+      "profile": "fas fa-crown",
+      "date": "2023-12-24"
+    },
+    "technologies": ["Canva", "Premium Design"]
+  },
+  {
+    "id": 28,
+    "title": "Jo-Ja - Calendrier",
+    "category": "print",
+    "solution": "Conception d'un calendrier 11x17 pour impression",
+    "brief": "J'ai besoin d'un calendrier 2025 à offrir à mes clients. Comme d'habitude, je compte sur toi pour un rendu impressionnant et professionnel.",
+    "imageUrl": "assets/images/projects/jojacalendrier2025.png",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Mme Johanne",
+      "profile": "fas fa-crown",
+      "date": "2024-12-22"
+    },
+    "technologies": ["Canva","Premium Design"]
+  },
+  {
+    "id": 29,
+    "title": "Sketch logo",
+    "category": "logo",
+    "solution": "Réalisation de sketches papier pour explorer des concepts de logo",
+    "brief": "Avant la vectorisation, je réalise toujours des sketches papier pour présenter plusieurs concepts au client. Il pourra ainsi choisir les directions à approfondir.",
+    "imageUrl": "assets/images/projects/sketchlogo.jpg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Grade",
+      "profile": "fas fa-crown",
+      "date": "2025-07-23"
+    },
+    "technologies": ["Papier", "Premium Design"]
+  },
+  {
+    "id": 30,
+    "title": "Grade - Recap 2023",
+    "category": "socialMedia",
+    "solution": "Création d'un récapitulatif visuel des projets marquants de 2023",
+    "brief": "Pour célébrer une année 2023 riche en projets, j'ai réalisé un visuel récapitulatif présentant mes réalisations phares sous forme de grille.",
+    "imageUrl": "assets/images/projects/graderecap2023.jpg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Grade",
+      "profile": "fas fa-crown",
+      "date": "2023-12-30"
+    },
+    "technologies": ["Inkscape", "Premium Design"]
+  },
+  {
+    "id": 31,
+    "title": "Jo-Ja - Flyer",
+    "category": "flyer",
+    "solution": "Création d'un flyer d'ambiance pour un événement barbecue",
+    "brief": "Nous organisons un événement sur le thème du barbecue. J'aurais besoin d'un flyer promotionnel qui retransmette cette ambiance chaleureuse et conviviale.",
+    "imageUrl": "assets/images/projects/jojaeventflyer.jpeg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Mme Johanne",
+      "profile": "fas fa-crown",
+      "date": "2024-10-31"
+    },
+    "technologies": ["Canva", "Premium Design"]
+  },
+  {
+    "id": 32,
+    "title": "Renaud Agency - Brand",
+    "category": "branding",
+    "solution": "Développement d'une identité visuelle complète pour agence de voyage",
+    "brief": "Pour mon agence de voyage, j'aimerais une identité visuelle complète. Après le logo, j'ai besoin des déclinaisons et variants pour une image de marque flexible et épurée.",
+    "imageUrl": "assets/images/projects/renaudagencylogopresentation.png",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Renaud",
+      "profile": "fas fa-crown",
+      "date": "2023-10-27"
+    },
+    "technologies": ["Inkscape", "Premium Design"]
+  },
+  {
+    "id": 33,
+    "title": "Anviwonnman Lakay - conference flyer",
+    "category": "flyer",
+    "solution": "Conception d'un flyer sur le thème de l'environnement",
+    "brief": "Mon association a besoin d'un flyer pour une série de conférences en ligne sur le climat. Je te fais confiance pour un rendu professionnel et créatif, avec les infos fournies.",
+    "imageUrl": "assets/images/projects/aleventflyer.jpeg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Alexander",
+      "profile": "fas fa-crown",
+      "date": "2024-09-25"
+    },
+    "technologies": ["Canva", "Premium Design"]
+  },
+  {
+    "id": 34,
+    "title": "Grade - Formation Flyer",
+    "category": "flyer",
+    "solution": "Conception d'un flyer avec une mise en page claire et structurée",
+    "brief": "Pour ma prochaine formation, j'ai besoin d'un flyer qui présente les informations clés de manière optimale et facile à lire. La clarté est essentielle.",
+    "imageUrl": "assets/images/projects/gradeformationflyer.jpg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Grade",
+      "profile": "fas fa-crown",
+      "date": "2023-12-30"
+    },
+    "technologies": ["Canva", "Premium Design"]
+  },
+  {
+    "id": 35,
+    "title": "Marshell - Flyer",
+    "category": "flyer",
+    "solution": "Création d'un flyer à la mise en page claire pour informations denses",
+    "brief": "J'ai besoin d'un flyer pour mon service d'accompagnement. Les informations étant nombreuses, il faut absolument que l'ensemble reste lisible et bien structuré.",
+    "imageUrl": "assets/images/projects/marshellflyer.jpg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "MarshellFro",
+      "profile": "fas fa-crown",
+      "date": "2024-12-26"
+    },
+    "technologies": ["Canva", "Premium Design"]
+  },
+  {
+    "id": 36,
+    "title": "Adex BootCamp - Flyer",
+    "category": "flyer",
+    "solution": "Conception d'un flyer pour un bootcamp sur la finance",
+    "brief": "Nous lançons un bootcamp sur la finance pour les jeunes. Nous avons besoin d'un flyer qui inspire confiance et professionnalisme, avec un design moderne.",
+    "imageUrl": "assets/images/projects/eventflyer.jpg",
+    "icon": "fas fa-wine-glass-alt",
+    "client": {
+      "name": "Staff Ardex",
+      "profile": "fas fa-crown",
+      "date": "2024-04-28"
+    },
+    "technologies": ["Canva", "Premium Design"]
   }
 ]

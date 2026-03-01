@@ -1,6 +1,6 @@
 export function renderFooter() {
   return `
-    <footer class="footer relative w-full bg-purple-950 text-gray-100 pt-[30px] lg:pt-[60px] pb-[30px]">
+    <footer class="footer relative w-full bg-purple-950 text-gray-100 pt-[40px] lg:pt-[80px] pb-[30px]">
       <div class="container px-8 mx-auto max-w-7xl">
         <!-- 4 colonnes sur desktop, 1 colonne sur mobile -->
         <div class="grid grid-cols-1 gap-[60px] -space-y-[10px] md:grid-cols-4 md:text-left text-center mb-[30px] lg:mb-[60px]">
@@ -8,8 +8,8 @@ export function renderFooter() {
           <!-- Colonne 1 : Brand -->
           <div class="footer-brand flex flex-col gap-[20px]">
             <a href="#" class="mr-4 flex justify-center md:justify-start items-center cursor-pointer text-lg text-white font-semibold ">
-              <img src="assets/images/logos/GradeLogo.png" alt="Grade3.0 Logo" class="h-8 w-auto mr-2 logo-animate" />
-              <span class="hover:text-orange-600 transition-all duration-300 ease-in-out">Grade3.0</span>
+              <img src="assets/images/logos/Gradeofficiallogo.svg" alt="Grade3.0 Logo" class="h-8 w-auto mr-2 logo-animate" />
+              <span class="hover:text-orange-600 ml-2 transition-all duration-300 ease-in-out">Grade3.0</span>
             </a>
             <p class="text-gray-100/70 text-sm leading-relaxed">Conception de supports visuels et d'identités visuelles impactants</p>
           </div>
@@ -23,7 +23,6 @@ export function renderFooter() {
               <li><a href="#apropos" class="text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out inline-block hover:pl-[5px]">À propos</a></li>
               <li><a href="#competences" class="text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out inline-block hover:pl-[5px]">Services</a></li>
               <li><a href="#contact" class="text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out inline-block hover:pl-[5px]">Contact</a></li>
-              <li><a href="faq.html" class="inactive text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out inline-block hover:pl-[5px]">FAQ</a></li>
             </ul>
           </div>
 
@@ -31,11 +30,11 @@ export function renderFooter() {
           <div class="footer-resources pt-4 border-t border-white/10 w-full lg:pt-0 lg:border-t-0">
             <h4 class="block mb-4 text-[1.2rem] font-semibold text-white hover:pl-[5px] hover:text-orange-600 transition-all duration-300 ease-in-out">Ressources</h4>
             <ul class="space-y-[5px] text-sm">
-              <li><a href="#" class="inactive text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]">Mon CV</a></li>
+              <li><a href="/assets/images/logos/cv_peterleyauguste_graphicdesigner.pdf" class="text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]" download>Mon CV</a></li>
               <li><a href="#" class="inactive text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]">Demande de devis</a></li>
               <li><a href="#" class="inactive text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]">Modèle de contrat</a></li>
               <li><a href="#" class="inactive text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]">Kit média</a></li>
-              <li><a href="#" class="inactive text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]">Certifications</a></li>
+              <li><a href="assets/certificate.jpg" class="text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]">Certifications</a></li>
               <li><a href="#" class="inactive text-gray-100/70 hover:text-white transition-all duration-300 ease-in-out flex items-center md:justify-start justify-center gap-[10px] hover:pl-[5px]">Articles</a></li>
             </ul>
           </div>
@@ -45,9 +44,9 @@ export function renderFooter() {
             <h4 class="block mb-4 text-[1.2rem] font-semibold text-white hover:pl-[5px] hover:text-orange-600 transition-all duration-300 ease-in-out">Contact</h4>
             <div class="space-y-[10px] text-sm text-gray-100/70 flex flex-col items-center md:items-start">
               <ul class="space-y-[10px] text-sm text-gray-100/70">
-                <li class="flex items-center justify-center md:justify-start gap-[10px] transition-all duration-300 ease-in-out hover:pl-[5px]"><i class="fas fa-envelope text-orange-600 w-4"></i>peterleyauguste99@gmail.com</li>
-                <li class="flex items-center justify-center md:justify-start gap-[10px] transition-all duration-300 ease-in-out hover:pl-[5px]"><i class="fas fa-phone text-orange-600 w-4"></i>+509 41 97 53 92</li>
-                <li class="flex items-center justify-center md:justify-start gap-[10px] transition-all duration-300 ease-in-out hover:pl-[5px]"><i class="fas fa-map-marker-alt text-orange-600 w-4"></i>Port-de-Paix, Haïti</li>
+                <li class="flex items-center justify-center md:justify-start gap-[10px] transition-all duration-300 ease-in-out hover:pl-[5px]"><i class="fa-regular fa-envelope text-orange-600 w-4"></i>peterleyauguste99@gmail.com</li>
+                <li class="flex items-center justify-center md:justify-start gap-[10px] transition-all duration-300 ease-in-out hover:pl-[5px]"><i class="fa-brands fa-whatsapp text-orange-600 w-4"></i>+509 41 97 53 92</li>
+                <li class="flex items-center justify-center md:justify-start gap-[10px] transition-all duration-300 ease-in-out hover:pl-[5px]"><i class="ph ph-map-pin text-orange-600 w-4"></i>Port-de-Paix, Haïti</li>
               </ul>  
               <!-- Mentions légales (regroupées) -->
               <div class="mt-4 pt-4 border-t border-white/10 w-full">
@@ -78,7 +77,7 @@ export function renderFooter() {
             <a href="https://www.tiktok.com/@grade3.0" target="_blank" class="hover:text-white transition-colors" aria-label="TikTok">
               <i class="fab fa-tiktok"></i>
             </a>
-            <a href="https://www.youtube.com/channel/Grade%20Learning" target="_blank" class="hover:text-white transition-colors" aria-label="YouTube">
+            <a href="https://youtu.be/OOqDK_4VOOk?si=G69SWdsdGKwNubwR" target="_blank" class="hover:text-white transition-colors" aria-label="YouTube">
               <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                 <path fill-rule="evenodd" d="M19.812 5.418c.861.23 1.538.907 1.768 1.768C21.998 8.746 22 12 22 12s0 3.254-.418 4.814a2.504 2.504 0 0 1-1.768 1.768c-1.56.419-7.814.419-7.814.419s-6.255 0-7.814-.419a2.505 2.505 0 0 1-1.768-1.768C2 15.254 2 12 2 12s0-3.254.417-4.814a2.507 2.507 0 0 1 1.768-1.768C5.744 5 11.998 5 11.998 5s6.254 0 7.814.418ZM15.194 12 9.684 15.128V8.872L15.194 12Z" clip-rule="evenodd"></path>
               </svg>

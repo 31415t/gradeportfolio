@@ -7,7 +7,7 @@ export function renderSkills() {
           <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-4">
             Mes Services
           </h2>
-          <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-gray-600 text-center text-sm md:text-lg mb-12 max-w-2xl mx-auto">
             Des solutions créatives et professionnelles pour donner vie à vos projets
           </p>
         </div>
@@ -15,22 +15,22 @@ export function renderSkills() {
         <!-- Services Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 md:mb-24">
           <!-- Graphic Design -->
-          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
             <div class="flex flex-col items-center text-center">
-              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-600/10 to-orange-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-orange-600/20 transition-all duration-300">
+              <div class="w-20 h-20 rounded-lg bg-gradient-to-br from-orange-600/10 to-orange-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-orange-600/20 transition-all duration-300">
                 <i class="ph ph-paint-brush-broad text-3xl text-orange-600"></i>
               </div>
               <h3 class="font-bold text-orange-600 text-lg md:text-xl mb-2">Graphic Design</h3>
-              <p class="text-gray-600 text-sm md:text-base pt-2 border-t border-gray-100 leading-relaxed">
+              <p class="text-gray-600 text-sm md:text-lg pt-2 border-t border-gray-100 leading-relaxed">
                 Création de visuels impactants qui allient esthétique et stratégie.
               </p>
             </div>
           </div>
           
           <!-- Logo Design -->
-          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
             <div class="flex flex-col items-center text-center">
-              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600/10 to-purple-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-purple-600/20 transition-all duration-300">
+              <div class="w-20 h-20 rounded-lg bg-gradient-to-br from-purple-600/10 to-purple-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-purple-600/20 transition-all duration-300">
                 <i class="ph ph-pen-nib text-3xl text-purple-600"></i>
               </div>
               <h3 class="font-bold text-orange-600 text-lg md:text-xl mb-2">Logo Design</h3>
@@ -41,9 +41,9 @@ export function renderSkills() {
           </div>
           
           <!-- Branding -->
-          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
             <div class="flex flex-col items-center text-center">
-              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-orange-600/10 to-orange-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-orange-600/20 transition-all duration-300">
+              <div class="w-20 h-20 rounded-lg bg-gradient-to-br from-orange-600/10 to-orange-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-orange-600/20 transition-all duration-300">
                 <i class="ph ph-cube text-3xl text-orange-600"></i>
               </div>
               <h3 class="font-bold text-orange-600 text-lg md:text-xl mb-2">Branding</h3>
@@ -54,9 +54,9 @@ export function renderSkills() {
           </div>
           
           <!-- Formation -->
-          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-2xl p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
+          <div class="group cursor-pointer border-1 border-dashed border-indigo-500/70 bg-white rounded-lg p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-100">
             <div class="flex flex-col items-center text-center">
-              <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-purple-600/10 to-purple-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-purple-600/20 transition-all duration-300">
+              <div class="w-20 h-20 rounded-lg bg-gradient-to-br from-purple-600/10 to-purple-600/5 flex items-center justify-center mb-5 group-hover:scale-110 group-hover:from-purple-600/20 transition-all duration-300">
                 <i class="ph ph-graduation-cap text-3xl text-purple-600"></i>
               </div>
               <h3 class="font-bold text-orange-600 text-lg md:text-xl mb-2">Formation</h3>
@@ -77,7 +77,7 @@ export function renderSkills() {
           </div>
           
           <!-- Tools Grid - Simple grid on all devices -->
-          <div id="toolsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+          <div id="toolsGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 max-w-4xl mx-auto">
             <!-- Tools will be generated by JavaScript -->
           </div>
         </div>

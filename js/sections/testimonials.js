@@ -5,7 +5,7 @@ export function renderTestimonials() {
     <div class="testimonials w-full py-12 bg-gray-100" id="temoignages">
       <div class="container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-4">Ce que disent mes clients...</h2>
-        <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">Découvrez les retours de ceux qui m'ont fait confiance</p>
+        <p class="text-gray-600 text-center text-sm md:text-lg mb-12 max-w-2xl mx-auto">Découvrez les retours de ceux qui ont déjà travaillé avec moi</p>
         
         <!-- Container du stack -->
         <div class="relative w-full max-w-[350px] sm:max-w-[450px] md:max-w-[500px] lg:max-w-[600px] mx-auto transition-all duration-300" id="stackContainer">

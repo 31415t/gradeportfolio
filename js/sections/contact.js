@@ -2,7 +2,7 @@
 const contactData = {
   // Partie 1 - Témoignage chiffré
   stats: {
-    title: "25+ entreprises continuent de nous faire confiance...",
+    title: "25+ entreprises continuent de me faire confiance...",
     subtitle: "Rejoignez les entreprises qui ont choisi notre expertise pour leurs projets créatifs",
     clientCount: "25+",
     clientText: "clients satisfaits"
@@ -53,6 +53,12 @@ const contactData = {
       url: "./../../assets/images/projects/baboo.jpg",
       width: 120,
       height: 120
+    },
+    {
+      name: "Entreprise 7",
+      url: "assets/images/projects/lektisovevimlogo.png",
+      width: 120,
+      height: 120
     }
   ]
 };
@@ -70,7 +76,7 @@ export function renderContact() {
           <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-4">
             ${contactData.stats.title}
           </h2>
-          <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-gray-600 text-center text-sm md:text-lg mb-12 max-w-2xl mx-auto">
             ${contactData.stats.subtitle}
           </p>
         </div>
@@ -91,11 +97,11 @@ export function renderContact() {
         </div>
         
         <!-- Partie 2 - Call to Action -->
-        <div class="max-w-3xl border-2 border-dashed border-orange-600 rounded-md p-6 md:p-12 bg-gray-50/50 shadow-md mx-auto text-center">
+        <div class="max-w-3xl border-[1.5px] md:border-2 border-dashed border-orange-600 rounded-md p-6 md:p-12 bg-gray-50/50 shadow-md mx-auto text-center">
           <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-4">
             ${contactData.cta.title}
           </h2>
-          <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+          <p class="text-gray-600 text-center text-sm md:text-lg mb-12 max-w-2xl mx-auto">
             ${contactData.cta.subtitle}
           </p>
           

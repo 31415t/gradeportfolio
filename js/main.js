@@ -7,6 +7,8 @@ import {
 } from './sections/testimonials.js';
 import { renderAbout } from './sections/about.js';
 import { renderSkills, initSkills } from './sections/skills.js';
+import { renderProcess, initProcess } from './sections/process.js';
+import { renderFaq, initFaq } from './sections/faq.js';
 import { renderContact } from './sections/contact.js';
 import { renderFooter } from './sections/footer.js';
 import { initNavigation } from './sections/navigation.js';
@@ -112,6 +114,8 @@ async function init() {
       renderTestimonials();
     document.getElementById('about-section').innerHTML = renderAbout();
     document.getElementById('skills-section').innerHTML = renderSkills();
+    document.getElementById('process-section').innerHTML = renderProcess();
+    document.getElementById('faq-section').innerHTML = renderFaq();
     document.getElementById('contact-section').innerHTML = renderContact();
     document.getElementById('footer-section').innerHTML = renderFooter();
 
@@ -124,6 +128,8 @@ async function init() {
     initProjects();
     initTestimonials();
     initSkills();
+    initProcess();
+    initFaq();
 
     // 4. Initialiser les animations
     console.log('✨ Initialisation animations...');

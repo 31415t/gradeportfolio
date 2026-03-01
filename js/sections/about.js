@@ -2,18 +2,18 @@ export function renderAbout() {
   return `
 <div class="section about py-16 md:py-24" id="apropos">
   <div class="container mx-auto px-4">
-    <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-12">
+    <h2 class="text-3xl lg:text-4xl font-bold text-orange-600 text-center mb-4">
       ...À propos de moi
     </h2>
     
     <div class="max-w-4xl mx-auto">
       <!-- Contenu texte (en haut) -->
       <div class="text-center mb-12 md:mb-16 space-y-5">
-        <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+        <p class="text-gray-600 text-sm md:text-lg leading-relaxed">
           Je suis <span class="font-semibold text-primary">Peterley Auguste</span>, un Graphic Designer basé en Haïti avec une passion pour créer des designs qui non seulement plaisent à l'œil mais qui racontent aussi une histoire. Mon approche combine créativité, stratégie et attention aux détails.
         </p>
         
-        <p class="text-gray-600 text-base md:text-lg leading-relaxed">
+        <p class="text-gray-600 text-sm md:text-lg leading-relaxed">
           Au cours de ma carrière, j'ai eu l'opportunité de travailler avec des particuliers, des startups innovantes et des entreprises établies, développant des identités visuelles qui renforcent leur présence sur le marché.
         </p>
       </div>
